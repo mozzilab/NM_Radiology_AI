@@ -31,16 +31,16 @@
 
     // Editor
     // ========================================================================
-    "editor.fontSize": 12,
+    // "editor.fontSize": 12,
     "editor.mouseWheelZoom": true,
     "editor.largeFileOptimizations": false,
     "editor.guides.bracketPairs": true,
         
     // Terminal
     // ========================================================================
-    "terminal.integrated.shell.linux": "REPLACE_BASH_PATH",
+    "terminal.integrated.shell.linux": "/usr/bin/bash",
     "terminal.integrated.confirmOnExit": true,
-    "terminal.integrated.fontSize": 12,
+    // "terminal.integrated.fontSize": 12,
     "terminal.integrated.scrollback": 3000,
 
     // Security
@@ -70,9 +70,17 @@
     // Path related
     // "python.pythonPath": "/opt/conda/bin/python",
     
-    //"python.linting.pylintArgs": [
-    //    "--extension-pkg-whitelist=torch"
-    //],
+    "python.linting.pylintArgs": [
+        "--extension-pkg-whitelist=torch,nvtx",
+        "--errors-only",
+        "--generated-members", "torch.*,nvtx.*",
+        "--max-line-length=200",
+        // "--ignored-modules=torch.*", 
+        // "--ignored-classes=torch.*",
+    ],
+    "python.linting.ignorePatterns": [
+        "!conda"
+    ],
     //"python.dataScience.sendSelectionToInteractiveWindow": true,
 
     //"python.dataScience.debugJustMyCode": false,
