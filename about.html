@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intro &mdash; NM Results Management 1.10 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="#" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Code Overview" href="code.html" />
+    <link rel="prev" title="NM Results Management AI" href="home.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> NM Results Management
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Home</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="home.html">NM Results Management AI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Project Overview</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Intro</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#about-us">About Us</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#proposed-result-management-workflow">Proposed Result Management Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#project-start-selected-findings">Project Start: Selected Findings</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#initial-modeling-pre-annotations">Initial Modeling (Pre-Annotations)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#as-for-the-data-there-is-no-data">As for the Data, There is No Data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#modeling-method-i-regex">Modeling Method I: Regex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#modeling-method-ii-machine-learning">Modeling Method II: Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#modeling-method-iii-deep-learning">Modeling Method III: Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#data-acquisition">Data Acquisition</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#annotation-platform-data-selected">Annotation Platform &amp; Data Selected</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#annotation-process">Annotation Process</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#initial-model-development">Initial Model Development</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#data-preprocessing">Data Preprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#model-selection">Model Selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#model-training-process">Model Training Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#model-deployment-infrastructure">Model Deployment Infrastructure</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#clinical-workflow-epic-integration">Clinical Workflow &amp; Epic Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#prospective-clinical-evaluation">Prospective Clinical Evaluation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prospective-evaluation-plan">Prospective Evaluation Plan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-adrenal-findings-problem">The Adrenal Findings Problem</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#workflow-challenges">Workflow Challenges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#updating-the-models">Updating the Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#attention-and-transformers">Attention and Transformers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-new-models">Creating New Models</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#future-plans">Future Plans</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#next-steps">Next Steps</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="code.html">Code Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="start.html">Prerequisites</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Phase 01 Models</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="phase01/phase01.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase01/demo.html">Demo: Findings vs No Findings Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase01/train.html">Train</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase01/classify.html">Classify</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Phase 02 Models</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="phase02/phase02.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase02/demo_pretrain.html">Demo: Pretraining the NM Results Management Language Model with Custom Corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase02/demo_finetune.html">Demo: Fine-Tuning NM Results Management Language Model with a Custom Dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase02/train.html">Train</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase02/classify.html">Classify</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Azure</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="azure.html">Deployment</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NM Results Management</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Intro</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/mozzilab/NM_Radiology_AI/blob/main/docs/source/about.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="intro">
+<span id="about-blog-post"></span><h1>Intro<a class="headerlink" href="#intro" title="Permalink to this headline"></a></h1>
+<p>Medical diagnostic imaging. Findings. Doctors, ordering dozens of imaging studies for their patients daily. Do they have every one of them covered, in case something unexpected is found in a radiology study they ordered?</p>
+<p>As counter-intuitive as it may seem, they <strong>may</strong> not. Due to the busy workflow of a physician, they typically order an imaging study to get more information about the condition they are treating for this particular patient. And, if something incidental that is not directly related to that condition is noted in the radiology report, considering that it requires no immediate action, it may very well go unnoticed during the time of the patient’s stay.</p>
+<p>Research show that most of these findings are benign, however some may in future develop into malignancies. Therefore, timely follow-up <strong>has</strong> to be performed in order to not cause harm to the patient’s health long-term.</p>
+<p>This begs the question: how frequently are findings followed up on? In the publications we reviewed, the adherence to follow-up recommendations was found to be underwhelming - only two thirds of these follow-up recommendations tend to be addressed, and unfortunately that is usually a best-case scenario. Most of the time, only half of them tend to be addressed. From a health system perspective, is there anything we can do to ensure that the follow-up recommendations are addressed? We set out to find out. Clear documentation of these findings, streamlined follow-up scheduling workflow, as well as a way to track the process from the time a recommendation is advised up until it is performed would surely help, and there is existing research that prove that.</p>
+<p>How do we achieve this? At the end of the day, we want the patients and/or their primary care providers to be aware of every finding in their study. Our multidisciplinary team at Northwestern Medicine attempted to resolve this by creating a system utilizing artificial intelligence (AI) to both help clearly display the findings and follow-ups recommended for every study that is ordered in the health system. The system also helps to make sure that the follow-up is scheduled. More details in the video below.</p>
+<figure class="align-center">
+  <video controls width="35%" src="_static/Jane_-_problem_overview_and_intro.mp4" type="video/mp4"></video>
+  <figcaption><p><span class="caption-text">Overview of the problem and the initial proposed approach</span></p></figcaption>
+</figure><section id="about-us">
+<h2>About Us<a class="headerlink" href="#about-us" title="Permalink to this headline"></a></h2>
+<p><a class="reference external" href="https://www.nm.org/">Northwestern Medicine</a> (NM) is an integrated academic health system based in Chicago. The health system serves more than 1.3 million patients every year across 11 hospitals.</p>
+<p>The project team, faced with solving the issue described above, included members from Radiology, Quality, Patient Safety, Process Improvement, Primary Care, Nursing, and Informatics among other teams.</p>
+<p>In order to resolve the problem, the team decided to develop an electronic health record (EHR) integrated natural language processing (NLP) system to automatically identify radiographic findings requiring follow-up.</p>
+</section>
+<section id="proposed-result-management-workflow">
+<h2>Proposed Result Management Workflow<a class="headerlink" href="#proposed-result-management-workflow" title="Permalink to this headline"></a></h2>
+<p>The Result Management workflow was developed iteratively as we gained more and more insights from the hospital leadership, clinical stakeholders, as well as the data we were working with.</p>
+<p>Communication of the identified finding in a given radiology report is carried through the use of the notification system in the EHR, as well as a templated letter informing patients directly that the finding was identified, suggesting them to contact their Primary Care Physician (PCP). A dedicated follow-up team will be closing the communication loop should the identified finding remain unacknowledged by the ordering physician.</p>
+<p>The idea of delegating the identification of findings requiring follow-up to an AI model creates a scalable solution that is invisible to the radiologist - their workflow is not affected. In the system that was launched in December 2020 across the NM EHR, all relevant radiology reports continue being screened by the NLP system real-time, triggering notifications to be received by ordering physicians and subsequent workflows, as well as allowing for streamlined ordering of a necessary follow-up. The process also has “safety nets” that are made to make sure that the patient is aware of the finding that is identified as well as the next steps that need to be undertaken.</p>
+</section>
+<section id="project-start-selected-findings">
+<h2>Project Start: Selected Findings<a class="headerlink" href="#project-start-selected-findings" title="Permalink to this headline"></a></h2>
+<p>Two types of findings: lung and adrenal findings were selected based on the inputs from physician stakeholders and their review of the guidelines for management of radiology findings discovered radiographic findings. It is important to keep these two finding types in mind when reading through the rest of the blogpost as they form the basis of and give direction to the overall system design.</p>
+<p>The lung findings were selected due to the fact that they are among the most commonly encountered radiographic findings that require additional follow-up. Given the anticipated high volume of lung findings and the well-established follow-up guidelines, lung findings detection has been agreed on to be both a realistic and impactful case for clinical implementation of this system.</p>
+<p>In contrast, adrenal findings have a much lower incidence and were selected to test the limits of the system being developed as well as highlight challenges to overcome for future expansion to other findings.</p>
+<p>The design phase of the project was initiated in August 2018 and progressed to model development and data acquisition by January 2020. Finally, the Result Management system was deployed in the EHR in December 2020, with continuous monitoring of the use of the system and model performance ongoing to this day.</p>
+</section>
+</section>
+<section id="initial-modeling-pre-annotations">
+<h1>Initial Modeling (Pre-Annotations)<a class="headerlink" href="#initial-modeling-pre-annotations" title="Permalink to this headline"></a></h1>
+<section id="as-for-the-data-there-is-no-data">
+<h2>As for the Data, There is No Data<a class="headerlink" href="#as-for-the-data-there-is-no-data" title="Permalink to this headline"></a></h2>
+<p>At the start of the project the team was faced with an issue that is preventing a lot of AI initiatives from becoming reality - the data was unlabeled. In other words, there were millions of radiology reports available for the team to gather insights from, but at the same time, the team had no data-driven way to understand which ones had a follow-up indicated by the radiologist and which did not.</p>
+<p>In order to understand how radiologists state the follow-up recommendations in our health system, an Initial corpus of 200 radiology reports was annotated by physicians in the project team.</p>
+<p>In order to make the best use of the limited number of samples, the team has decided to use regular expressions (also known as regex) to test if it was a sufficient solution to the problem of identifying findings and the follow-up recommendations in the radiology reports.</p>
+</section>
+</section>
+<section id="modeling-method-i-regex">
+<h1>Modeling Method I: Regex<a class="headerlink" href="#modeling-method-i-regex" title="Permalink to this headline"></a></h1>
+<p>This corpus of 200 reports was used to develop a set of regular expressions, with an idea to use them in future to identify the reports with a finding and a suggested follow-up.</p>
+<p>Regular expressions are a convenient way to search text for pre-defined phrases.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We will not go into detail describing what regex is, but you can learn more <a class="reference external" href="https://docs.python.org/3/library/re.html">via Python 3’s documentation</a>.</p>
+</div>
+<p>Fourteen regex patterns were developed, each with a goal of capturing a specific finding description provided by the radiologist that was observed in the annotated corpus.</p>
+<p>These 14 patterns were able to capture all the findings and recommendations in the initial corpus with 100% sensitivity and specificity as validated by the clinical expert.</p>
+<p>When we expanded the dataset with more unlabeled reports to do a more extensive pattern testing, we quickly noticed how the performance downgraded due to new ways of stating the finding and the follow-up. Later, when evaluated on a larger dataset consisting of 10,916 annotated radiology reports, the performance the regex method achieved was at 74% sensitivity and 82% specificity, with an overall accuracy of 77% and positive predictive value of 45%.</p>
+<p>In essence, since regex is ultimately a text-search method, it failed to demonstrate good performance on a larger dataset due to the fact that there are endless number of ways a radiologist can state a finding and a recommended follow-up. Misspelled words, extra descriptive sentences in between the finding and the follow-up cause the patterns to not match to the text, resulting in a false negative.</p>
+<p>Another point of concern with using regex versus other potential approaches is that guidance on how a follow-up and recommendation must be described in the radiology report changed with time and may change in future, causing the patterns to potentially become totally obsolete.</p>
+<p>Finally, the more complicated the text you are searching for with regex, the more complicated the pattern needs to be. And as you can see in the table below, the patterns got quite convoluted already:</p>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">Regex Complexity</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 77%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Example Text Matched</p></th>
+<th class="head"><p>Regex Pattern</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>Recommend short-term follow-up</em></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">\b(recommend)(ed)?\s?(a)?\s?(further|continued|short-term)?\s?(clinical)?\s?(evaluation|follow-up|follow</span> <span class="pre">up|followup)\b</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Continued imaging is advised</em></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">\b(continued)?(imaging)?(follow-up|follow</span> <span class="pre">up|surveillance)\s?(imaging|.{0,60})?\s?(is|would</span> <span class="pre">be|should</span> <span class="pre">be|could</span> <span class="pre">be|may</span> <span class="pre">be)?</span>
+<span class="pre">\s?(recommend|suggest|consider|beneficial|advis)(ed)?\b</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><em>Recommend close 6 month followup</em></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">\b(recommend)(ed)?\s?(close)?\s?(clinical)?\s?(a)?(.{0,10}</span> <span class="pre">month|.{0,10}year)?(s)?\s?(evaluation|follow-up|follow</span> <span class="pre">up|</span>
+<span class="pre">followup)\b</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Further evaluation could be
+considered</em></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">\b(further)?\s?(clinical)?\s?(evaluation|follow-up|follow</span> <span class="pre">up|correlation)\s?.{0,60}\s?(is|would</span> <span class="pre">be|could</span> <span class="pre">be|should</span> <span class="pre">be)?\s?</span>
+<span class="pre">(recommend|suggest|consider|could</span> <span class="pre">be</span> <span class="pre">of</span> <span class="pre">help|obtain)(ed)?\b</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><em>Consider further evaluation</em></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">\b(could)?\s?(be)?\s?(suggest|consider)(ed)?\s(for)\s(further)?\s(evaluation|follow-up|follow</span> <span class="pre">up)\b</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Correlation with CT chest suggested</em></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">\b(correlation)\s(with)\s.{0,60}\s?(is)?(recommend|suggest|consider|necessary)(ed)?\b</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><em>Recommend attention on MRI</em></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">\b(recommend)(ed)?\s(correlation|attention)\s(with|on)\s.{0,60}\b</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Ultrasound may be of use for further
+evaluation</em></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">(\b|/)(tissue</span> <span class="pre">sampling|biopsy|ultrasound|bone</span> <span class="pre">scan|MRI|followup|follow-up|follow</span> <span class="pre">up)\s?.{0,45}\s?(is|should|should</span> <span class="pre">be|</span>
+<span class="pre">shouldbe|would</span> <span class="pre">be|could</span> <span class="pre">be|may</span> <span class="pre">be|are|can</span> <span class="pre">be)\s.{0,15}\s?(recommend|suggest|consider|of</span> <span class="pre">use|obtain|perform|warrant|advis)(ed)</span>
+<span class="pre">?\s?(for)?\s?(further)?\s?(evaluation|follow-up|follow</span> <span class="pre">up)?\b</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><em>Can be targeted during tissue
+sampling</em></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">\b(consider|recommend|can</span> <span class="pre">be</span> <span class="pre">target)(ed)?\s?(for|during)?\s.{0,30}\s?(biopsy|tissue</span> <span class="pre">sampling|MRI)\b</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Concern for tumor</em></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">\b(concern)(ing)?\s(for)\s(tumor)\b</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><em>Should follow up with</em></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">\b(is|should|should</span> <span class="pre">be|should</span> <span class="pre"> be|would</span> <span class="pre">be)\s(followed</span> <span class="pre">up|follow-up|follow</span> <span class="pre">up|follow)(ing|ed)?\s(with)\b</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Could be targeted with image-guided
+biopsy</em></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">\b(this</span> <span class="pre">area)?(is|would</span> <span class="pre">be|could</span> <span class="pre">be|should</span> <span class="pre">be|may</span> <span class="pre">be)?\s(target)(ed)?\s(for)?.{0,20}\s?(biopsy)\b</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><em>Biopsy is to be performed. Further
+evaluation targeting</em></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">\b(biopsy)\s?(is|is</span> <span class="pre">going)?\s?(to</span> <span class="pre">be)?\s?(performed).{0,30}\s(considered</span> <span class="pre">for)?\s?(be</span> <span class="pre">targeted|targeting)\b</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Continued imaging surveillance to
+resolution is recommended</em></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">\b(CT|continued</span> <span class="pre">imaging</span> <span class="pre">surveillance)\s(chest)?.{0,20}(is)?\s?(recommended|may</span> <span class="pre">be</span> <span class="pre">useful)\b</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>As you can imagine, since patterns are manually defined, improving and maintaining tens of patterns like this will be to say the least, challenging.</p>
+<p>All in all, regex failed to be flexible enough to identify the reports we were interested in, as well as proved to be not future-proof enough to be used as a model of choice in this problem.</p>
+<p>Nevertheless, while being far from the target performance, due to the simplicity of the method, regex provided the team <em>with baseline performance benchmark</em> and, more importantly, the process of reviewing the false negatives and false positives allowed the team to gather insights about the data, i.e. how radiologists tend to state a follow-up. This insight helped shape and direct the future model development process.</p>
+<p>Here is a video to recap this section:</p>
+<figure class="align-center">
+  <video controls width="60%" src="_static/Vlad_-_regex.mp4" type="video/mp4"></video>
+  <figcaption><p><span class="caption-text">Why regex failed and how did it help us understand the problem</span></p></figcaption>
+</figure></section>
+<section id="modeling-method-ii-machine-learning">
+<h1>Modeling Method II: Machine Learning<a class="headerlink" href="#modeling-method-ii-machine-learning" title="Permalink to this headline"></a></h1>
+<p>The next step up in terms of complexity of the model required to solve the problem after regex was to use traditional Machine Learning (ML) NLP approaches. The idea behind this was that since during training ML models identify useful features in text to make predictions from, they should be better suited to solve the problem as compared to regular expressions, since it will be easier for them to capture the variability of the findings and follow-up recommendations due to a non-rule-based approach in training.</p>
+<p>By using the initial corpus of the 200 reports and the bag of words technique to convert the data to tabular format, several traditional ML methods of ranging complexity were evaluated.</p>
+<p>After looking at the results, we instantly saw the trend - the more complex the model, the better performance it offered. Taking into account the complexity and variability of the data as well as the modeling task, this makes perfect sense. More complex models are able to capture and identify harder examples correctly, giving them an edge in terms of performance.</p>
+<p>However, it is important to understand that using traditional ML models in NLP has one fatal flaw - due to the way the data is preprocessed in order to be a valid input for the model, the order of words is lost. So, the model has no understanding on how one word relates to another whatsoever - it only knows that the given word shows up this number of times in a given report. Another downside of this is that these models will perform differently on the reports of varying length, since the frequency of a common word by default is going to be lower in a shorter report compared to a longer one.</p>
+<p>Therefore, while we still have not been able to achieve target performance, the main outcome of this experiment for us was that <em>raising the model’s complexity yields better results</em>.</p>
+</section>
+<section id="modeling-method-iii-deep-learning">
+<h1>Modeling Method III: Deep Learning<a class="headerlink" href="#modeling-method-iii-deep-learning" title="Permalink to this headline"></a></h1>
+<p>After we concluded testing ML approaches, continuing on the trend of raising model complexity to resolve our problem, we turned to testing deep learning approaches used in NLP, starting with long short-term memory (LSTM) recurrent neural networks.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can learn more about how recurrent neural networks work <a class="reference external" href="https://www.youtube.com/watch?v=qjrad0V0uJE">from MIT’s Introduction to Deep Learning lecture</a>.</p>
+</div>
+<p>Deep Learning offers several main advantages over traditional Machine Learning approaches in NLP.</p>
+<p><strong>Advantage #1: Varying Input Length</strong></p>
+<p>LSTM layer, when used as an input layer to the model, allows the input to be of variable length - therefore, the model should not be biased by the fact that the report is short or long in a way ML models are - the Deep Learning (DL) model is going to look for specific phrases in the report of any length to make a prediction.</p>
+<p><strong>Advantage #2: Order of Words</strong></p>
+<p>Since the inputs to the LSTM networks is a sequence of tokens from a network’s vocabulary, we can conserve the order of words in the input, allowing us to not lose data integrity and make predictions while taking token-to-token relationships into account.</p>
+<p><strong>Advantage #3: Vocabulary</strong></p>
+<p>Vocabulary is the mechanism by which DL models can form an understanding of the meaning of the given token during training by evaluating where this token shows up in relation to other tokens. This allows the model to infer word dependencies and meanings from tokens based on their order in the given text.</p>
+<p>Moreover, to use the DL capabilities to a full extent, we utilized pre-trained word embeddings to create high-dimensional vector representations of the words in our data - therefore making the input more informative to the model. In our case, we evaluated <a class="reference external" href="https://nlp.stanford.edu/projects/glove/">GloVE</a>  as well as <a class="reference external" href="https://github.com/ncbi-nlp/BioWordVec">BioWordVec</a> embeddings. After extensive testing, GloVE was selected as the embedding of choice since it yielded improved performance, even though BioWordVec was generated using biomedical texts. We believe that GloVE performed better since its training set is more extensive.</p>
+<p>For our recurrent network of choice, after testing several different DL architectures, we settled on Bidirectional LSTM (BiLSTM) as the best performing one - its advantage is coming from the ability to process input data in both the forward and backward directions, enabling it to better learn and understand word dependencies in a given text as compared to a traditional LSTM.</p>
+<p>It is important to note that Deep Learning models in general tend to have a steeper data requirement compared to Machine Learning. Therefore, before we can truly examine the results of these modeling methods, we need a lot more data than what we had when evaluating regex or ML models. We are going to discuss how we resolved this in the following section on Data Acquisition.</p>
+</section>
+<section id="data-acquisition">
+<h1>Data Acquisition<a class="headerlink" href="#data-acquisition" title="Permalink to this headline"></a></h1>
+<p>As with many real-life machine learning problems, where the outcome of interest is the minority class out of all the other classes in the data, our problem is no different. According to literature the incidence of lung findings in relevant radiology reports is close to 10%, whereas it is lower than 5% for adrenal findings.</p>
+<p>Therefore, in our case, the problem was twofold - not only the target class we are trying to predict (a report with a finding and a suggested follow-up) was a minority class, but we also did not have a dataset large enough to support DL model development. Therefore, we decided to acquire these labels ourselves by using a data annotation platform.</p>
+<section id="annotation-platform-data-selected">
+<h2>Annotation Platform &amp; Data Selected<a class="headerlink" href="#annotation-platform-data-selected" title="Permalink to this headline"></a></h2>
+<p>It is important to note that at the time we were still limited to our initial corpus of annotated reports, so we have made a decision to use the resources in the health system to acquire more <strong>labeled</strong> data samples to perform training of more complex models discussed in the previous section, as the raw radiology reports coming from the database had no indication of containing a follow-up recommendation or a finding.</p>
+<p>In order to resolve this, the team set up an annotation platform alongside the annotation process to allow for a streamlined collection of a high-quality dataset for future modeling. The annotations were performed in-house instead of utilizing a third party service due to the concerns over safety of the data, as well as since it allows more control over the quality of incoming annotations, due to the fact that identifying findings and respective recommended follow-ups requires some degree of medical knowledge.</p>
+</section>
+<section id="annotation-process">
+<h2>Annotation Process<a class="headerlink" href="#annotation-process" title="Permalink to this headline"></a></h2>
+<p>After considering the facts above, the online system was set up on our intranet using the open source <a class="reference external" href="https://inception-project.github.io/">INCEpTION</a> annotation platform. The annotators–trained clinical nurses–were carefully selected, tasked with selecting relevant text from the curated radiology reports. In order to create a comprehensive dataset for our modeling task, the annotations were asked to highlight the following three items in every report that had a finding and recommendation present:</p>
+<ol class="arabic simple">
+<li><p>Finding stated in the report</p></li>
+<li><p>Follow-up for the finding</p></li>
+<li><p>Recommended follow-up procedure (if any)</p></li>
+</ol>
+<p>Prior to starting the annotations, each annotator went through a training process developed by the project team. The training process involved both a session explaining in detail what we were looking for in the reports, as well as a quick test to make sure all the annotation goals are clear for the annotator. The test consisted of using the platform to annotate 10 reports with and without follow-up recommendations we annotated internally.</p>
+<figure class="align-center">
+  <video controls width="60%" src="_static/Stacey_-_annotations_with_RN.mp4" type="video/mp4"></video>
+  <figcaption><p><span class="caption-text">Overview of the annotation process by one of the annotators</span></p></figcaption>
+</figure><p>We would like to also note that the nurses performing the annotations were all on light-duty restrictions making them unable to fulfill their clinical responsibilities. Annotations were offered to them as one of the ways to perform work remotely and participation was voluntary.</p>
+<p>In order to be included in the dataset, each radiology report had to be annotated by three different annotators to account for inter-rater reliability and therefore ensure high quality of the labels. In the case of three annotators making different selections for the report, the report was reviewed internally by our clinical expert to select the right options. If such a report was hard to understand without going into the patient chart to find out more information about the case, it was discarded and not used in the model training process.</p>
+<p>To help track the progress of the annotators, the team also utilized the annotation platform to track the rate of annotations as well as the inter-rater reliability to select the reports with the most consistent annotations across different annotators.</p>
+<p>The first batch loaded for annotations consisted of 20,000 radiology reports, randomly sampled from a year of data (June 2019 to June 2020) while keeping the procedure type distribution the same to ensure a dataset as diverse as the data the model will be interacting with once deployed. The reports were coming from the procedures that aligned with our curated list of procedures from clinical experts. The goal of the curated list was to identify procedures that could lead to a <em>lung</em> or <em>adrenal</em> finding.</p>
+<table class="docutils align-default" id="id2">
+<caption><span class="caption-text">Ten most frequent imaging study types in the first annotation batch</span><a class="headerlink" href="#id2" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 79%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Imaging Study</p></th>
+<th class="head"><p>Count</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>XR CHEST AP PORTABLE</p></td>
+<td><p>5,304</p></td>
+</tr>
+<tr class="row-odd"><td><p>XR CHEST PA LAT</p></td>
+<td><p>5,165</p></td>
+</tr>
+<tr class="row-even"><td><p>CT ABDOMEN PELVIS W CONTRAST</p></td>
+<td><p>2,039</p></td>
+</tr>
+<tr class="row-odd"><td><p>CT CHEST W CONTRAST</p></td>
+<td><p>747</p></td>
+</tr>
+<tr class="row-even"><td><p>XR ABDOMEN AP</p></td>
+<td><p>692</p></td>
+</tr>
+<tr class="row-odd"><td><p>CT CHEST WO CONTRAST</p></td>
+<td><p>669</p></td>
+</tr>
+<tr class="row-even"><td><p>CTA CHEST PE</p></td>
+<td><p>635</p></td>
+</tr>
+<tr class="row-odd"><td><p>CT ABDOMEN PELVIS WO CONTRAST</p></td>
+<td><p>542</p></td>
+</tr>
+<tr class="row-even"><td><p>CT ABDOMEN PELVIS SPIRAL FOR STONE</p></td>
+<td><p>370</p></td>
+</tr>
+<tr class="row-odd"><td><p>CT CHEST ABDOMEN PELVIS W CONTRAST</p></td>
+<td><p>339</p></td>
+</tr>
+</tbody>
+</table>
+<p>As the first batch was being annotated, the team noticed that the reported literature rates of findings occurrence were confirmed through the annotations. However, that also meant that most of the reports annotated in the first batch (~90%) contained no findings. While it is important to have enough of a representation of the “negative” class in the ML datasets, after several thousands of examples the value of each new report not containing finding that was being annotated diminished significantly. At the same time, realizing the scarcity of the reports without findings and follow-up recommendations, we wanted more annotated reports of the “positive” class, i.e. with the findings and follow-up recommendations.</p>
+<p>Leveraging the previous work, the team trained an ML model (<a class="reference external" href="https://lightgbm.readthedocs.io/en/latest/">LightGBM</a>) on the annotated dataset, with a goal of identifying new reports that are not yet annotated, but potentially belong to the positive class. The model was optimized for recall to avoid potential bias in the model towards phrases in the already annotated radiology reports.</p>
+<p>Further batches that were annotated consisted of a mix of reports that were randomly sampled, as well as targeted towards the class we were lacking annotations at the time. This allowed us to significantly expedite the annotation process required to get to a dataset that allows us to train a deep learning model with acceptable performance. In other words, this gave us the control over the annotation process, allowing us to direct the annotations towards the class we did not have a sufficient number of reports for.</p>
+<p>At the end of the annotation process for the lung/adrenal task, the annotators collectively annotated 36,385 reports, of which 17% contained a relevant finding and a follow-up recommendation.</p>
+<figure class="align-center">
+  <video controls width="60%" src="_static/Priyanka_-_Annotation_Platform.mp4" type="video/mp4"></video>
+  <figcaption><p><span class="caption-text">Overview of the annotation platform</span></p></figcaption>
+</figure></section>
+</section>
+<section id="initial-model-development">
+<h1>Initial Model Development<a class="headerlink" href="#initial-model-development" title="Permalink to this headline"></a></h1>
+<section id="data-preprocessing">
+<h2>Data Preprocessing<a class="headerlink" href="#data-preprocessing" title="Permalink to this headline"></a></h2>
+<p>Annotated reports underwent the following preprocessing steps:</p>
+<ol class="arabic simple">
+<li><p>Text converted to lowercase</p></li>
+<li><p>Trailing whitespace removed</p></li>
+<li><p>Tokenization</p></li>
+</ol>
+<p>In terms of the samples that were excluded from the dataset, the few reports containing both lung and adrenal-related annotations were excluded.</p>
+</section>
+<section id="model-selection">
+<h2>Model Selection<a class="headerlink" href="#model-selection" title="Permalink to this headline"></a></h2>
+<p>Four separate NLP models were developed to achieve the goals of extracting target information from the radiology reports:</p>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="_images/nlp_pipeline.svg"><img alt="_images/nlp_pipeline.svg" height="561" src="_images/nlp_pipeline.svg" width="587" /></a>
+<figcaption>
+<p><span class="caption-text">Image of the NLP model pipeline</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>At first, each radiology report goes through the Finding/No Finding BiLSTM model, which acts as a binary classifier, separating reports with and without findings and respective follow-up recommendations. In the case when a report is flagged as containing no findings, no other models are initialized.</p>
+<p>In case a finding is detected, the models following the first one in the pipeline perform inference on the report in parallel.</p>
+<p>For the detailed finding identification (lung/adrenal), another BiLSTM model is used. This model only runs on the report flagged by the initial model, and its task is to identify if the finding in the report is lung-related or adrenal-related.</p>
+<p>For comment extraction, an <a class="reference external" href="https://xgboost.readthedocs.io/en/stable/">XGBoost</a> model is used, identifying part of the radiology report where the finding and the follow-up are mentioned by the radiologist. This model accepts each tokenized sentence from the radiology report as an individual input, and the prediction probability of each sentence is acquired. Then, the sentence with the highest probability is selected and passed forward in the pipeline.</p>
+<p>In case the lung/adrenal model flags report as having lung-related findings, the third BiLSTM model performs inference on the report, with the task of identifying the suggested follow-up procedure. It acts as a binary classifier, selecting between 2 classes:</p>
+<ol class="arabic simple">
+<li><p>Recommendation is a Chest CT</p></li>
+<li><p>Recommendation is not a Chest CT</p></li>
+</ol>
+<p>For the reports that are identified having an adrenal finding, a recommended follow-up is automatically considered to be a referral to endocrinology, as per our clinical experts’ feedback. No model is ran on these reports.</p>
+</section>
+<section id="model-training-process">
+<h2>Model Training Process<a class="headerlink" href="#model-training-process" title="Permalink to this headline"></a></h2>
+<p>Model were trained using a 70%/30% train/validation set split. We also performed internal validation on the test set consisting of 10,916 annotated reports to confirm that we are confident in the models’ performance.</p>
+<p>To ensure consistency in model training when testing different architectures, splits were performed with a fixed random seed and the same metrics were collected and compared for each trained model: accuracy, AUC, sensitivity, specificity. The metrics were calculated for each classification task along with 95% confidence intervals. For comparison, we also included the regex performance on the same validation dataset discussed previously.</p>
+<p>To establish a “human best practice” performance target, we collected the same set of metrics from the annotations collected from our high-performing clinical annotator. This AUC threshold was set at 0.94, which is high, but as you can see from the table overviewing the model performance, our models outperformed them!</p>
+<table class="docutils align-default" id="id4">
+<caption><span class="caption-text">Performance of modelling approaches</span><a class="headerlink" href="#id4" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 8%" />
+<col style="width: 19%" />
+<col style="width: 19%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Model Type</p></th>
+<th class="head"><p>Total Number of Reports</p></th>
+<th class="head"><p>Number of Reports with
+Follow-up</p></th>
+<th class="head"><p>AUC</p></th>
+<th class="head" colspan="2"><p>Accuracy</p></th>
+<th class="head"><p>Sensitivity</p></th>
+<th class="head"><p>Specificity</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td colspan="8"><p><strong>Baseline Regex</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>Finding / No Finding</p></td>
+<td><p>10,916</p></td>
+<td><p>1,857</p></td>
+<td></td>
+<td colspan="2"><p>77%</p></td>
+<td><p>74%</p></td>
+<td><p>82%</p></td>
+</tr>
+<tr class="row-even"><td colspan="8"><p><strong>Deep Learning
+(BiLSTM)</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>Finding / No Finding</p></td>
+<td><p>10,916</p></td>
+<td><p>1,857</p></td>
+<td><p>0.91 (0.90-0.92)</p></td>
+<td colspan="2"><p>95% (94.8-95.5%)</p></td>
+<td><p>97.2% (96.3-98.0%)</p></td>
+<td><p>85.4% (83.1-87.8%)</p></td>
+</tr>
+<tr class="row-even"><td><p>Lung / Adrenal</p></td>
+<td><p>1,857</p></td>
+<td><p>1,734 lung; 123 adrenal</p></td>
+<td><p>0.87 (0.84-0.88)</p></td>
+<td colspan="2"><p>97% (96.8-97.5%)</p></td>
+<td><p>98.7% (98.2-99.2%) <sup>1</sup></p></td>
+<td><p>74.7% (70.2-79.3%) <sup>1</sup></p></td>
+</tr>
+<tr class="row-odd"><td><p>Ensemble:
+Lung Finding</p></td>
+<td><p>10,916</p></td>
+<td><p>1,734</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td colspan="2"><p>85%</p></td>
+<td><p>84.6%</p></td>
+<td><p>90.2%</p></td>
+</tr>
+<tr class="row-even"><td><p>Ensemble:
+Adrenal Finding</p></td>
+<td><p>10,916</p></td>
+<td><p>123</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td colspan="2"><p>95.8%</p></td>
+<td><p>57%</p></td>
+<td><p>98.5%</p></td>
+</tr>
+<tr class="row-odd"><td><p>CT Recommended vs
+Other</p></td>
+<td><p>1,734</p></td>
+<td><p>1,734</p></td>
+<td><p>0.78 (0.74-0.82)</p></td>
+<td colspan="2"><p>81% (78.7-84.2%)</p></td>
+<td><p>71% (62.8-79%)</p></td>
+<td><p>86.8% (84.9-88.7%)</p></td>
+</tr>
+<tr class="row-even"><td colspan="8"><p><strong>Deep Learning
+(RoBERTa)</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>Lung Finding</p></td>
+<td><p>10,916</p></td>
+<td><p>1,734</p></td>
+<td><p>0.90 (0.88-0.92)</p></td>
+<td colspan="2"><p>94.7% (99.3.4-96.1%) <sup>2</sup></p></td>
+<td><p>82.2% (78.5-85.9%)</p></td>
+<td><p>99.5% (99.1-99.9%)</p></td>
+</tr>
+<tr class="row-even"><td><p>Adrenal Finding</p></td>
+<td><p>10,916</p></td>
+<td><p>123</p></td>
+<td><p>0.81 (0.75-0.89)</p></td>
+<td colspan="2"><p>94.7% (99.3.4-96.1%) <sup>2</sup></p></td>
+<td><p>67.4% (61.1-75.6%)</p></td>
+<td><p>86.1% (86-86.2%)</p></td>
+</tr>
+<tr class="row-odd"><td><p>CT Recommended vs
+Other</p></td>
+<td><p>1,734</p></td>
+<td><p>1,734</p></td>
+<td><p>0.86 (0.83-0.88)</p></td>
+<td colspan="2"><p>87% (85.6-89.4%)</p></td>
+<td><p>81.2% (76.7-85.7%)</p></td>
+<td><p>90.6% (89.9-91.4%)</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><sup>1</sup> <em>Sensitivity and specificity calculated for detection of lung findings</em></div>
+<div class="line"><sup>2</sup> <em>Overall 3-class accuracy for the Lung / Adrenal / No Finding model</em></div>
+</div>
+</section>
+<section id="model-deployment-infrastructure">
+<h2>Model Deployment Infrastructure<a class="headerlink" href="#model-deployment-infrastructure" title="Permalink to this headline"></a></h2>
+<p>Due to the challenge of making different systems work together as well as integrating the outputs of the NLP pipeline into our health system’s EHR, a considerable effort from several NM teams was required.</p>
+<p>To describe the flow of the data in the pipeline, whenever a radiology report from a curated list of procedures was signed in PowerScribe (software used by the radiologists to dictate the radiology reports at NM), it was preprocessed and de-identified before being sent as an input to the NLP models. After the four NLP outputs discussed above were acquired, they were displayed in a notification to the ordering physician accessible through the EHR. The notification is described in detail in the “Clinical workflow” section.</p>
+<p>This infrastructure is hosted using the NM Azure environment, with the inference performed using Azure Machine Learning cloud services.</p>
+</section>
+</section>
+<section id="clinical-workflow-epic-integration">
+<h1>Clinical Workflow &amp; Epic Integration<a class="headerlink" href="#clinical-workflow-epic-integration" title="Permalink to this headline"></a></h1>
+<p>From the perspective of a radiologist, the implementation of the system has no effect on the workflow. The only requirement that was set for the radiologists was to mention the findings requiring the follow-up in the Impression and/or Findings sections of the signed radiology reports.</p>
+<p>Now, within three minutes of a report resulting, the ordering physician is notified of the NLP Pipeline’s predictions through an InBasket Best Practice Alert. The alert highlights the type of finding identified in the report as well as the relevant report text as determined by the models.</p>
+<p>Here is an example of such a notification:</p>
+<figure class="align-center" id="id5">
+<a class="reference internal image-reference" href="_images/EHR.png"><img alt="_images/EHR.png" src="_images/EHR.png" style="width: 516.8px; height: 610.3px;" /></a>
+<figcaption>
+<p><span class="caption-text">EHR notification image</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id6">
+<a class="reference internal image-reference" href="_images/BPA.png"><img alt="_images/BPA.png" src="_images/BPA.png" style="width: 701.25px; height: 467.5px;" /></a>
+<figcaption>
+<p><span class="caption-text">BPA screen once “Place Follow-up Orders” is clicked</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>The clickable “Place follow-up orders” link opens the Result Management BPA. Then, either a relevant follow-up can be ordered through a SmartSet tool, or the physician can select an acknowledgment reason to close the workflow loop.</p>
+<figure class="align-center" id="id7">
+<a class="reference internal image-reference" href="_images/response.png"><img alt="_images/response.png" src="_images/response.png" style="width: 701.25px; height: 353.59999999999997px;" /></a>
+<figcaption>
+<p><span class="caption-text">Image with example the responses to the BPA</span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>The SmartSet mentioned previously is automatically populated with a common follow-up orders for a specific finding type. For example, for lung findings, the suggested follow-up is going to be a chest CT with contrast. Once the follow-up is ordered, we can use the built-in Epic functionality to rely on follow-up completion within a specified timeframe. In the case of the patient not completing the ordered follow-up, a dedicated team of nurses is alerted to initiate the communication to make sure the follow-up occurs.</p>
+<table class="docutils align-default" id="id8">
+<caption><span class="caption-text">Frequency of Best Practice Advisory Acknowledgment Reasons</span><a class="headerlink" href="#id8" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 69%" />
+<col style="width: 31%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Action</p></th>
+<th class="head"><p>Count (%)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Opened SmartSet, no order placed</p></td>
+<td><p>887 (17.8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Opened SmartSet, lung follow-up placed</p></td>
+<td><p>1,378 (27.7)</p></td>
+</tr>
+<tr class="row-even"><td><p>Opened SmartSet, adrenal follow-up placed</p></td>
+<td><p>9 (0.2)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Follow-up done outside NM</p></td>
+<td><p>65 (1.3)</p></td>
+</tr>
+<tr class="row-even"><td><p>Postponed</p></td>
+<td><p>975 (19.6)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Managed by oncology</p></td>
+<td><p>904 (18.2)</p></td>
+</tr>
+<tr class="row-even"><td><p>Not applicable for patient</p></td>
+<td><p>469 (9.4)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Patient declined</p></td>
+<td><p>33 (0.7)</p></td>
+</tr>
+<tr class="row-even"><td><p>Transfer responsibility</p></td>
+<td><p>258 (5.2)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Total</p></td>
+<td><p>4,978 (100)</p></td>
+</tr>
+</tbody>
+</table>
+<p>In case of a finding being identified in an Emergency Department encounter, the patient’s Primary Care Physician is notified of the finding and the suggested follow-up. If the patient does not have a Primary Care Physician on record or if the Primary Care Physician is not within the NM health system, the same dedicated team of nurses is alerted, with the task of ensuring that the patient is aware of the necessary follow-up through contacting the patient directly.</p>
+<p>In order to ensure that the patient does not miss the follow-up, two additional “safety net” elements were developed.</p>
+<p>The first one is notification that the patient receives directly about the follow-up. When seven days pass after the physician receives the BPA notification, the patient will be receiving a MyChart letter, stating that the finding was identified and alerting them to reach out to their physician in case it was not already done. In case a patient does not have MyChart set up, a letter will be mailed using the U.S. Postal Service to the address on file.</p>
+<p>The second “safety net” mechanism is an escalation path. It is triggered when no action is taken on the BPA by the receiving physician within 21 days of the notification. In this case, the follow-up team will be notified of the patient’s case to ensure that the finding is addressed appropriately. This mechanism is developed specifically to address the potential InBasket message getting missed within the busy InBaskets.</p>
+<figure class="align-center">
+  <video controls width="35%" src="_static/Pat_-_Epic_Integration.mp4" type="video/mp4"></video>
+  <figcaption><p><span class="caption-text">Overview of the EHR integration process</span></p></figcaption>
+</figure></section>
+<section id="prospective-clinical-evaluation">
+<h1>Prospective Clinical Evaluation<a class="headerlink" href="#prospective-clinical-evaluation" title="Permalink to this headline"></a></h1>
+<section id="prospective-evaluation-plan">
+<h2>Prospective Evaluation Plan<a class="headerlink" href="#prospective-evaluation-plan" title="Permalink to this headline"></a></h2>
+<p>The entire Result Management workflow was rolled out in the health system in December 2020. To ensure that the models are able to maintain the same performance in real-life conditions, we prepared a prospective evaluation plan prior to deployment. The plan was to continuously monitor and evaluate the performance of the deployed system. This is performed through regular reports as well as an online dashboard, aggregating all radiology reports and respective predictions, as well as the associated provider interactions. NLP model performance is manually reviewed, and in a case of a misclassification, they are examined to assess if any changes to the modeling/annotation process need to be applied to change this in the future.</p>
+<figure class="align-center" id="id9">
+<img alt="_images/dashboard.png" src="_images/dashboard.png" />
+<figcaption>
+<p><span class="caption-text">Screenshot of the Prospective Evaluation Dashboard</span><a class="headerlink" href="#id9" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<table class="docutils align-default" id="id10">
+<caption><span class="caption-text">NLP Model Predictions by Imaging Modality</span><a class="headerlink" href="#id10" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 34%" />
+<col style="width: 25%" />
+<col style="width: 41%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Imaging Protocol</p></th>
+<th class="head"><p>Total Number of Reports</p></th>
+<th class="head"><p>Number of Reports Flagged for Lung Follow-up (%)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CT chest without contrast</p></td>
+<td><p>21,861</p></td>
+<td><p>7,217 (33.0)</p></td>
+</tr>
+<tr class="row-odd"><td><p>CT chest with contrast</p></td>
+<td><p>19,938</p></td>
+<td><p>4,427 (22.2)</p></td>
+</tr>
+<tr class="row-even"><td><p>CTA chest, pulmonary embolism protocol</p></td>
+<td><p>23,851</p></td>
+<td><p>3,420 (14.3)</p></td>
+</tr>
+<tr class="row-odd"><td><p>CT abdomen pelvis with contrast</p></td>
+<td><p>64,256</p></td>
+<td><p>3,370 (5.2)</p></td>
+</tr>
+<tr class="row-even"><td><p>XR chest AP portable</p></td>
+<td><p>201,880</p></td>
+<td><p>2,231 (1.1)</p></td>
+</tr>
+<tr class="row-odd"><td><p>XR chest PA LAT</p></td>
+<td><p>95,155</p></td>
+<td><p>2,041 (2.1)</p></td>
+</tr>
+<tr class="row-even"><td><p>CT chest abdomen pelvis with contrast</p></td>
+<td><p>12,556</p></td>
+<td><p>1,520 (12.1)</p></td>
+</tr>
+<tr class="row-odd"><td><p>CT chest, interstitial lung disease
+protocol, without contrast</p></td>
+<td><p>2,766</p></td>
+<td><p>866 (31.3)</p></td>
+</tr>
+<tr class="row-even"><td><p>CT abdomen pelvis without contrast</p></td>
+<td><p>15,021</p></td>
+<td><p>698 (4.6)</p></td>
+</tr>
+<tr class="row-odd"><td><p>CT cardiac calcium score</p></td>
+<td><p>2,688</p></td>
+<td><p>328 (12.2)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="the-adrenal-findings-problem">
+<h2>The Adrenal Findings Problem<a class="headerlink" href="#the-adrenal-findings-problem" title="Permalink to this headline"></a></h2>
+<p>In February 2021, the part of the workflow related to the adrenal findings was suspended, due to concerns over model performance leading to too many false positives. Nevertheless, the predictions of the model were stored and were still running in the back-end on every relevant radiology report. Potential reasons for this were the use of enriched batches for annotations with the goal of having more data samples with adrenal findings, since this biased our performance metrics during training due to having the positive class overrepresented in the training dataset as compared to real-life data.</p>
+<p>We wanted to feature this part of our implementation in particular since it highlights both the difficulty of implementing ML solutions in practice and the paramount importance of prospective validation once any system of this sort is deployed, no matter how well the model performed during training.</p>
+<figure class="align-center">
+  <video controls width="60%" src="_static/Galal_-_prospective_validation_with_MD.mp4" type="video/mp4"></video>
+  <figcaption><p><span class="caption-text">Overview of the prospective evaluation process</span></p></figcaption>
+</figure></section>
+</section>
+<section id="workflow-challenges">
+<h1>Workflow Challenges<a class="headerlink" href="#workflow-challenges" title="Permalink to this headline"></a></h1>
+<p>One of the benefits of the system we developed is that it is completely invisible for the radiologists - their day-to-day workflow is not affected by the system. However, it is important to note that at the same time, more responsibility is being placed on the ordering provider, since they are required to interpret the system’s output and determine the suitable next actions for their patient.</p>
+<p>From our records, we were able to observe that only 16.9% of the ordering physicians acknowledged the findings highlighted by the system, which is why boosting the clinical uptake remains one of the main focuses of the project to this day. At the same time, we decided not to enforce the physicians to acknowledge the notification to not make the already existing alert fatigue from the intrusive and/or unnecessary EHR notifications worse.</p>
+<p>We have also observed the cases when the identified by the system follow-up was ordered for the patient, but as a separate order that was not connected and therefore not tracked through the Results Management system. Consequently, the 16.9% mentioned above may in reality be a lower percentage of physicians who reacted to the implementation.</p>
+<p>We suspect that one of the potential causes of this could be the wording on the link that lead to ordering the follow-up. The wording “Place follow-up order” may lead the physicians to believe that no acknowledgement is required in case when a patient does not require a follow-up.</p>
+<p>Another potential reason for the low percentage of the acknowledgements to the notification are orders made in the Emergency Department for the patients that do not have an associated Primary Care Physician, as these patients are excluded from the workflow associated with the system and are instead directly managed by the team of follow-up nurses.</p>
+<p>We continue to monitor and improve the design of the workflow through the communication and change management via continued feedback from surveys and direct interviews of clinician stakeholders, with the goal of raising the efficacy of the NLP system.</p>
+<p>Furthermore, only a quarter of the acknowledgements lead to ordering a follow-up imaging study through the system. This is partially expected as not all follow-up recommendations involve imaging, however, the most common acknowledgement that did not result in a follow-up order are cases when “Managed by Oncology” was selected by the physician. This selection means that these patients already have an established oncological follow-up schedule relating to the finding.</p>
+<p>Additionally, a substantial portion of the acknowledgements indicated “Not Applicable for Patient”, or resulted in the physician opening the order SmartSet without any action afterwards. This could mean that either the SmartSet did not include the relevant follow-up procedure, or because the physician decided to order the follow-up in a conventional manner, bypassing the workflow and established monitoring of the system.</p>
+<p>Finally, some of these acknowledgements may be a result of the model not making a correct prediction, resulting in a false positive. In order to address this, our prospective evaluation process feedback is incorporated into the development process of the versions of the models.</p>
+<p>Another challenge we faced when deploying the system was to not misrepresent the role of the system. We received feedback from several physicians stating that are concerned about the fact that the system is making clinical decisions for their patients instead of them and, on top of it, without their oversight. In reality, this is not the case - the system was put in place to identify the reports with findings and streamline the associated workflow, which was previously nonexistent. In order to combat this, project leaders met with the concerned physicians to clarify the role of AI within the workflow, and as a result the wording of the notification was adjusted to emphasize the fact that it is there to facilitate physician decision-making rather than displace the physician.</p>
+<figure class="align-center">
+  <video controls width=60%" src="_static/Dr_Wilkes_-_physicians_perspective_with_MD.mp4" type="video/mp4"></video>
+  <figcaption><p><span class="caption-text">Overview of the system by an inpatient physician</span></p></figcaption>
+</figure></section>
+<section id="updating-the-models">
+<h1>Updating the Models<a class="headerlink" href="#updating-the-models" title="Permalink to this headline"></a></h1>
+<p>As mentioned previously, the refinement and further development of the AI models continued after the clinical deployment. Main goals of this were to enhance the scalability of the system, as well as improve the overall model performance in response to the feedback we received as well as to the weak points of the AI system identified through prospective validation.</p>
+<section id="attention-and-transformers">
+<h2>Attention and Transformers<a class="headerlink" href="#attention-and-transformers" title="Permalink to this headline"></a></h2>
+<p>While the type of the neural networks we used initially - LSTM models - process data sequentially, which makes them a great tool when text is the main input the model, they have a substantial downside that needs to be taken into consideration - when the input sequence is too long, due to the way this neural networks work, the model may already “forget” the preceding information by the time it becomes relevant. For example, if there are sentences in between the identified finding and the suggested follow-up, the network may fail to “remember” that the finding was present in the report by the time it is processing the text with the follow-up, and hence this will not trigger the prediction, as the model is identifying the reports with a specific finding that have the relevant follow-up noted. Our solution to mitigate this effect was to use the BiLSTM networks, which perform bidirectional (meaning forward and backward) text processing, decreasing the chance of this happening.</p>
+<p>Attention is a mechanism that is developed to preserve relevant context of high importance to the model across the input sequences. Therefore, rather than processing data in chunks like the recurrent models do, attention-based models can draw upon the entirety of the input when processing any given word. <a class="reference external" href="https://arxiv.org/abs/1706.03762">Transformer</a> models, in turn, are powerful deep learning architectures that implement self-attention, a form of attention that enables the model to independently learn and attend to the relevant parts of the input data. Since the introduction in 2017, transformer-based models have caused a paradigm shift in NLP, achieving state of the art performance on the language modeling tasks and slowly becoming the go-to model type for real-life NLP solutions.</p>
+<p>Another advantage of the transformer-based models is the ability to better parallelize the training process, enabling efficient training on large datasets. As a result, transfer learning strategies have emerged based on initial training of the transformer-based model using an extensive amount of data and compute. These pre-trained models can then be fine-tuned on the smaller focused on the problem dataset in order to specialize the model for the task. This allows to significantly reduce the development time of these types of models since they effectively come ready to be specialized for any NLP task out of the box.</p>
+</section>
+<section id="creating-new-models">
+<h2>Creating New Models<a class="headerlink" href="#creating-new-models" title="Permalink to this headline"></a></h2>
+<p>After evaluating recently developed deep learning NLP model architectures and relevant pretraining strategies, including <a class="reference external" href="https://arxiv.org/abs/1810.04805">BERT</a>, <a class="reference external" href="https://huggingface.co/emilyalsentzer/Bio_ClinicalBERT">BIo+ClinicalBERT</a>, and <a class="reference external" href="https://arxiv.org/abs/2003.10555">ELECTRA</a>, we chose to use <a class="reference external" href="https://arxiv.org/abs/1907.11692">RoBERTa</a>, an improvement of the BERT transformer architecture for the updated versions of our classification models.</p>
+<p>RoBERTa utilizes masked language modeling pre-raining strategy. In this strategy, the fraction of tokens (words or fragments of words) within the input text are masked with a placeholder “[MASK]” token. During the training process, the model is trained to correctly predict these masked tokens with the rest of the text provided as context. As a result, the training process allows the model to create its own version of text understanding during this self-supervised process.</p>
+<p>Alongside improving model performance by using a more complex model, utilizing this model instead of the LSTM architecture we were using previously also created an opportunity to enhance scalability and flexibility of our model deployment strategy through creating a universal pre-trained model. This pre-trained RoBERTa model, trained on all of the radiology reports from our institution, would in theory be applicable to all potential future machine learning tasks with a radiology report as the input, whereas our initial plan relied on creating separate models only to perform individual classification tasks. This universal model can then be fine-tuned on individual tasks, such as detection of the follow-up, comment extraction and recommended procedure classification.</p>
+<p>Using a more applicable model architecture also allowed us to revise the NLP pipeline and make changes to it without sacrificing performance. While previously the radiology reports went through a Findings/No Findings model first, and then into a Lung/Adrenal finding model, now they would be provided as an input to a single model that would classify them into Lung/Adrenal/No Finding. This prevents the initial Finding/No Finding model from decreasing the overall performance of the pipeline as was the case with the initial NLP Pipeline and was a major factor attributing to the poor performance of the adrenal workflow.</p>
+<p>To train this universal RoBERTa model, we obtained a dataset consisting of more than 10 million radiology reports from the health system’s data warehouse (<a class="reference external" href="https://www.feinberg.northwestern.edu/research/cores/units/edw.html">NMEDW</a>) for masked language modeling. Then the universal model was fine-tuned separately on each of the downstream tasks, yielding specialized models all stemming from the “base” one.</p>
+<p>We have also changed the text preprocessing strategy as we realized that providing only the Impression section of a radiology report as an input to the model yielded similar results, while resulting in reduced input length, therefore indirectly increasing the input/data quality, as the model has to filter out less information that has no value in terms of the downstream task. This has proven to positively affect the sensitivity and specificity with the newer models.</p>
+<p>For the comment extraction model, the downstream task was re-framed from sentence prediction to Extractive Question Answering, in which a model learns to respond to a question through the use of the information provided in the input. Several relevant transformer-based architectures were evaluated for the task, and <a class="reference external" href="https://huggingface.co/distilroberta-base">DistilRoBERTa</a> was selected based on superior performance. Now, this model is provided with the input of the preceding model (Lung/Adrenal finding) as the question to the input radiology report, with the task to identify the relevant portion of the given report which describes the previously identified Lung or Adrenal finding.</p>
+<p>Performance of the new RoBERTa models is described in the Table below.</p>
+<p>Compared to the BiLSTM models, in terms of lung classification we can observe similar sensitivity with significantly improved specificity, whereas in terms of adrenal classification the sensitivity improved while specificity went down. Additionally, the comment extraction model achieved a Jaccard similarity score of 0.89, indicating very high agreement between model’s selection and what annotators have selected for the given radiology report. This is a significantly better result than the previous sentence classification XGBoost model.</p>
+<p>The improved models are scheduled to be deployed in March 2022. The prospective evaluation is going to continue, allowing us to continuously monitor and assess model prediction quality.</p>
+<figure class="align-center">
+  <video controls width="60%" src="_static/Priyanka_-_v2_models.mp4" type="video/mp4"></video>
+  <figcaption><p><span class="caption-text">Overview of the advanced models</span></p></figcaption>
+</figure></section>
+</section>
+<section id="future-plans">
+<h1>Future Plans<a class="headerlink" href="#future-plans" title="Permalink to this headline"></a></h1>
+<p>Our implementation of the Result Management system signifies the value that can be obtained when using AI to automate any labor-intensive task. The system screens hundreds of radiology reports per day and identifies dozens of follow-up recommendations daily.
+Our models outperform the previously published methods for finding and follow-up identification, leveraging the advances of deep learning in NLP, as well as robust data collection processes through the annotation framework, supporting model development at scale.</p>
+<p>To our knowledge, no previous study has performed prospective clinical evaluation of an AI technique for this problem. The prospective clinical evaluation allowed us to identify and react to the downsides of the perfectly valid initial BiLSTM approach, and rapidly improve on it with existing data.</p>
+<p>In the same vein, we believe that continued monitoring of the newer models will allow us to characterize the potential downsides and quickly iterate to produce even better models for the task, translating into clinical benefits.</p>
+<p>Moreover, we would like to highlight that the overwhelming majority of such initiatives to use AI to resolve a problem in the clinical space fall short of clinical deployment. Through our work on this, we confirmed that deployment does pose a significant challenge and requires extensive coordination over a long period of time between teams that normally rarely interact. Unexpected changes of model performance, EHR integration, workflow implementation, clinical uptake - these are some of many factors that can be not accounted for initially that can undermine any AI initiative long before deployment.</p>
+<section id="next-steps">
+<h2>Next Steps<a class="headerlink" href="#next-steps" title="Permalink to this headline"></a></h2>
+<p>Due to the fact that clinical uptake of the Result Management workflow has been limited, it is hard to evaluate the global impact on the patient outcomes the system is making. One of the works we reviewed demonstrated significant inter-radiologist variation in rates of follow-up recommendation. There is also a challenge of varying documentation cultures between institutions.</p>
+<p>Because of this, we realize that it would be beneficial to assess the generalizability of our models across other health care systems beyond our single-institutional experience. We are also aware of the fact that the models will require re-training in the future as the trends in imaging findings, their documentation, as well as the recommended follow-up studies may change over time, adversely impacting model performance.</p>
+<p>We plan to continue building and testing novel NLP techniques as well as adapting our workflow to achieve higher clinical uptake. The prospective evaluation we have been continuously carrying out allowed us to identify radiology reports that may be difficult to classify for the models, and we are constantly adding new annotated reports to our dataset. The EHR infrastructure that we set up together with the NLP pipeline allows us to streamline the processes of model prototyping, evaluation and deployment. Moreover, we are currently working on expanding the system to hepatic, thyroid and ovarian findings requiring follow-up. Finally, as the Result Management system evolves, we will continue to monitor the follow-ups from identification to completion, allowing us to further characterize the true impact on patient outcomes.</p>
+<figure class="align-center">
+  <video controls width="60%" src="_static/Jon_-_future_steps_and_conclusion.mp4" type="video/mp4"></video>
+  <figcaption><p><span class="caption-text">Overview of next steps</span></p></figcaption>
+</figure></section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="home.html" class="btn btn-neutral float-left" title="NM Results Management AI" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="code.html" class="btn btn-neutral float-right" title="Code Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, NM HIT.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Classify &mdash; NM Results Management 1.10 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Overview" href="../phase02/phase02.html" />
+    <link rel="prev" title="Train" href="train.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> NM Results Management
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Home</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../home.html">NM Results Management AI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Project Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html#initial-modeling-pre-annotations">Initial Modeling (Pre-Annotations)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html#modeling-method-i-regex">Modeling Method I: Regex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html#modeling-method-ii-machine-learning">Modeling Method II: Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html#modeling-method-iii-deep-learning">Modeling Method III: Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html#data-acquisition">Data Acquisition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html#initial-model-development">Initial Model Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html#clinical-workflow-epic-integration">Clinical Workflow &amp; Epic Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html#prospective-clinical-evaluation">Prospective Clinical Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html#workflow-challenges">Workflow Challenges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html#updating-the-models">Updating the Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html#future-plans">Future Plans</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../code.html">Code Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../start.html">Prerequisites</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Phase 01 Models</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="phase01.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Demo: Findings vs No Findings Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="train.html">Train</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Classify</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Phase 02 Models</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../phase02/phase02.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../phase02/demo_pretrain.html">Demo: Pretraining the NM Results Management Language Model with Custom Corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../phase02/demo_finetune.html">Demo: Fine-Tuning NM Results Management Language Model with a Custom Dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../phase02/train.html">Train</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../phase02/classify.html">Classify</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Azure</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../azure.html">Deployment</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">NM Results Management</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Classify</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/mozzilab/NM_Radiology_AI/blob/main/docs/source/phase01/classify.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="classify">
+<span id="phase01-classify"></span><h1>Classify<a class="headerlink" href="#classify" title="Permalink to this headline"></a></h1>
+<p>To classify reports using the Phase 01 models, <a class="reference internal" href="#nmrezman.phase01.classify.classifier" title="nmrezman.phase01.classify.classifier"><code class="xref py py-func docutils literal notranslate"><span class="pre">nmrezman.phase01.classify.classifier()</span></code></a> is used. This function takes a raw report, preprocesses the note, loads the model weights, and</p>
+<ul class="simple">
+<li><p>determines if there are findings or no findings</p></li>
+<li><p>if findings are found, determines if there are lung or adrenal findings,</p></li>
+<li><p>if findings are found, determines the relevant portion of the note that made that decision,</p></li>
+<li><p>and, if there are lung findings, determines if a chest CT is recommended.</p></li>
+</ul>
+<p>A script <code class="docutils literal notranslate"><span class="pre">nmrezman.phase01.classify.run_classifier</span></code> is provided to easily run report text through the classifier:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m nmrezman.phase01.classify.run_classifier --data_path /path/to/data.txt --model_path /workspace/local/phase01_platform/model_checkpoints/
+</pre></div>
+</div>
+<dl class="py function">
+<dt class="sig sig-object py" id="nmrezman.phase01.classify.classifier">
+<span class="sig-prename descclassname"><span class="pre">nmrezman.phase01.classify.</span></span><span class="sig-name descname"><span class="pre">classifier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">object</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/nmrezman/phase01/classify/classifier.html#classifier"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nmrezman.phase01.classify.classifier" title="Permalink to this definition"></a></dt>
+<dd><p>Results Management Classifier using biLSTMs according to Phase 01 of the project.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<cite>str</cite>) – Radiologist report</p></li>
+<li><p><strong>model_path</strong> (<cite>str</cite>) – <p>Path to the folder with model checkpoints and tokenizer</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<dl class="simple">
+<dt>The model weights and tokenizer should be located in the specified folder as:</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">findings_best_model.h5</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">comment_best_model.sav</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lung_adrenal_best_model.h5</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lung_recommend_best_model.h5</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tokenizer.gz</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<p>for the (i) Findings vs No Finding Model, (ii) Lung vs Adrenal Findings Model, (iii) Comment Extraction
+Model, (iv) Lung Recommended Procedure model, and (v) tokenizer, respectively.</p>
+</div>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A dictionary which includes the (1) recommended procedure, (2) nodule type (if found), (3) boolean indicating
+if a follow-up is required, and (4) the follow-up text (i.e., text of the report that indicates the finding)
+as stored / referenced by the dictionary keys “procedure”, “noduleType”, “followUpFlag”, “followUpText”,
+respectively</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">report_txt</span> <span class="o">=</span> <span class="s2">&quot;a string with the radiology report text&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model_path</span> <span class="o">=</span> <span class="s2">&quot;/path/to/checkpoints/phase01/&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">output</span> <span class="o">=</span> <span class="n">classifier</span><span class="p">(</span><span class="n">report_txt</span><span class="p">,</span> <span class="n">model_path</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Output:&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">:&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">output</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
+<span class="gp">... </span><span class="n">Output</span><span class="p">:</span>
+<span class="gp">... </span>  <span class="n">procedure</span><span class="p">:</span> <span class="n">Chest</span> <span class="n">CT</span>
+<span class="gp">... </span>  <span class="n">noduleType</span><span class="p">:</span> <span class="n">Lung</span>
+<span class="gp">... </span>  <span class="n">followUpFlag</span><span class="p">:</span> <span class="n">Findings</span> <span class="n">Present</span>
+<span class="gp">... </span>  <span class="n">followUpText</span><span class="p">:</span> <span class="n">several</span> <span class="n">pulmonary</span> <span class="n">micronodules</span><span class="o">.</span> <span class="n">follow</span><span class="o">-</span><span class="n">up</span> <span class="ow">in</span> <span class="n">one</span> <span class="n">year</span> <span class="n">recommended</span><span class="o">.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="train.html" class="btn btn-neutral float-left" title="Train" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../phase02/phase02.html" class="btn btn-neutral float-right" title="Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, NM HIT.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

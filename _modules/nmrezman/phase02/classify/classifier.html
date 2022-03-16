@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nmrezman.phase02.classify.classifier &mdash; NM Results Management 1.10 documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/clipboard.min.js"></script>
+        <script src="../../../../_static/copybutton.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../../../about.html" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../../index.html" class="icon icon-home"> NM Results Management
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Home</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../home.html">NM Results Management AI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Project Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about.html">Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about.html#initial-modeling-pre-annotations">Initial Modeling (Pre-Annotations)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about.html#modeling-method-i-regex">Modeling Method I: Regex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about.html#modeling-method-ii-machine-learning">Modeling Method II: Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about.html#modeling-method-iii-deep-learning">Modeling Method III: Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about.html#data-acquisition">Data Acquisition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about.html#initial-model-development">Initial Model Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about.html#clinical-workflow-epic-integration">Clinical Workflow &amp; Epic Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about.html#prospective-clinical-evaluation">Prospective Clinical Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about.html#workflow-challenges">Workflow Challenges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about.html#updating-the-models">Updating the Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about.html#future-plans">Future Plans</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../code.html">Code Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../start.html">Prerequisites</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Phase 01 Models</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../phase01/phase01.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../phase01/demo.html">Demo: Findings vs No Findings Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../phase01/train.html">Train</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../phase01/classify.html">Classify</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Phase 02 Models</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../phase02/phase02.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../phase02/demo_pretrain.html">Demo: Pretraining the NM Results Management Language Model with Custom Corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../phase02/demo_finetune.html">Demo: Fine-Tuning NM Results Management Language Model with a Custom Dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../phase02/train.html">Train</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../phase02/classify.html">Classify</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Azure</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../azure.html">Deployment</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">NM Results Management</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+      <li>nmrezman.phase02.classify.classifier</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for nmrezman.phase02.classify.classifier</h1><div class="highlight"><pre>
+<span></span><span class="c1"># %%</span>
+
+<span class="c1"># Models</span>
+<span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">AutoTokenizer</span><span class="p">,</span> <span class="n">AutoModelForQuestionAnswering</span><span class="p">,</span> <span class="n">AutoModelForSequenceClassification</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+
+<span class="c1"># nmrezman</span>
+<span class="kn">from</span> <span class="nn">...utils</span> <span class="kn">import</span> <span class="n">preprocess_input</span>
+
+<span class="c1"># Misc</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="c1"># Type checking</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
+<span class="kn">from</span> <span class="nn">transformers.models.roberta.modeling_roberta</span> <span class="kn">import</span> <span class="n">RobertaPreTrainedModel</span>
+<span class="kn">from</span> <span class="nn">transformers.models.roberta.tokenization_roberta_fast</span> <span class="kn">import</span> <span class="n">RobertaTokenizerFast</span>
+
+
+<span class="c1"># %%</span>
+
+<span class="k">def</span> <span class="nf">run_comment_qa_model</span><span class="p">(</span>
+        <span class="n">question</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> 
+        <span class="n">context_text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> 
+        <span class="n">model</span><span class="p">:</span> <span class="n">RobertaPreTrainedModel</span><span class="p">,</span> 
+        <span class="n">tokenizer</span><span class="p">:</span> <span class="n">RobertaTokenizerFast</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function runs an extractive Question-Answering model that takes an input of question as predicted nodule finding </span>
+<span class="sd">    and context as the clean note. In short, for reports with a finding classified, finds the text in the report that </span>
+<span class="sd">    helped make that determination.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        question (`str`): </span>
+<span class="sd">            Input &quot;question&quot;. The model is only trained for two questions: &quot;LUNG FINDINGS&quot; and &quot;ADRENAL FINDINGS&quot;</span>
+<span class="sd">        context_text (`str`): </span>
+<span class="sd">            The clean, preprocessed radiology note</span>
+<span class="sd">        model (:py:class:`~transformers.models.roberta.modeling_roberta.RobertaPreTrainedModel`):</span>
+<span class="sd">            The pretrained Question-Answering model</span>
+<span class="sd">        tokenizer (:py:class:`~transformers.models.roberta.tokenization_roberta_fast.RobertaTokenizerFast`):</span>
+<span class="sd">            The tokenizer used with the model</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Text span (extractive) from ``context_text`` (i.e., radiology note) that relates to lung findings (in other words,</span>
+<span class="sd">        the report text related to the finding)</span>
+
+<span class="sd">    Example::</span>
+<span class="sd">        </span>
+<span class="sd">        &gt;&gt;&gt; from nmrezman.utils import preprocess_input</span>
+<span class="sd">        &gt;&gt;&gt; report = preprocess_input(&quot;Radiologist report text&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; model = AutoModelForQuestionAnswering.from_pretrained(&quot;/path/to/checkpoints/phase02/comment_model&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; tokenizer = AutoTokenizer.from_pretrained(&quot;distilroberta-base&quot;, use_fast=True,)</span>
+<span class="sd">        &gt;&gt;&gt; comment = run_comment_qa_model(&quot;LUNG FINDINGS&quot;, report, model, tokenizer)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Format inputs</span>
+        <span class="n">inputs</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">encode_plus</span><span class="p">(</span>
+            <span class="n">question</span><span class="p">,</span> 
+            <span class="n">context_text</span><span class="p">,</span> 
+            <span class="n">add_special_tokens</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+            <span class="n">return_tensors</span><span class="o">=</span><span class="s2">&quot;pt&quot;</span><span class="p">,</span> 
+            <span class="n">truncation</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">max_length</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">input_ids</span><span class="o">=</span> <span class="n">inputs</span><span class="p">[</span><span class="s2">&quot;input_ids&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+        
+        <span class="c1"># Get the most likely beginning and end of answer with the argmax of the score</span>
+        <span class="n">answer_start_scores</span><span class="p">,</span> <span class="n">answer_end_scores</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="o">**</span><span class="n">inputs</span><span class="p">)[:</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">answer_start</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">answer_start_scores</span><span class="p">))</span>
+        <span class="n">answer_end</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">answer_end_scores</span><span class="p">))</span> <span class="o">+</span> <span class="mi">1</span>
+    
+        <span class="c1"># Get string from tokenized representation for likely range</span>
+        <span class="n">answer</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">convert_tokens_to_string</span><span class="p">(</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">convert_ids_to_tokens</span><span class="p">(</span><span class="n">input_ids</span><span class="p">[</span><span class="n">answer_start</span><span class="p">:</span><span class="n">answer_end</span><span class="p">]))</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="c1"># The QA model was unable to predict the sentence</span>
+            <span class="c1"># For robustness, return the input text</span>
+            <span class="k">return</span> <span class="n">context_text</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">answer</span>
+    
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">context_text</span>
+    
+
+<div class="viewcode-block" id="classifier"><a class="viewcode-back" href="../../../../phase02/classify.html#nmrezman.phase02.classify.classifier">[docs]</a><span class="k">def</span> <span class="nf">classifier</span><span class="p">(</span>
+        <span class="n">data</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">model_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">object</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Results Management Classifier using masked language models (MLM) according to Phase 02 of the project.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        data (`str`):</span>
+<span class="sd">            Radiologist report text</span>
+<span class="sd">        model_path (`str`):</span>
+<span class="sd">            Path to the folder containing the model checkpoints&#39; folders</span>
+
+<span class="sd">            .. note::</span>
+
+<span class="sd">                The model weights should be in folders named as:</span>
+<span class="sd">                    - ``findings_model``</span>
+<span class="sd">                    - ``comment_model``</span>
+<span class="sd">                    - ``lung_recommended_proc_model``</span>
+<span class="sd">                for the (i) Lung, Adrenal, or No Findings Model, (ii) Comment Extraction Model, and (iii) Lung</span>
+<span class="sd">                Recommended Procedure model, respectively.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A dictionary which includes the (1) recommended procedure, (2) nodule type (if found), (3) boolean indicating</span>
+<span class="sd">        if a follow-up is required, and (4) the follow-up text (i.e., text of the report that indicates the finding) </span>
+<span class="sd">        as stored / referenced by the dictionary keys &quot;procedure&quot;, &quot;noduleType&quot;, &quot;followUpFlag&quot;, &quot;followUpText&quot;, </span>
+<span class="sd">        respectively</span>
+
+<span class="sd">    Example::</span>
+
+<span class="sd">        &gt;&gt;&gt; report_txt = &quot;a string with the radiology report text&quot;</span>
+<span class="sd">        &gt;&gt;&gt; model_path = &quot;/path/to/checkpoints/phase02/&quot;</span>
+<span class="sd">        &gt;&gt;&gt; output = classifier(report_txt, model_path)</span>
+<span class="sd">        &gt;&gt;&gt; print(&quot;Output:&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; [print(f&quot;  {key}:&quot;, value) for key, value in output.items()]</span>
+<span class="sd">        ... Output:</span>
+<span class="sd">        ...   procedure: Chest CT</span>
+<span class="sd">        ...   noduleType: Lung</span>
+<span class="sd">        ...   followUpFlag: Findings Present</span>
+<span class="sd">        ...   followUpText: several pulmonary micronodules. follow-up in one year recommended. </span>
+<span class="sd">        </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Define roberta tokenizers</span>
+    <span class="n">roberta_tok</span> <span class="o">=</span> <span class="n">AutoTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span>
+        <span class="s2">&quot;roberta-base&quot;</span><span class="p">,</span> 
+        <span class="n">use_fast</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+        <span class="n">padding_side</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span> 
+        <span class="n">truncation</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+        <span class="n">model_max_len</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">distilroberta_tok</span> <span class="o">=</span> <span class="n">AutoTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span>
+        <span class="s2">&quot;distilroberta-base&quot;</span><span class="p">,</span> 
+        <span class="n">use_fast</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+    
+    <span class="c1"># Load models</span>
+    <span class="c1">#   - findings_model:                   model detecting if there is a lung, adrenal, or no finding (`findings_model_dict`)</span>
+    <span class="c1">#   - comment_model:                    extract the relevant portion of report that mentions the finding (extractive QA model, `comment_model_dict`) </span>
+    <span class="c1">#   - lung_recommended_proc_model:      model to determine the recommended procedure for lung findings (`lung_recommended_proc_dict`)</span>
+    <span class="c1"># NOTE: Depending on your application, the models can be loaded differently / elsewhere (e.g., as globals that are always loaded)</span>
+    <span class="n">findings_model</span> <span class="o">=</span> <span class="n">AutoModelForSequenceClassification</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">model_path</span><span class="p">,</span> <span class="s2">&quot;findings_model&quot;</span><span class="p">))</span>
+    <span class="n">comment_model</span> <span class="o">=</span> <span class="n">AutoModelForQuestionAnswering</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">model_path</span><span class="p">,</span> <span class="s2">&quot;comment_model&quot;</span><span class="p">))</span>
+    <span class="n">lung_recommended_proc_model</span> <span class="o">=</span> <span class="n">AutoModelForSequenceClassification</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">model_path</span><span class="p">,</span> <span class="s2">&quot;lung_recommended_proc_model&quot;</span><span class="p">))</span>
+
+    <span class="c1"># Define label embeddings / enummerations for the three models</span>
+    <span class="c1"># Language findings model output</span>
+    <span class="n">findings_model_dict</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;Adrenal&quot;</span><span class="p">,</span> 
+        <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;Lung&quot;</span><span class="p">,</span> 
+        <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;NA&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="c1"># Comment extraction (QA model) model input</span>
+    <span class="n">comment_model_dict</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;ADRENAL FINDINGS&quot;</span><span class="p">,</span> 
+        <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;LUNG FINDINGS&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="c1"># Lung recommended procedure model output</span>
+    <span class="n">lung_recommended_proc_dict</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;Ambiguous&quot;</span><span class="p">,</span>
+        <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;Chest CT&quot;</span><span class="p">,</span> 
+    <span class="p">}</span>
+    
+    <span class="c1"># Preprocess the note, getting the impression, removing doctor signatures, etc.</span>
+    <span class="n">clean_input_text</span> <span class="o">=</span> <span class="n">preprocess_input</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="c1"># Tokenize the impression</span>
+    <span class="n">roberta_inputs</span> <span class="o">=</span> <span class="n">roberta_tok</span><span class="p">(</span>
+        <span class="n">clean_input_text</span><span class="p">,</span> 
+        <span class="n">return_tensors</span><span class="o">=</span><span class="s2">&quot;pt&quot;</span><span class="p">,</span> 
+        <span class="n">max_length</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> 
+        <span class="n">truncation</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+        <span class="n">padding</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Classify the impression and get it as final output classification text</span>
+    <span class="n">roberta_output</span> <span class="o">=</span> <span class="n">findings_model</span><span class="p">(</span><span class="o">**</span><span class="n">roberta_inputs</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">roberta_output</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">roberta_output</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># could be replaced with int(torch.argmax(roberta_output.detach(), axis=-1)[0]) but pytorch in past has funny behaviors (e.g., https://github.com/pytorch/pytorch/issues/22853)</span>
+    <span class="n">lung_or_adrenal_finding</span> <span class="o">=</span> <span class="n">findings_model_dict</span><span class="p">[</span><span class="n">roberta_output</span><span class="p">]</span>
+
+    <span class="c1"># Based on the finding, run through more model(s)</span>
+    <span class="k">if</span> <span class="n">lung_or_adrenal_finding</span> <span class="o">!=</span> <span class="s2">&quot;NA&quot;</span><span class="p">:</span>
+        <span class="c1"># Finding detected; follow-up recommended</span>
+        <span class="c1"># Determine text in report that indicates finding</span>
+        <span class="n">follow_up_flg</span> <span class="o">=</span> <span class="s2">&quot;Findings Present&quot;</span>
+        <span class="n">final_comment</span> <span class="o">=</span> <span class="n">run_comment_qa_model</span><span class="p">(</span><span class="n">comment_model_dict</span><span class="p">[</span><span class="n">roberta_output</span><span class="p">],</span> <span class="n">clean_input_text</span><span class="p">,</span> <span class="n">comment_model</span><span class="p">,</span> <span class="n">distilroberta_tok</span><span class="p">)</span>
+
+        <span class="c1"># Based on the finding type, get the procedure recommendation</span>
+        <span class="k">if</span> <span class="n">lung_or_adrenal_finding</span> <span class="o">==</span> <span class="s2">&quot;Lung&quot;</span><span class="p">:</span>
+            <span class="c1"># Lung finding run through another model to determine recommended procedure</span>
+            <span class="n">roberta_proc_output</span> <span class="o">=</span> <span class="n">lung_recommended_proc_model</span><span class="p">(</span><span class="o">**</span><span class="n">roberta_inputs</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">lung_recommended_class</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">roberta_proc_output</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">lung_adrenal_recommended_proc_label</span> <span class="o">=</span> <span class="n">lung_recommended_proc_dict</span><span class="p">[</span><span class="n">lung_recommended_class</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">lung_or_adrenal_finding</span> <span class="o">==</span> <span class="s2">&quot;Adrenal&quot;</span><span class="p">:</span>
+            <span class="c1"># Only one recommendation for adrenal findings</span>
+            <span class="n">lung_adrenal_recommended_proc_label</span> <span class="o">=</span> <span class="s2">&quot;Endocrinology Referral&quot;</span>
+        
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># No finding detected; no follow-up recommended, etc.</span>
+        <span class="n">follow_up_flg</span> <span class="o">=</span> <span class="s2">&quot;NA&quot;</span>
+        <span class="n">final_comment</span> <span class="o">=</span> <span class="s2">&quot;NA&quot;</span>
+        <span class="n">lung_adrenal_recommended_proc_label</span> <span class="o">=</span> <span class="s2">&quot;NA&quot;</span>
+
+
+    <span class="c1"># Output includes classification and recommendations</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;procedure&quot;</span><span class="p">:</span> <span class="n">lung_adrenal_recommended_proc_label</span><span class="p">,</span>	<span class="c1"># Recommended procedure. For &quot;Lung&quot; finding, &quot;Ambiguous&quot; or &quot;Chest CT&quot;. For &quot;Adrenal&quot;, &quot;Endocrinology Referral&quot;</span>
+        <span class="s2">&quot;noduleType&quot;</span><span class="p">:</span> <span class="n">lung_or_adrenal_finding</span><span class="p">,</span>				<span class="c1"># Options defined in `findings_model_dict`</span>
+        <span class="s2">&quot;followUpFlag&quot;</span><span class="p">:</span> <span class="n">follow_up_flg</span><span class="p">,</span>						<span class="c1"># &quot;Boolean&quot; for findings: &quot;Findings Present&quot; or &quot;NA&quot;</span>
+        <span class="s2">&quot;followUpText&quot;</span><span class="p">:</span> <span class="n">final_comment</span><span class="p">,</span>						<span class="c1"># Follow-up text (i.e., text that indicates finding)</span>
+    <span class="p">}</span>
+    
+    <span class="k">return</span> <span class="n">output</span></div>
+
+
+<span class="c1"># %%</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, NM HIT.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

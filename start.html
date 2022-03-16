@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prerequisites &mdash; NM Results Management 1.10 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Overview" href="phase01/phase01.html" />
+    <link rel="prev" title="Code Overview" href="code.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> NM Results Management
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Home</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="home.html">NM Results Management AI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Project Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="about.html">Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html#initial-modeling-pre-annotations">Initial Modeling (Pre-Annotations)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html#modeling-method-i-regex">Modeling Method I: Regex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html#modeling-method-ii-machine-learning">Modeling Method II: Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html#modeling-method-iii-deep-learning">Modeling Method III: Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html#data-acquisition">Data Acquisition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html#initial-model-development">Initial Model Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html#clinical-workflow-epic-integration">Clinical Workflow &amp; Epic Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html#prospective-clinical-evaluation">Prospective Clinical Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html#workflow-challenges">Workflow Challenges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html#updating-the-models">Updating the Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html#future-plans">Future Plans</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="code.html">Code Overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Prerequisites</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#data">Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#required-downloads">Required Downloads</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Phase 01 Models</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="phase01/phase01.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase01/demo.html">Demo: Findings vs No Findings Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase01/train.html">Train</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase01/classify.html">Classify</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Phase 02 Models</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="phase02/phase02.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase02/demo_pretrain.html">Demo: Pretraining the NM Results Management Language Model with Custom Corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase02/demo_finetune.html">Demo: Fine-Tuning NM Results Management Language Model with a Custom Dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase02/train.html">Train</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase02/classify.html">Classify</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Azure</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="azure.html">Deployment</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NM Results Management</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Prerequisites</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/mozzilab/NM_Radiology_AI/blob/main/docs/source/start.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="prerequisites">
+<h1>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline"></a></h1>
+<section id="data">
+<h2>Data<a class="headerlink" href="#data" title="Permalink to this headline"></a></h2>
+<p>To train your own models on your own data, you will need labeled data. Trained in annotating radiology reports, NM nurses labeled 36,385 reports with 5,779 (15.9%) and 409 (1.1%) lung and adrenal follow-up recommendations, respectively, for this work. Ultimately, these reports were saved into a dataframe according to the table below. Note that this can be customized to fit your needs: different data sources, classification problems, etc. A de-identified example of such a dataframe is provided below.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 21%" />
+<col style="width: 58%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Info</p></th>
+<th class="head"><p>Dataframe Heading</p></th>
+<th class="head"><p>Values</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Radiology Report</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">note</span></code></p></td>
+<td><p>Entire report directly from Epic</p></td>
+</tr>
+<tr class="row-odd"><td><p>Finding</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">selected_finding</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">No</span> <span class="pre">Findings</span></code>, <code class="docutils literal notranslate"><span class="pre">Lung</span> <span class="pre">Findings</span></code>, or <code class="docutils literal notranslate"><span class="pre">Adrenal</span> <span class="pre">Findings</span></code>
+<sup>1</sup></p></td>
+</tr>
+<tr class="row-even"><td><p>Recommended Procedure</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">selected_proc</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CT</span> <span class="pre">Chest</span></code>, <code class="docutils literal notranslate"><span class="pre">Ambiguous</span></code>
+<sup>1,2</sup></p></td>
+</tr>
+<tr class="row-odd"><td><p>Relevant Portion of
+the Report with
+respect to the
+Finding</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">selected_label</span></code></p></td>
+<td><p>Findings portion of the report
+<sup>1</sup></p></td>
+</tr>
+<tr class="row-even"><td><p>De-identified report
+number</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">rpt_num</span></code></p></td>
+<td><p>Randomly generated</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><sup>1</sup> <em>Nurse annotated / provided</em></div>
+<div class="line"><sup>2</sup> <em>Only provided for reports with Lung Findings</em></div>
+</div>
+<p>For labeling, we used the open source <a class="reference external" href="https://inception-project.github.io/">INCEpTION platform</a>. A screenshot of the platform is shown below.</p>
+<img alt="_images/inception.png" class="align-center" src="_images/inception.png" />
+<table class="colwidths-given docutils align-default" id="id2">
+<caption><span class="caption-text">Sample Radiology Report Dataframe</span><a class="headerlink" href="#id2" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 80%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>rpt_num</p></th>
+<th class="head"><p>note</p></th>
+<th class="head"><p>selected_finding</p></th>
+<th class="head"><p>selected_proc</p></th>
+<th class="head"><p>selected_label</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>PROCEDURE:  CT CHEST WO CONTRAST. HISTORY:  Wheezing TECHNIQUE:  Non-contrast helical thoracic CT was performed. COMPARISON:  There is no prior chest CT for comparison. FINDINGS:   Support Devices:  None. Heart/Pericardium/Great Vessels:        Cardiac size is normal.      There is no calcific coronary artery atherosclerosis.       There is no pericardial effusion.      The aorta is normal in diameter.      The main pulmonary artery is normal in diameter. Pleural Spaces:  Few small pleural calcifications are present in the right pleura for example on 2/62 and 3/76.  The pleural spaces are otherwise clear. Mediastinum/Hila:  There is no mediastinal or hilar lymph node enlargement.  Subcentimeter minimally calcified paratracheal lymph nodes are likely related to prior granulomas infection. Neck Base/Chest Wall/Diaphragm/Upper Abdomen:  There is no supraclavicular or axillary lymph node enlargement.  Limited, non-contrast imaging through the upper abdomen is within normal limits.  Mild degenerative change is present in the spine. Lungs/Central Airways: There is a 15 mm nodular density in the nondependent aspect of the bronchus intermedius on 2/52.  The trachea and central airways are otherwise clear.  There is mild diffuse bronchial wall thickening.  There is a calcified granuloma in the posterior right upper lobe.  The lungs are otherwise clear. CONCLUSIONS:   1.  There is mild diffuse bronchial wall thickening suggesting small airways disease such as asthma or bronchitis in the appropriate clinical setting. 2.  A 3 mm nodular soft tissue attenuation in the nondependent aspect of the right bronchus intermedius is nonspecific, which could be mucus or abnormal soft tissue.  A follow-up CT in 6 months might be considered to evaluate the growth. 3.  Stigmata of old granulomatous disease is present. &amp;#x20; FINAL REPORT Attending Radiologist:</p></td>
+<td><p>Lung Findings</p></td>
+<td><p>CT Chest</p></td>
+<td><p>A 3 mm nodular soft tissue attenuation in the nondependent aspect of the right bronchus intermedius is nonspecific, which could be mucus or abnormal soft tissue.  A follow-up CT in 6 months might be considered to evaluate the growth.</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>PROCEDURE:  CT ABDOMEN PELVIS W CONTRAST COMPARISON:  date INDICATIONS:  Lower abdominal/flank pain on the right TECHNIQUE:     After obtaining the patients consent, CT images were created with intravenous iodinated contrast.  FINDINGS:   LIVER:   The liver is normal in size.  No suspicious liver lesion is seen. The portal and hepatic veins are patent. BILIARY:   No biliary duct dilation. The biliary system is otherwise unremarkable. PANCREAS:   No focal pancreatic lesion.  No pancreatic duct dilation. SPLEEN:   No suspicious splenic lesion is seen. The spleen is normal in size. KIDNEYS:   No suspicious renal lesion is seen.  No hydronephrosis. ADRENALS:   No adrenal gland nodule or thickening.  AORTA/VASCULAR:   No aneurysm. RETROPERITONEUM:   No lymphadenopathy. BOWEL/MESENTERY:   The appendix is normal.  No bowel wall thickening or bowel dilation. ABDOMINAL WALL:   No hernia. URINARY BLADDER:   Incomplete bladder distension limits evaluation, but no focal wall thickening or calculus is seen. PELVIC NODES:   No lymphadenopathy.  PELVIC ORGANS:   Status post hysterectomy.  No pelvic mass. BONES:   No acute fracture or suspicious osseous lesion. LUNG BASES:   No pleural effusion or consolidation. OTHER:   Small hiatal hernia. CONCLUSION:   1.  No acute process is detected. 2.  Small hiatal hernia &amp;#x20; FINAL REPORT Attending Radiologist:</p></td>
+<td><p>No Findings</p></td>
+<td></td>
+<td><p>No label</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>PROCEDURE:  CT ABDOMEN PELVIS W CONTRAST, CT CHEST W CONTRAST HISTORY:  Endometrial adenocarcinoma.  Status post right lower lobe segmentectomy for metastatic endometrial adenocarcinoma.  Total hysterectomy and bilateral salpingo-oophorectomy XX with pathology of endometrial adenocarcinoma. TECHNIQUE:  Helical CT of the chest, abdomen and pelvis was performed using non-ionic intravenous contrast. Ingested oral contrast partially opacifies the bowel.  COMPARISON:  CT chest, CT chest abdomen pelvis. FINDINGS CT CHEST:   Support Devices:  None. Heart/Pericardium/Great Vessels:        Cardiac size is normal.      Calcific coronary artery atherosclerosis cannot be evaluated on this exam.      There is no pericardial effusion.      There is no significant calcific aortic and branch vessel atherosclerosis.      The main pulmonary artery is normal in diameter. Pleural Spaces:  The pleural spaces are clear. Mediastinum/Hila:  There is no mediastinal or hilar lymph node enlargement. Neck Base/Chest Wall/Diaphragm:  There is no supraclavicular or axillary lymph node enlargement.   Mild degenerative change is present in the spine. Lungs/Central Airways:  The central airways are patent and clear.  There are new peripheral groundglass opacities within the left lower lobe, lingular left upper lobe and right middle lobe.  There are postsurgical changes of right lower lobe segmentectomy.  There is stable focus of probable nodular scarring (3/52).  There is a curvilinear band of volume loss of the posterior right middle lobe, similar to prior.  There are stable pulmonary micronodules in the left upper lobe (3/42) and left lower lobe (3/72). The left lower lobe nodule is likely calcified.  FINDINGS CT ABDOMEN/PELVIS: Liver: The liver is normal in size.  There is a stable 0.9 cm low-density focus in the right hepatic lobe near the junction of segments 6 and 7 (2/51).  An additional punctate low-density focus in the lateral segment of the left hepatic lobe is too small to characterize but stable in size (2/48). Biliary tree: The patient is post cholecystectomy. There is no biliary ductal dilatation. Spleen: The spleen is normal in size.  Pancreas:  Unremarkable. Adrenal glands:  Unremarkable. Kidneys:  There are bilateral symmetric nephrograms without hydronephrosis. Lymph nodes:  Abdomen: There is no abdominal adenopathy.  There is a stable 0.9 cm short axis portal caval lymph node (2/55). Pelvis: There is no pelvic adenopathy. Vasculature:  There is no abdominal aortic aneurysm. Atherosclerotic calcification is seen. Peritoneum/mesentery/omentum:  There is no free fluid or free air. GI tract:  There is no bowel obstruction.  There are scattered colonic diverticula.  The appendix is normal. Pelvic urogenital structures:The bladder is grossly unremarkable.  The patient is post hysterectomy. The patient is post bilateral salpingo-oopherectomy. There is no suspicious soft tissue at the surgical bed. Body wall:  There are degenerative changes in the spine.  No aggressive osseous lesion is identified. Key: (S/I) = series number / image number IMPRESSION:   Chest: 1.  New subtle peripheral groundglass opacities of the lung bases.  Findings raise the possibility of an inflammatory or infectious process including viral etiologies (such as COVID-19) and should be correlated with symptoms. 2.  No convincing evidence of metastatic disease in the chest. 3.  Stable pulmonary micronodules.  Attention on follow-up imaging. 4.  Stable postsurgical change of right lower lobe segmentectomy. Abdomen and pelvis: 1.  Postsurgical change of hysterectomy and bilateral salpingo-oophorectomy.  No suspicious pelvic mass. 2.  Stable subcentimeter low-density foci within the liver, which are too small to characterize.  The larger 0.9 cm focus in the right hepatic lobe may represent a small cyst.  Attention on follow-up. 3.  No lymphadenopathy in the abdomen or pelvis. FINAL REPORT THE ATTENDING RADIOLOGIST INTERPRETED THIS STUDY WITH THE RESIDENT WHOSE NAME APPEARS BELOW, AND FULLY AGREES WITH THE REPORT AND HAS AMENDED THE REPORT WHEN NECESSARY: Attending Radiologist:</p></td>
+<td><p>Lung Findings</p></td>
+<td><p>Ambiguous</p></td>
+<td><p>Stable pulmonary micronodules.  Attention on follow-up imaging.</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>PROCEDURE:  CT ABDOMEN PELVIS W CONTRAST HISTORY:  Epigastric abdominal pain, nausea, and vomiting.  Admitted with acute hypoxemic respiratory failure secondary to COVID. TECHNIQUE:  Helical CT of the abdomen and pelvis was performed using non-ionic intravenous contrast. Ingested oral contrast partially opacifies the bowel.  COMPARISON:  Abdominal x-ray, 12/3/2040. Chest x-ray, 12/4/2040. FINDINGS CT ABDOMEN/PELVIS: Lower thorax:  There are patchy, multifocal groundglass opacities in the bilateral lung bases, right greater than left. There is a wedge-shaped area of dense consolidation in the dependent right lower lobe and smaller areas of consolidation in the left lower lobe. There are reticular opacities in the dependent lung bases that may represent a component of subsegmental atelectasis. The heart size is normal. Liver: The liver is normal in size. A 0.8 cm cyst is seen in the superior medial left hepatic segment IVa (3/15). Additional low density foci are too small to characterize. Biliary tree: The gallbladder is present. There is no biliary ductal dilatation. Spleen: The spleen is normal in size.  Pancreas:  The pancreas is normal in size and enhances homogenously. Adrenal glands:  The right adrenal gland is unremarkable. There is nodularity to the contour of the left adrenal gland. A 1.2 cm nodule seen in the left adrenal gland (3/23). Kidneys:  There are bilateral symmetric nephrograms without hydronephrosis. There are multiple cysts in the kidneys.  The largest cyst in the right kidney measures 2.8 cm (3/37).  The largest cyst in the left kidney measures 2.4 cm (3/37). Additional small low density foci are too small to characterize. Lymph nodes:  Abdomen: There is no abdominal adenopathy. Pelvis: There is no pelvic adenopathy. Vasculature:  There is no abdominal aortic aneurysm. Atherosclerotic calcification is seen. Peritoneum/mesentery/omentum:  There is no free fluid or free air. GI tract:  There is no bowel obstruction. The appendix contains multiple appendicoliths, without CT evidence of appendicitis. Pelvic urogenital structures:Evaluation of the pelvis is limited by streak artifact from a right hip prosthesis. The bladder is unremarkable. The uterus is present. No adnexal mass is seen. Body wall:  Calcifications are seen in the posterior inferior abdominal wall subcutaneous tissues. There is a minimal amount of subcutaneous edema in the posterior body wall soft tissues along the midline. A total right hip arthroplasty is identified. There are degenerative changes of the right greater than left sacroiliac joints. There are degenerative changes in the spine. An osseous hemangioma is seen in the T10 vertebral body. There is mild anterior wedging of the T11 vertebral body, consistent with an age indeterminate compression fracture. Key: (S/I) = series number / image number IMPRESSION:   1.  An explanation for the patient’s gastrointestinal symptoms is not identified on this examination. Specifically, no bowel obstruction or bowel wall thickening or inflammatory changes seen. 2.  Multifocal groundglass opacities and consolidation in the lung bases, consistent with the patient’s history of COVID pneumonia. 3.  A 1.2 cm left adrenal nodule is incompletely evaluated on this examination. An adrenal MRI could be obtained if clinically indicated. 4.  Age indeterminate compression fracture of T11. &amp;#x20; FINAL REPORT THE ATTENDING RADIOLOGIST INTERPRETED THIS STUDY WITH THE RESIDENT WHOSE NAME APPEARS BELOW, AND FULLY AGREES WITH THE REPORT AND HAS AMENDED THE REPORT WHEN NECESSARY: Attending Radiologist:</p></td>
+<td><p>Adrenal Findings</p></td>
+<td></td>
+<td><p>A 1.2 cm left adrenal nodule is incompletely evaluated on this examination. An adrenal MRI could be obtained if clinically indicated.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For Phase 01 of the project, all preprocessing of the note (i.e., extracting the findings, removing Dr. signatures, etc.) was completed once and saved off as part of the dataframe in the column as <code class="docutils literal notranslate"><span class="pre">new_note</span></code>. Note that the Phase 01 source code will make use of this column, while the Phase 02 code will reference the original <code class="docutils literal notranslate"><span class="pre">note</span></code> and perform the preprocessing at the beginning of the training functions.</p>
+</div>
+</section>
+<section id="required-downloads">
+<h2>Required Downloads<a class="headerlink" href="#required-downloads" title="Permalink to this headline"></a></h2>
+<p>Some of the model training scripts require downloads from the internet. Please find them below. Note that the Phase 02 models use 🤗 (Hugging Face), which will download the files automatically.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 6%" />
+<col style="width: 23%" />
+<col style="width: 62%" />
+<col style="width: 9%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Project Phase</p></th>
+<th class="head"><p>Model</p></th>
+<th class="head"><p>Downloads</p></th>
+<th class="head"><p>Download Beforehand?</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td rowspan="4"><p>Phase 01</p></td>
+<td><p>Findings vs No Finding Model</p></td>
+<td><p><a class="reference external" href="https://nlp.stanford.edu/data/glove.6B.zip">GloVe pretrained word vectors: glove.6B.300d.txt</a></p></td>
+<td><p>✓</p></td>
+</tr>
+<tr class="row-odd"><td><p>Lung vs Adrenal Findings Model</p></td>
+<td><p><a class="reference external" href="https://ftp.ncbi.nlm.nih.gov/pub/lu/Suppl/BioSentVec/BioWordVec_PubMed_MIMICIII_d200.bin">BioWordVec word vectors: BioWordVec_PubMed_MIMICIII_d200.bin</a></p></td>
+<td><p>✓</p></td>
+</tr>
+<tr class="row-even"><td><p>Comment Extraction Model</p></td>
+<td><p><a class="reference external" href="https://www.nltk.org/api/nltk.tokenize.punkt.html#module-nltk.tokenize.punkt">NLTK Punkt Tokenizer</a></p></td>
+<td><p>✗</p></td>
+</tr>
+<tr class="row-odd"><td><p>Lung Recommended Procedure Model</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td rowspan="3"><p>Phase 02</p></td>
+<td><p>Lung Findings, Adrenal Findings, or No Findings Model</p></td>
+<td><p><a class="reference external" href="https://huggingface.co/roberta-base">RoBERTa base</a></p></td>
+<td><p>✗</p></td>
+</tr>
+<tr class="row-odd"><td><p>Comment Extraction Model</p></td>
+<td><p><a class="reference external" href="https://huggingface.co/roberta-base">RoBERTa base</a></p></td>
+<td><p>✗</p></td>
+</tr>
+<tr class="row-even"><td><p>Lung Recommended Procedure Model</p></td>
+<td><p><a class="reference external" href="https://huggingface.co/roberta-large">RoBERTa large</a></p></td>
+<td><p>✗</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You must have these tools downloaded before running the Phase 01 models. Do this by either manual downloading and extracting in the workspace or using <code class="docutils literal notranslate"><span class="pre">wget</span></code> in the cli to accomplish the same.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="code.html" class="btn btn-neutral float-left" title="Code Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="phase01/phase01.html" class="btn btn-neutral float-right" title="Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, NM HIT.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nmrezman.phase01.train.general &mdash; NM Results Management 1.10 documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/clipboard.min.js"></script>
+        <script src="../../../../_static/copybutton.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../../../about.html" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../../index.html" class="icon icon-home"> NM Results Management
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Home</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../home.html">NM Results Management AI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Project Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about.html">Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about.html#initial-modeling-pre-annotations">Initial Modeling (Pre-Annotations)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about.html#modeling-method-i-regex">Modeling Method I: Regex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about.html#modeling-method-ii-machine-learning">Modeling Method II: Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about.html#modeling-method-iii-deep-learning">Modeling Method III: Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about.html#data-acquisition">Data Acquisition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about.html#initial-model-development">Initial Model Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about.html#clinical-workflow-epic-integration">Clinical Workflow &amp; Epic Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about.html#prospective-clinical-evaluation">Prospective Clinical Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about.html#workflow-challenges">Workflow Challenges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about.html#updating-the-models">Updating the Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about.html#future-plans">Future Plans</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../code.html">Code Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../start.html">Prerequisites</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Phase 01 Models</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../phase01/phase01.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../phase01/demo.html">Demo: Findings vs No Findings Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../phase01/train.html">Train</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../phase01/classify.html">Classify</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Phase 02 Models</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../phase02/phase02.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../phase02/demo_pretrain.html">Demo: Pretraining the NM Results Management Language Model with Custom Corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../phase02/demo_finetune.html">Demo: Fine-Tuning NM Results Management Language Model with a Custom Dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../phase02/train.html">Train</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../phase02/classify.html">Classify</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Azure</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../azure.html">Deployment</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">NM Results Management</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+      <li>nmrezman.phase01.train.general</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for nmrezman.phase01.train.general</h1><div class="highlight"><pre>
+<span></span><span class="c1"># %%</span>
+
+<span class="c1"># Models and tokenizers</span>
+<span class="kn">import</span> <span class="nn">joblib</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">keras.preprocessing.text</span> <span class="kn">import</span> <span class="n">Tokenizer</span>
+<span class="kn">from</span> <span class="nn">keras.preprocessing.sequence</span> <span class="kn">import</span> <span class="n">pad_sequences</span>
+<span class="kn">import</span> <span class="nn">keras.backend</span> <span class="k">as</span> <span class="nn">K</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.utils</span> <span class="kn">import</span> <span class="n">to_categorical</span>
+<span class="kn">from</span> <span class="nn">keras.callbacks</span> <span class="kn">import</span> <span class="n">ModelCheckpoint</span><span class="p">,</span> <span class="n">EarlyStopping</span>
+<span class="kn">from</span> <span class="nn">keras.models</span> <span class="kn">import</span> <span class="n">load_model</span>
+<span class="kn">import</span> <span class="nn">fasttext</span>
+
+<span class="kn">import</span> <span class="nn">nltk</span>
+<span class="kn">from</span> <span class="nn">xgboost</span> <span class="kn">import</span> <span class="n">XGBClassifier</span>
+<span class="kn">from</span> <span class="nn">imblearn.pipeline</span> <span class="kn">import</span> <span class="n">make_pipeline</span><span class="p">,</span> <span class="n">Pipeline</span>
+<span class="kn">from</span> <span class="nn">imblearn.under_sampling</span> <span class="kn">import</span> <span class="n">RandomUnderSampler</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span><span class="p">,</span> <span class="n">CountVectorizer</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">StratifiedKFold</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">precision_score</span><span class="p">,</span> <span class="n">recall_score</span><span class="p">,</span> <span class="n">f1_score</span>
+
+<span class="c1"># nmrezman</span>
+<span class="kn">from</span> <span class="nn">..models</span> <span class="kn">import</span> <span class="n">get_bilstm_findings_classifier</span><span class="p">,</span> <span class="n">get_bilstm_lung_adrenal_classifier</span><span class="p">,</span> <span class="n">recommended_proc_model</span>
+<span class="kn">from</span> <span class="nn">...utils</span> <span class="kn">import</span> <span class="n">generate_eval_report</span>
+
+<span class="c1"># Misc</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+
+<span class="c1"># Typing</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span>
+<span class="kn">import</span> <span class="nn">numpy.typing</span> <span class="k">as</span> <span class="nn">npt</span>
+<span class="kn">from</span> <span class="nn">keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span>
+
+
+<span class="c1"># %%</span>
+
+<span class="k">def</span> <span class="nf">tokenize</span><span class="p">(</span>
+        <span class="n">x</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">,</span>
+        <span class="n">max_num_words</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">max_sequence_length</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">tokenizer_fname</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">is_create</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">npt</span><span class="o">.</span><span class="n">NDArray</span><span class="p">,</span> <span class="nb">dict</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+    
+    <span class="c1"># Define the tokenizer</span>
+    <span class="c1"># Lowercase the text; filter out special characters </span>
+    <span class="k">if</span> <span class="n">is_create</span><span class="p">:</span>
+        <span class="n">tokenizer</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">(</span><span class="n">num_words</span><span class="o">=</span><span class="n">max_num_words</span><span class="p">,</span> <span class="n">filters</span><span class="o">=</span><span class="s1">&#39;!&quot;#$%&amp;()*+,-./:;&lt;=&gt;?@[\]^_`{|}~&#39;</span><span class="p">,</span> <span class="n">lower</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">tokenizer</span><span class="o">.</span><span class="n">fit_on_texts</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">tokenizer</span> <span class="o">=</span> <span class="n">joblib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">tokenizer_fname</span><span class="p">)</span>
+    <span class="n">word_index</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">word_index</span>
+    <span class="n">vocab_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">word_index</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
+
+    <span class="c1"># Tokenize the notes</span>
+    <span class="c1"># Prepend since radiology fidings are almost always located in the last section of the report</span>
+    <span class="n">x_tokenized</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">texts_to_sequences</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x_tokenized</span> <span class="o">=</span> <span class="n">pad_sequences</span><span class="p">(</span><span class="n">x_tokenized</span><span class="p">,</span> <span class="n">maxlen</span><span class="o">=</span><span class="n">max_sequence_length</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s2">&quot;pre&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Save the tokenizer, which will be needed for classification and training other models</span>
+    <span class="k">if</span> <span class="n">is_create</span><span class="p">:</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">tokenizer_fname</span><span class="p">),</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">joblib</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">tokenizer</span><span class="p">,</span> <span class="n">tokenizer_fname</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">x_tokenized</span><span class="p">,</span> <span class="n">word_index</span><span class="p">,</span> <span class="n">vocab_size</span>
+
+
+<span class="k">def</span> <span class="nf">train</span><span class="p">(</span>
+        <span class="n">x_tokenized</span><span class="p">:</span> <span class="n">npt</span><span class="o">.</span><span class="n">NDArray</span><span class="p">,</span>
+        <span class="n">y</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="n">npt</span><span class="o">.</span><span class="n">NDArray</span><span class="p">],</span>
+        <span class="n">model</span><span class="p">:</span> <span class="n">Sequential</span><span class="p">,</span>
+        <span class="n">model_checkpoint_name</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s2">&quot;./output/best_model.h5&quot;</span><span class="p">,</span>
+        <span class="n">epochs</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+        <span class="n">class_weight</span><span class="p">:</span> <span class="nb">dict</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">result_fname</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s2">&quot;./output/validation.log&quot;</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Train a Keras model</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Make dirs before wasting time running model</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">model_checkpoint_name</span><span class="p">),</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">result_fname</span><span class="p">),</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># Split the data into train and test</span>
+    <span class="n">train_x</span><span class="p">,</span> <span class="n">test_x</span><span class="p">,</span> <span class="n">train_y</span><span class="p">,</span> <span class="n">test_y</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">x_tokenized</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.30</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">133278</span><span class="p">)</span>
+
+    <span class="c1"># Clear the Keras backend, starting model training from scratch</span>
+    <span class="n">K</span><span class="o">.</span><span class="n">clear_session</span><span class="p">()</span>
+
+    <span class="c1"># Train!</span>
+    <span class="n">batch_size</span> <span class="o">=</span> <span class="mi">100</span>
+    <span class="n">es</span> <span class="o">=</span> <span class="n">EarlyStopping</span><span class="p">(</span><span class="n">monitor</span><span class="o">=</span><span class="s2">&quot;val_loss&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;min&quot;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">patience</span><span class="o">=</span><span class="mi">15</span><span class="p">,)</span>
+    <span class="n">mc</span> <span class="o">=</span> <span class="n">ModelCheckpoint</span><span class="p">(</span><span class="n">model_checkpoint_name</span><span class="p">,</span> <span class="n">monitor</span><span class="o">=</span><span class="s2">&quot;val_loss&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;min&quot;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">save_best_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,)</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+        <span class="n">train_x</span><span class="p">,</span>
+        <span class="n">to_categorical</span><span class="p">(</span><span class="n">train_y</span><span class="p">),</span>
+        <span class="n">class_weight</span><span class="o">=</span><span class="n">class_weight</span><span class="p">,</span>
+        <span class="n">epochs</span><span class="o">=</span><span class="n">epochs</span><span class="p">,</span>
+        <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span>
+        <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">es</span><span class="p">,</span> <span class="n">mc</span><span class="p">],</span>
+        <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">test_x</span><span class="p">,</span> <span class="n">to_categorical</span><span class="p">(</span><span class="n">test_y</span><span class="p">)),</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Load in the best model</span>
+    <span class="n">best_model</span> <span class="o">=</span> <span class="n">load_model</span><span class="p">(</span><span class="n">model_checkpoint_name</span><span class="p">)</span>
+
+    <span class="c1"># Perform confusion matrix and save the results</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">best_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">test_x</span><span class="p">))</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">generate_eval_report</span><span class="p">(</span><span class="n">test_y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">result_fname</span><span class="p">)</span>
+
+    <span class="k">return</span>
+
+
+<span class="c1"># %% [markdown]</span>
+<span class="c1"># # Train Findings vs No Findings Model</span>
+
+<span class="c1"># %%</span>
+
+<div class="viewcode-block" id="train_findings_model"><a class="viewcode-back" href="../../../../phase01/train.html#nmrezman.phase01.train.general.train_findings_model">[docs]</a><span class="k">def</span> <span class="nf">train_findings_model</span><span class="p">(</span>
+        <span class="n">data_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">glove_embedding_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">model_checkpoint_name</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s2">&quot;findings_best_model.h5&quot;</span><span class="p">,</span>
+        <span class="n">result_fname</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s2">&quot;findings_best_result.log&quot;</span><span class="p">,</span>
+        <span class="n">tokenizer_fname</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s2">&quot;tokenizer.gz&quot;</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Trains the Findings vs No Findings Phase 01 BiLSTM model. </span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        data_path (`str`):</span>
+<span class="sd">            Path to the dataframe file with the preprocessed impressions and labels in ``new_note`` and</span>
+<span class="sd">            ``selected_finding`` columns, respectively</span>
+<span class="sd">        glove_embedding_path (`str`):</span>
+<span class="sd">            Path to the pre-downloaded GloVe Stanford pretrained word vectors ``glove.6B.300d`` as found at </span>
+<span class="sd">            https://nlp.stanford.edu/projects/glove/</span>
+<span class="sd">        model_checkpoint_name (`str`):</span>
+<span class="sd">            Path / filename to save model checkpoints</span>
+<span class="sd">        result_fname (`str`):</span>
+<span class="sd">            Path / filename to save model evaluation metrics</span>
+<span class="sd">        tokenizer_fname (`str`):</span>
+<span class="sd">            Path / filename to save tokenizer</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Import data</span>
+    <span class="c1"># NOTE: this data has already been preprocessed, extracting the findings, removing Dr signature, etc.</span>
+    <span class="c1"># See `from ..utils import preprocess_input`</span>
+    <span class="n">modeling_df</span> <span class="o">=</span> <span class="n">joblib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">data_path</span><span class="p">)</span>
+
+    <span class="c1"># Get preprocessed notes and labels as already indicated by the dataframe</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">modeling_df</span><span class="p">[</span><span class="s2">&quot;new_note&quot;</span><span class="p">]</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="s2">&quot;No Findings&quot;</span> <span class="k">else</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">modeling_df</span><span class="p">[</span><span class="s2">&quot;selected_finding&quot;</span><span class="p">]]</span>
+
+    <span class="c1"># Define model constants</span>
+    <span class="n">max_sequence_length</span> <span class="o">=</span> <span class="mi">300</span>       <span class="c1"># Max length of report. Avg NM is ~250</span>
+    <span class="n">max_num_words</span> <span class="o">=</span> <span class="mi">15000</span>           <span class="c1"># Max number of words for init vocab; the actual vocab size used by the model will be different</span>
+    <span class="n">glove_embedding_dim</span> <span class="o">=</span> <span class="mi">300</span>       <span class="c1"># GloVe embedding dimension size</span>
+
+    <span class="c1"># Tokenize the data</span>
+    <span class="n">X_tokenized</span><span class="p">,</span> <span class="n">word_index</span><span class="p">,</span> <span class="n">vocab_size</span> <span class="o">=</span> <span class="n">tokenize</span><span class="p">(</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">X</span><span class="p">,</span>
+        <span class="n">max_num_words</span><span class="o">=</span><span class="n">max_num_words</span><span class="p">,</span>
+        <span class="n">max_sequence_length</span><span class="o">=</span><span class="n">max_sequence_length</span><span class="p">,</span>
+        <span class="n">tokenizer_fname</span><span class="o">=</span><span class="n">tokenizer_fname</span><span class="p">,</span>
+        <span class="n">is_create</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Get GloVe embedding matrix</span>
+    <span class="c1"># NOTE: Stanford pretrained word vectors glove.6B.300d were downloaded from https://nlp.stanford.edu/projects/glove/</span>
+    <span class="n">glove_embeddings_index</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">glove_embedding_path</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf8&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="n">word</span> <span class="o">=</span> <span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">coefs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="n">glove_embeddings_index</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">=</span> <span class="n">coefs</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="n">glove_embedding_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">word_index</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">glove_embedding_dim</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">word_index</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">glove_embedding_vector</span> <span class="o">=</span> <span class="n">glove_embeddings_index</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">glove_embedding_vector</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="c1"># words not found in embedding index will be all-zeros.</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">glove_embedding_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">glove_embedding_vector</span><span class="p">):</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;could not broadcast input array from shape&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">glove_embedding_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">])),</span>
+                        <span class="s2">&quot;into shape&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">glove_embedding_vector</span><span class="p">)),</span> <span class="s2">&quot; Please make sure your&quot;</span>
+                                                                    <span class="s2">&quot; EMBEDDING_DIM is equal to embedding_vector file ,GloVe,&quot;</span><span class="p">)</span>
+                    <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+                <span class="n">glove_embedding_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">glove_embedding_vector</span>
+
+    <span class="c1"># Define the model</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">get_bilstm_findings_classifier</span><span class="p">(</span>
+        <span class="n">max_sequence_length</span><span class="o">=</span><span class="n">max_sequence_length</span><span class="p">,</span>
+        <span class="n">max_num_words</span><span class="o">=</span><span class="n">vocab_size</span><span class="p">,</span> 
+        <span class="n">glove_embedding_dim</span><span class="o">=</span><span class="n">glove_embedding_dim</span><span class="p">,</span>
+        <span class="n">glove_embedding_matrix</span><span class="o">=</span><span class="n">glove_embedding_matrix</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Train and evaluate</span>
+    <span class="n">train</span><span class="p">(</span>
+        <span class="n">x_tokenized</span><span class="o">=</span><span class="n">X_tokenized</span><span class="p">,</span>
+        <span class="n">y</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span>
+        <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>
+        <span class="n">model_checkpoint_name</span><span class="o">=</span><span class="n">model_checkpoint_name</span><span class="p">,</span>
+        <span class="n">epochs</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> 
+        <span class="n">result_fname</span><span class="o">=</span><span class="n">result_fname</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span></div>
+
+
+<span class="c1"># %% [markdown]</span>
+<span class="c1"># # Train Lung vs Adrenal Findings Model</span>
+
+<span class="c1"># %%</span>
+
+<div class="viewcode-block" id="train_lung_adrenal_model"><a class="viewcode-back" href="../../../../phase01/train.html#nmrezman.phase01.train.general.train_lung_adrenal_model">[docs]</a><span class="k">def</span> <span class="nf">train_lung_adrenal_model</span><span class="p">(</span>
+        <span class="n">data_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">bioword_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">model_checkpoint_name</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s2">&quot;lung_adrenal_best_model.h5&quot;</span><span class="p">,</span>
+        <span class="n">result_fname</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s2">&quot;lung_adrenal_best_result.log&quot;</span><span class="p">,</span>
+        <span class="n">tokenizer_fname</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s2">&quot;tokenizer.gz&quot;</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Trains the Lung vs Adrenal Findings Phase 01 BiLSTM model. </span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        data_path (`str`):</span>
+<span class="sd">            Path to the dataframe file with the preprocessed impressions and labels in ``new_note`` and</span>
+<span class="sd">            ``selected_finding`` columns, respectively</span>
+<span class="sd">        bioword_path (`str`):</span>
+<span class="sd">            Path to the BioWordVec pretrained word vectors ``BioWordVec_PubMed_MIMICIII_d200.bin`` as from </span>
+<span class="sd">            https://ftp.ncbi.nlm.nih.gov/pub/lu/Suppl/BioSentVec/BioWordVec_PubMed_MIMICIII_d200.bin</span>
+<span class="sd">        model_checkpoint_name (`str`):</span>
+<span class="sd">            Path / filename to save model checkpoints</span>
+<span class="sd">        result_fname (`str`):</span>
+<span class="sd">            Path / filename to save model evaluation metrics</span>
+<span class="sd">        tokenizer_fname (`str`):</span>
+<span class="sd">            Path / filename to save tokenizer</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Import data</span>
+    <span class="c1"># NOTE: this data has already been preprocessed, extracting the findings, removing Dr signature, etc.</span>
+    <span class="c1"># See `from ..utils import preprocess_input`</span>
+    <span class="n">modeling_df</span> <span class="o">=</span> <span class="n">joblib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">data_path</span><span class="p">)</span>
+
+    <span class="c1"># Get preprocessed notes and labels as already indicated by the dataframe</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">modeling_df</span><span class="p">[</span><span class="n">modeling_df</span><span class="p">[</span><span class="s2">&quot;selected_finding&quot;</span><span class="p">]</span><span class="o">!=</span><span class="s2">&quot;No Findings&quot;</span><span class="p">][</span><span class="s2">&quot;new_note&quot;</span><span class="p">]</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="n">modeling_df</span><span class="p">[</span><span class="n">modeling_df</span><span class="p">[</span><span class="s2">&quot;selected_finding&quot;</span><span class="p">]</span><span class="o">!=</span><span class="s2">&quot;No Findings&quot;</span><span class="p">][</span><span class="s2">&quot;selected_finding&quot;</span><span class="p">]</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">if</span> <span class="n">i</span> <span class="o">==</span><span class="s2">&quot;Lung Findings&quot;</span> <span class="k">else</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">labels</span><span class="p">]</span>
+
+    <span class="c1"># Define model constants </span>
+    <span class="n">max_sequence_length</span> <span class="o">=</span> <span class="mi">300</span>       <span class="c1"># Max length of report. Avg NM is ~250</span>
+    <span class="n">max_num_words</span> <span class="o">=</span> <span class="mi">20000</span>           <span class="c1"># Max number of words for init vocab; the actual vocab size used by the model will be different</span>
+    <span class="n">bioword_embedding_dim</span> <span class="o">=</span> <span class="mi">200</span>     <span class="c1"># Bioword embedding dimension size</span>
+
+    <span class="c1"># Tokenize the data</span>
+    <span class="n">X_tokenized</span><span class="p">,</span> <span class="n">word_index</span><span class="p">,</span> <span class="n">vocab_size</span> <span class="o">=</span> <span class="n">tokenize</span><span class="p">(</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">X</span><span class="p">,</span>
+        <span class="n">max_num_words</span><span class="o">=</span><span class="n">max_num_words</span><span class="p">,</span>
+        <span class="n">max_sequence_length</span><span class="o">=</span><span class="n">max_sequence_length</span><span class="p">,</span>
+        <span class="n">tokenizer_fname</span><span class="o">=</span><span class="n">tokenizer_fname</span><span class="p">,</span>
+        <span class="n">is_create</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Load the model for (bio) word embedding</span>
+    <span class="c1"># NOTE: bioword word vector downloaded from: https://ftp.ncbi.nlm.nih.gov/pub/lu/Suppl/BioSentVec/BioWordVec_PubMed_MIMICIII_d200.bin</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">fasttext</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="n">bioword_path</span><span class="p">)</span>
+
+    <span class="c1"># Prepare the word embedding matrix</span>
+    <span class="n">num_words</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">word_index</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">max_num_words</span><span class="p">)</span>
+    <span class="n">bioword_embedding_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">num_words</span><span class="p">,</span> <span class="n">bioword_embedding_dim</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">word_index</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="n">max_num_words</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">bioword_embedding_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">get_word_vector</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+
+    <span class="c1"># Define the model</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">get_bilstm_lung_adrenal_classifier</span><span class="p">(</span>
+        <span class="n">max_num_words</span><span class="o">=</span><span class="n">vocab_size</span><span class="p">,</span> 
+        <span class="n">bioword_embedding_dim</span><span class="o">=</span><span class="n">bioword_embedding_dim</span><span class="p">,</span> 
+        <span class="n">max_sequence_length</span><span class="o">=</span><span class="n">max_sequence_length</span><span class="p">,</span> 
+        <span class="n">bioword_embedding_matrix</span><span class="o">=</span><span class="n">bioword_embedding_matrix</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Train and evaluate</span>
+    <span class="n">train</span><span class="p">(</span>
+        <span class="n">x_tokenized</span><span class="o">=</span><span class="n">X_tokenized</span><span class="p">,</span>
+        <span class="n">y</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span>
+        <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>
+        <span class="n">model_checkpoint_name</span><span class="o">=</span><span class="n">model_checkpoint_name</span><span class="p">,</span>
+        <span class="n">epochs</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> 
+        <span class="n">class_weight</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">100</span><span class="p">},</span>
+        <span class="n">result_fname</span><span class="o">=</span><span class="n">result_fname</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span>    </div>
+
+
+<span class="c1"># %% [markdown]</span>
+<span class="c1"># # Train Lung Recommended Procedure (Chest CT or Ambiguous) Model</span>
+
+<span class="c1"># %%</span>
+
+<div class="viewcode-block" id="train_lung_recommended_proc_model"><a class="viewcode-back" href="../../../../phase01/train.html#nmrezman.phase01.train.general.train_lung_recommended_proc_model">[docs]</a><span class="k">def</span> <span class="nf">train_lung_recommended_proc_model</span><span class="p">(</span>
+        <span class="n">data_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">model_checkpoint_name</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s2">&quot;lung_recommend_best_model.h5&quot;</span><span class="p">,</span>
+        <span class="n">result_fname</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s2">&quot;lung_recommend_best_result.log&quot;</span><span class="p">,</span>
+        <span class="n">tokenizer_fname</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s2">&quot;tokenizer.gz&quot;</span><span class="p">,</span>        
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Trains the Lung Recommended Procedure Phase 01 BiLSTM model. Recommends &quot;Chest CT&quot; or &quot;Ambiguous&quot; procedure for </span>
+<span class="sd">    &quot;Lung Findings&quot;. </span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        data_path (`str`):</span>
+<span class="sd">            Path to the dataframe file with the preprocessed impressions and labels in ``new_note`` and</span>
+<span class="sd">            ``selected_finding`` columns, respectively</span>
+<span class="sd">        model_checkpoint_name (`str`):</span>
+<span class="sd">            Path / filename to save model checkpoints</span>
+<span class="sd">        result_fname (`str`):</span>
+<span class="sd">            Path / filename to save model evaluation metrics</span>
+<span class="sd">        tokenizer_fname (`str`):</span>
+<span class="sd">            Path / filename to save tokenizer</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Import data</span>
+    <span class="c1"># NOTE: this data has already been preprocessed, extracting the findings, removing Dr signature, etc.</span>
+    <span class="c1"># See `from ..utils import preprocess_input`</span>
+    <span class="n">modeling_df</span> <span class="o">=</span> <span class="n">joblib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">data_path</span><span class="p">)</span>
+
+    <span class="c1"># Get the portion of the dataset that includes lung findings as already indicated by the dataframe</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">modeling_df</span><span class="p">[</span><span class="n">modeling_df</span><span class="p">[</span><span class="s2">&quot;selected_finding&quot;</span><span class="p">]</span><span class="o">==</span><span class="s2">&quot;Lung Findings&quot;</span><span class="p">][</span><span class="s2">&quot;new_note&quot;</span><span class="p">]</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="n">modeling_df</span><span class="p">[</span><span class="n">modeling_df</span><span class="p">[</span><span class="s2">&quot;selected_finding&quot;</span><span class="p">]</span><span class="o">==</span><span class="s2">&quot;Lung Findings&quot;</span><span class="p">][</span><span class="s2">&quot;selected_proc&quot;</span><span class="p">]</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="k">if</span> <span class="n">i</span><span class="o">==</span><span class="s2">&quot;CT Chest&quot;</span> <span class="k">else</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">labels</span><span class="p">]</span>
+
+    <span class="c1"># Define model constants </span>
+    <span class="n">max_sequence_length</span> <span class="o">=</span> <span class="mi">300</span>       <span class="c1"># Max length of report. Avg NM is ~250</span>
+    <span class="n">max_num_words</span> <span class="o">=</span> <span class="mi">20000</span>           <span class="c1"># Max number of words for init vocab; the actual vocab size used by the model will be different</span>
+    <span class="n">embedding_dim</span> <span class="o">=</span> <span class="mi">300</span>             <span class="c1"># embedding dimension size</span>
+
+    <span class="c1"># Tokenize the data</span>
+    <span class="n">X_tokenized</span><span class="p">,</span> <span class="n">word_index</span><span class="p">,</span> <span class="n">vocab_size</span> <span class="o">=</span> <span class="n">tokenize</span><span class="p">(</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">X</span><span class="p">,</span>
+        <span class="n">max_num_words</span><span class="o">=</span><span class="n">max_num_words</span><span class="p">,</span>
+        <span class="n">max_sequence_length</span><span class="o">=</span><span class="n">max_sequence_length</span><span class="p">,</span>
+        <span class="n">tokenizer_fname</span><span class="o">=</span><span class="n">tokenizer_fname</span><span class="p">,</span>
+        <span class="n">is_create</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Define the model</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">recommended_proc_model</span><span class="p">(</span>
+        <span class="n">max_num_words</span><span class="o">=</span><span class="n">max_num_words</span><span class="p">,</span> 
+        <span class="n">embedding_dim</span><span class="o">=</span><span class="n">embedding_dim</span><span class="p">,</span> 
+        <span class="n">input_length</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">X_tokenized</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Train and evaluate</span>
+    <span class="n">train</span><span class="p">(</span>
+        <span class="n">x_tokenized</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">X_tokenized</span><span class="p">),</span>
+        <span class="n">y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">labels</span><span class="p">),</span>
+        <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>
+        <span class="n">model_checkpoint_name</span><span class="o">=</span><span class="n">model_checkpoint_name</span><span class="p">,</span>
+        <span class="n">epochs</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> 
+        <span class="n">result_fname</span><span class="o">=</span><span class="n">result_fname</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span></div>
+
+
+<span class="c1"># %% [markdown]</span>
+<span class="c1"># # Train Comment Extraction Model</span>
+
+<span class="c1"># %%</span>
+
+<div class="viewcode-block" id="train_comment_model"><a class="viewcode-back" href="../../../../phase01/train.html#nmrezman.phase01.train.general.train_comment_model">[docs]</a><span class="k">def</span> <span class="nf">train_comment_model</span><span class="p">(</span>
+        <span class="n">data_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">model_checkpoint_name</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s2">&quot;comment_best_model.sav&quot;</span><span class="p">,</span>
+        <span class="n">result_fname</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s2">&quot;comment_best_result.log&quot;</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Trains the Comment Extraction Phase 01 XGBoost model. </span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        data_path (`str`):</span>
+<span class="sd">            Path to the dataframe file with the preprocessed impressions and labels in ``new_note`` and</span>
+<span class="sd">            ``selected_finding`` columns, respectively</span>
+<span class="sd">        model_checkpoint_name (`str`):</span>
+<span class="sd">            Path / filename to save model checkpoints</span>
+<span class="sd">        result_fname (`str`):</span>
+<span class="sd">            Path / filename to save model evaluation metrics</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Import data</span>
+    <span class="c1"># NOTE: this data has already been preprocessed, extracting the findings, removing Dr signature, etc.</span>
+    <span class="c1"># See `from ..utils import preprocess_input`</span>
+    <span class="n">modeling_df</span> <span class="o">=</span> <span class="n">joblib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">data_path</span><span class="p">)</span>
+
+    <span class="c1"># Get the portion of the dataset that includes only findings</span>
+    <span class="n">only_findings_df</span> <span class="o">=</span> <span class="n">modeling_df</span><span class="p">[</span><span class="n">modeling_df</span><span class="p">[</span><span class="s2">&quot;selected_finding&quot;</span><span class="p">]</span><span class="o">!=</span><span class="s2">&quot;No Findings&quot;</span><span class="p">]</span>
+
+    <span class="c1"># Split into train and test data</span>
+    <span class="n">train</span><span class="p">,</span> <span class="n">hold_out</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">only_findings_df</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+
+    <span class="c1"># Tokenize into sentences. Model training is done on sentences vs the whole report</span>
+    <span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">&quot;punkt&quot;</span><span class="p">)</span>
+    <span class="n">main_row_sents</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">sent_classifier</span><span class="o">=</span><span class="p">[]</span>
+    <span class="n">rpt_num</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">def</span> <span class="nf">get_sentence_classification_data</span><span class="p">(</span><span class="n">train</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">train</span><span class="o">.</span><span class="n">iterrows</span><span class="p">()):</span>
+            <span class="n">row_sents</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">tokenize</span><span class="o">.</span><span class="n">sent_tokenize</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;note&quot;</span><span class="p">])</span>
+            <span class="n">last_sentence_label</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">tokenize</span><span class="o">.</span><span class="n">sent_tokenize</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;selected_label&quot;</span><span class="p">])[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">jdx</span><span class="p">,</span> <span class="n">ele</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">row_sents</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">ele</span> <span class="ow">in</span> <span class="n">last_sentence_label</span><span class="p">:</span>
+                    <span class="n">classifier</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">classifier</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="n">sent_classifier</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">classifier</span><span class="p">)</span>
+                <span class="n">rpt_num</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;rpt_num&quot;</span><span class="p">])</span>
+            <span class="n">main_row_sents</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row_sents</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">main_row_sents</span><span class="p">,</span> <span class="n">sent_classifier</span><span class="p">,</span> <span class="n">rpt_num</span>
+
+    <span class="n">main_row_sents</span><span class="p">,</span> <span class="n">classifier</span><span class="p">,</span> <span class="n">rpt_num</span> <span class="o">=</span> <span class="n">get_sentence_classification_data</span><span class="p">(</span><span class="n">train</span><span class="p">)</span>
+
+    <span class="c1"># Create a dataframe sentence classifier</span>
+    <span class="n">flattened_sents</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">sublist</span> <span class="ow">in</span> <span class="n">main_row_sents</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">sublist</span><span class="p">]</span>
+    <span class="n">sent_class_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+    <span class="n">sent_class_df</span><span class="p">[</span><span class="s2">&quot;sentence&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">flattened_sents</span>
+    <span class="n">sent_class_df</span><span class="p">[</span><span class="s2">&quot;finding_sent&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">classifier</span>
+    <span class="n">sent_class_df</span><span class="p">[</span><span class="s2">&quot;rpt_num&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rpt_num</span>
+
+    <span class="c1"># Get matrix of counts</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sent_class_df</span><span class="p">[</span><span class="s2">&quot;finding_sent&quot;</span><span class="p">])</span>
+    <span class="n">my_stop_words</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;the&quot;</span><span class="p">,</span> <span class="s2">&quot;is&quot;</span><span class="p">,</span> <span class="s2">&quot;are&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span> <span class="s2">&quot;there&quot;</span><span class="p">,</span> <span class="s2">&quot;for&quot;</span><span class="p">,</span> <span class="s2">&quot;in&quot;</span><span class="p">]</span>
+    <span class="n">tvec</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">(</span><span class="n">stop_words</span><span class="o">=</span><span class="n">my_stop_words</span><span class="p">,</span> <span class="n">max_features</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">ngram_range</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+    <span class="n">cvec</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">(</span><span class="n">stop_words</span><span class="o">=</span><span class="n">my_stop_words</span><span class="p">,</span> <span class="n">ngram_range</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+
+    <span class="c1"># Define XGBoost classifier</span>
+    <span class="n">xgb</span> <span class="o">=</span> <span class="n">XGBClassifier</span><span class="p">(</span><span class="n">eval_metric</span><span class="o">=</span><span class="s2">&quot;error&quot;</span><span class="p">,</span> <span class="n">use_label_encoder</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="n">sent_class_df</span><span class="p">[</span><span class="s2">&quot;X&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sent_class_df</span><span class="p">[</span><span class="s2">&quot;sentence&quot;</span><span class="p">]</span>
+
+    <span class="c1"># Get the XGBoost pipeline and train</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;XgBoost results&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;+&quot;</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">RUS_pipeline</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">tvec</span><span class="p">,</span> <span class="n">RandomUnderSampler</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">777</span><span class="p">),</span> <span class="n">xgb</span><span class="p">)</span>
+    <span class="n">lr_cv</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">sent_class_df</span><span class="o">.</span><span class="n">X</span><span class="p">,</span> <span class="n">sent_class_df</span><span class="o">.</span><span class="n">finding_sent</span><span class="p">,</span> <span class="n">RUS_pipeline</span><span class="p">,</span> <span class="s2">&quot;macro&quot;</span><span class="p">,</span> <span class="n">model_checkpoint_name</span><span class="p">,</span> <span class="n">result_fname</span><span class="p">)</span>
+
+    <span class="k">return</span></div>
+
+
+<span class="k">def</span> <span class="nf">lr_cv</span><span class="p">(</span>
+        <span class="n">splits</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> 
+        <span class="n">X</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">,</span> 
+        <span class="n">Y</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">,</span> 
+        <span class="n">pipeline</span><span class="p">:</span> <span class="n">Pipeline</span><span class="p">,</span> 
+        <span class="n">average_method</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> 
+        <span class="n">model_checkpoint_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">result_fname</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Trains the comment extraction model</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        splits (`int`):</span>
+<span class="sd">            Number of folds</span>
+<span class="sd">        X (`pandas.Series`):</span>
+<span class="sd">            Series of train and test X data</span>
+<span class="sd">        Y (`pandas.Series`):</span>
+<span class="sd">            Series of train and test Y data</span>
+<span class="sd">        pipeline (`imblearn.pipeline.Pipeline`):</span>
+<span class="sd">            Pipeline of transforms and resamples with a final estimator</span>
+<span class="sd">        average_method (`str`):</span>
+<span class="sd">            Type of averaging performed on the data</span>
+<span class="sd">        model_checkpoint_name (`str`):</span>
+<span class="sd">            Path / filename to save model checkpoints</span>
+<span class="sd">        result_fname (`str`):</span>
+<span class="sd">            Path / filename to save model evaluation metrics</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="c1"># Train and evaluate!</span>
+    <span class="n">kfold</span> <span class="o">=</span> <span class="n">StratifiedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="n">splits</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">777</span><span class="p">)</span>
+    <span class="n">accuracy</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">precision</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">recall</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">finding_recall</span> <span class="o">=</span><span class="p">[]</span>
+    <span class="n">no_finding_recall</span><span class="o">=</span><span class="p">[]</span>
+    <span class="n">finding_precision</span><span class="o">=</span><span class="p">[]</span>
+    <span class="n">no_finding_precision</span> <span class="o">=</span><span class="p">[]</span>
+    <span class="n">f1</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">f1_all</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">train</span><span class="p">,</span> <span class="n">test</span> <span class="ow">in</span> <span class="n">kfold</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
+        <span class="n">lr_fit</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">train</span><span class="p">],</span> <span class="n">Y</span><span class="p">[</span><span class="n">train</span><span class="p">])</span>
+        <span class="n">prediction</span> <span class="o">=</span> <span class="n">lr_fit</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">test</span><span class="p">])</span>
+        <span class="n">scores</span> <span class="o">=</span> <span class="n">lr_fit</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">test</span><span class="p">],</span> <span class="n">Y</span><span class="p">[</span><span class="n">test</span><span class="p">])</span>
+        
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;           no_finding    finding_present     &quot;</span><span class="p">)</span>
+        <span class="n">accuracy</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">scores</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span>
+        
+        <span class="n">p_score</span> <span class="o">=</span> <span class="n">precision_score</span><span class="p">(</span><span class="n">Y</span><span class="p">[</span><span class="n">test</span><span class="p">],</span> <span class="n">prediction</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;precision:&quot;</span><span class="p">,</span> <span class="n">p_score</span><span class="p">)</span>
+        <span class="n">precision</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">precision_score</span><span class="p">(</span><span class="n">Y</span><span class="p">[</span><span class="n">test</span><span class="p">],</span> <span class="n">prediction</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="n">average_method</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span>
+        <span class="n">finding_precision</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p_score</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">no_finding_precision</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p_score</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        
+        <span class="n">r_score</span> <span class="o">=</span> <span class="n">recall_score</span><span class="p">(</span><span class="n">Y</span><span class="p">[</span><span class="n">test</span><span class="p">],</span> <span class="n">prediction</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;recall:   &quot;</span><span class="p">,</span> <span class="n">r_score</span><span class="p">)</span>
+        <span class="n">recall</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">recall_score</span><span class="p">(</span><span class="n">Y</span><span class="p">[</span><span class="n">test</span><span class="p">],</span> <span class="n">prediction</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="n">average_method</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span>
+        <span class="n">finding_recall</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r_score</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">no_finding_recall</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r_score</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+        <span class="n">f1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f1_score</span><span class="p">(</span><span class="n">Y</span><span class="p">[</span><span class="n">test</span><span class="p">],</span> <span class="n">prediction</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="n">average_method</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span>
+        <span class="n">f_score</span> <span class="o">=</span> <span class="n">f1_score</span><span class="p">(</span><span class="n">Y</span><span class="p">[</span><span class="n">test</span><span class="p">],</span> <span class="n">prediction</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+        <span class="n">f1_all</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f_score</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;f1 score: &quot;</span><span class="p">,</span> <span class="n">f_score</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">50</span><span class="p">)</span>
+
+    <span class="c1"># Save the model</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">model_checkpoint_name</span><span class="p">),</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">pipeline</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="n">model_checkpoint_name</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">))</span>
+    <span class="c1"># joblib.dump(pipeline, open(model_checkpoint_name, &quot;wb&quot;))</span>
+
+    <span class="c1"># Print a summary of the results</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;accuracy: </span><span class="si">%.2f%%</span><span class="s2"> (+/- </span><span class="si">%.2f%%</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">accuracy</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">accuracy</span><span class="p">)))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;precision: </span><span class="si">%.2f%%</span><span class="s2"> (+/- </span><span class="si">%.2f%%</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">precision</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">precision</span><span class="p">)))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;recall: </span><span class="si">%.2f%%</span><span class="s2"> (+/- </span><span class="si">%.2f%%</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">recall</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">recall</span><span class="p">)))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;f1 score: </span><span class="si">%.2f%%</span><span class="s2"> (+/- </span><span class="si">%.2f%%</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">f1</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">f1</span><span class="p">)))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Finding Recall:  </span><span class="si">%.2f%%</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">finding_recall</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No Finding Recall: </span><span class="si">%.2f%%</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">no_finding_recall</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Finding Precision: </span><span class="si">%.2f%%</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">finding_precision</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No Finding Precision: </span><span class="si">%.2f%%</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">no_finding_precision</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
+
+    <span class="c1"># Write results out to a file</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">result_fname</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fh</span><span class="p">:</span>
+        <span class="n">fh</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Classification Report:&quot;</span><span class="p">)</span>
+        <span class="n">fh</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\t</span><span class="s2">accuracy: </span><span class="si">%.2f%%</span><span class="s2"> (+/- </span><span class="si">%.2f%%</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">accuracy</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">accuracy</span><span class="p">)))</span>
+        <span class="n">fh</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\t</span><span class="s2">precision: </span><span class="si">%.2f%%</span><span class="s2"> (+/- </span><span class="si">%.2f%%</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">precision</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">precision</span><span class="p">)))</span>
+        <span class="n">fh</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\t</span><span class="s2">recall: </span><span class="si">%.2f%%</span><span class="s2"> (+/- </span><span class="si">%.2f%%</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">recall</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">recall</span><span class="p">)))</span>
+        <span class="n">fh</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\t</span><span class="s2">f1 score: </span><span class="si">%.2f%%</span><span class="s2"> (+/- </span><span class="si">%.2f%%</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">f1</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">f1</span><span class="p">)))</span>
+        <span class="n">fh</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\t</span><span class="s2">Finding Recall:  </span><span class="si">%.2f%%</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">finding_recall</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
+        <span class="n">fh</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\t</span><span class="s2">No Finding Recall: </span><span class="si">%.2f%%</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">no_finding_recall</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
+        <span class="n">fh</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\t</span><span class="s2">Finding Precision: </span><span class="si">%.2f%%</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">finding_precision</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
+        <span class="n">fh</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\t</span><span class="s2">No Finding Precision: </span><span class="si">%.2f%%</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">no_finding_precision</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
+
+        <span class="n">fh</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">All Results:&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">precision_no_finding</span><span class="p">,</span> <span class="n">precision_finding</span><span class="p">,</span> <span class="n">recall_no_finding</span><span class="p">,</span> <span class="n">recall_finding</span><span class="p">,</span> <span class="n">f1sc</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">no_finding_precision</span><span class="p">,</span> <span class="n">finding_precision</span><span class="p">,</span> <span class="n">no_finding_recall</span><span class="p">,</span> <span class="n">finding_recall</span><span class="p">,</span> <span class="n">f1_all</span><span class="p">):</span>
+            <span class="n">fh</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\t</span><span class="s2">           no_finding    finding_present     &quot;</span><span class="p">)</span>
+            <span class="n">fh</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n\t</span><span class="s2">precision: [</span><span class="si">{</span><span class="n">precision_no_finding</span><span class="si">:</span><span class="s2">0.8f</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">precision_finding</span><span class="si">:</span><span class="s2">0.8f</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
+            <span class="n">fh</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n\t</span><span class="s2">recall:    [</span><span class="si">{</span><span class="n">recall_no_finding</span><span class="si">:</span><span class="s2">0.8f</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">recall_finding</span><span class="si">:</span><span class="s2">0.8f</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
+            <span class="n">fh</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n\t</span><span class="s2">f1 score:  </span><span class="si">{</span><span class="n">f1sc</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">fh</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\t</span><span class="s2">&quot;</span><span class="o">+</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">50</span><span class="p">)</span>
+
+    <span class="k">return</span>
+
+
+<span class="c1"># %%</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, NM HIT.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

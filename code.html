@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Code Overview &mdash; NM Results Management 1.10 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Prerequisites" href="start.html" />
+    <link rel="prev" title="Intro" href="about.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> NM Results Management
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Home</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="home.html">NM Results Management AI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Project Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="about.html">Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html#initial-modeling-pre-annotations">Initial Modeling (Pre-Annotations)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html#modeling-method-i-regex">Modeling Method I: Regex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html#modeling-method-ii-machine-learning">Modeling Method II: Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html#modeling-method-iii-deep-learning">Modeling Method III: Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html#data-acquisition">Data Acquisition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html#initial-model-development">Initial Model Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html#clinical-workflow-epic-integration">Clinical Workflow &amp; Epic Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html#prospective-clinical-evaluation">Prospective Clinical Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html#workflow-challenges">Workflow Challenges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html#updating-the-models">Updating the Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html#future-plans">Future Plans</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Code Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#code-summary">Code Summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#code-organization">Code Organization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-this-code">Using This Code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="start.html">Prerequisites</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Phase 01 Models</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="phase01/phase01.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase01/demo.html">Demo: Findings vs No Findings Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase01/train.html">Train</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase01/classify.html">Classify</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Phase 02 Models</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="phase02/phase02.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase02/demo_pretrain.html">Demo: Pretraining the NM Results Management Language Model with Custom Corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase02/demo_finetune.html">Demo: Fine-Tuning NM Results Management Language Model with a Custom Dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase02/train.html">Train</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase02/classify.html">Classify</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Azure</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="azure.html">Deployment</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NM Results Management</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Code Overview</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/mozzilab/NM_Radiology_AI/blob/main/docs/source/code.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="code-overview">
+<span id="code"></span><h1>Code Overview<a class="headerlink" href="#code-overview" title="Permalink to this headline"></a></h1>
+<section id="code-summary">
+<h2>Code Summary<a class="headerlink" href="#code-summary" title="Permalink to this headline"></a></h2>
+<p>The code is split into two main sections: Phase 01 and Phase 02. Phase 01 models include stacked biLSTM models used in the first phase of deployment. Phase 02 models include transformer models pretrained on NM radiology reports and later finetuned for various tasks in the pipeline. The block diagram below shows the different models for each phase of the project.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Phase 01 refers to the original models deployed. Phase 02 refers to the updated models, which were refined after the initial clinical deployment with the aim of improving scalability and model performance. Moreover, we leveraged the latest advances for deep learning NLP. With respect to machine learning frameworks, Phase 01 utilizes the Tensorflow and Keras libraries, while Phase 02 leverages the 🤗 (Hugging Face) platform.</p>
+</div>
+<a class="reference internal image-reference" href="_images/models.svg"><img alt="_images/models.svg" class="align-center" height="590" src="_images/models.svg" width="1280" /></a>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text"><a class="sphinx-bs btn text-wrap btn-secondary btn-block reference internal" href="phase01/phase01.html"><span class="doc">Phase 01: BiLSTM and XGBoost Models</span></a></p>
+</div>
+<div class="card-body docutils">
+<p class="card-text">Explore the source code for <a class="reference internal" href="phase01/train.html#phase01-train"><span class="std std-ref">training</span></a> the models and using them to <a class="reference internal" href="phase01/classify.html#phase01-classify"><span class="std std-ref">classify</span></a> reports. These were the initial models used.</p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text"><a class="sphinx-bs btn text-wrap btn-secondary btn-block reference internal" href="phase02/phase02.html"><span class="doc">Phase 02: MLM Models</span></a></p>
+</div>
+<div class="card-body docutils">
+<blockquote>
+<div><p class="card-text">Explore the source code for <a class="reference internal" href="phase02/train.html#phase02-train"><span class="std std-ref">training</span></a> the new models and using them to <a class="reference internal" href="phase02/classify.html#phase02-classify"><span class="std std-ref">classify</span></a> reports. These models are currently implemented at NM as part of a Result Management system.</p>
+</div></blockquote>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="code-organization">
+<h2>Code Organization<a class="headerlink" href="#code-organization" title="Permalink to this headline"></a></h2>
+<p>The code is organized as shown below (condensed such that python <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> files, etc. are not included). Note that files <code class="docutils literal notranslate"><span class="pre">train/train_**.py</span></code> are ease-of-use scripts, which train models that are defined in <code class="docutils literal notranslate"><span class="pre">train/general.py</span></code>. Likewise, the <code class="docutils literal notranslate"><span class="pre">run_classifier.py</span></code> files are scripts to easily classify raw radiology report text when provided with trained model weights.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>src/
+├─nmrezman/
+│ ├─phase01/
+│ │ ├─classify/
+│ │ │ ├─classifier.py
+│ │ │ └─run_classifier.py
+│ │ ├─train/
+│ │ │ ├─general.py
+│ │ │ ├─train_comment.py
+│ │ │ ├─train_findings.py
+│ │ │ ├─train_lung_adrenal.py
+│ │ │ └─train_lung_recommended_proc.py
+│ │ └─models.py
+│ ├─phase02/
+│ │ ├─classify/
+│ │ │ ├─classifier.py
+│ │ │ └─run_classifier.py
+│ │ └─train/
+│ │   ├─general.py
+│ │   ├─pretrain.py
+│ │   ├─train_comment.py
+│ │   ├─train_findings.py
+│ │   └─train_lung_recommended_proc.py
+│ └─utils.py
+└─setup.py
+</pre></div>
+</div>
+</section>
+<section id="using-this-code">
+<h2>Using This Code<a class="headerlink" href="#using-this-code" title="Permalink to this headline"></a></h2>
+<p>This documentation provides the source code used to train all models, which can be modified to fit your needs. There are a several different ways you could go about this.</p>
+<ol class="arabic simple">
+<li><p>Training can be run from a cloned repo by running the script as a module. For example, to train the Phase 01 Findings vs No Findings model, use the command:</p></li>
+</ol>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> src
+python -m nmrezman.phase01.train.train_findings --data_path /path/to/df.gz --glove_embedding_path /path/to/glove.6B.300d.txt --model_checkpoint_name /path/to/checkpoints/findings_best_model.h5 --result_fname /path/to/results/findings_best_result.log
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic" start="2">
+<li><p>Directly run the scripts or import the functions into python once <code class="xref py py-obj docutils literal notranslate"><span class="pre">nmrezman</span></code> has been pip installed as a python package from either <a class="reference external" href="https://github.com/mozzilab/NM_Radiology_AI">GitHub</a> directly or, if the repo is cloned locally, from the local directory. See the commands below.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install <span class="s2">&quot;git+https://github.com/mozzilab/NM_Radiology_AI.git@main#egg=nmrezman&quot;</span>
+</pre></div>
+</div>
+<p>or if the repo is already installed locally</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install /path/to/repo/NM_Radiology_AI
+</pre></div>
+</div>
+<p>Once pip installed, the training functions can be imported directly.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nmrezman.phase01.train.general</span> <span class="kn">import</span> <span class="n">train_findings_model</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">train_findings_model</span><span class="p">(</span>
+      <span class="n">data_path</span><span class="o">=</span><span class="n">path_to_report_df</span><span class="p">,</span>
+      <span class="n">glove_embedding_path</span><span class="o">=</span><span class="n">path_to_glove_embedding</span><span class="p">,</span>
+      <span class="n">model_checkpoint_name</span><span class="o">=</span><span class="s2">&quot;findings_model_checkpoints&quot;</span><span class="p">,</span>
+      <span class="n">result_fname</span><span class="o">=</span><span class="s2">&quot;finding_model_results.log&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>Last but not least, use the pre-built container with everything packaged in, ready to go. The image contains the complete environment used to build these models as well as a click-through walkthrough to get you started. The source code for the container image is available in our <a class="reference external" href="https://github.com/mozzilab/NM_Radiology_AI/docker">github repo</a>, and the pre-built image is publicly available on our docker-hub repository, <a class="reference external" href="https://hub.docker.com/repository/docker/mozzilab/nmrezman">mozzilab/nmrezman</a>.</p>
+<p>The only requirements are that <code class="docutils literal notranslate"><span class="pre">docker</span></code> is installed and all the required drivers are up to date.</p>
+<p>GPU command (suggested):</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker run -it --rm --net<span class="o">=</span>host -e <span class="nv">ip_addr</span><span class="o">=</span><span class="si">${</span><span class="nv">IP_ADDR</span><span class="si">}</span> --ulimit <span class="nv">memlock</span><span class="o">=</span>-1 --gpus all mozzilab/nmrezman:latest
+</pre></div>
+</div>
+<p>CPU command (suggested):</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker run -it --rm --net<span class="o">=</span>host -e <span class="nv">ip_addr</span><span class="o">=</span><span class="si">${</span><span class="nv">IP_ADDR</span><span class="si">}</span> mozzilab/nmrezman:latest
+</pre></div>
+</div>
+<dl class="simple">
+<dt>Required args:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-it</span></code> - opens an interactive tty, effectively it just takes you straight to the cmd line inside the container</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-net=host</span></code> - binds the host computer’s network to the container, so all ports are inherently exposed. You can specify specific ports for Jupyter and code server by including the port binding(s) in the format <code class="docutils literal notranslate"><span class="pre">-p</span> <span class="pre">8081:8081</span></code> along the environmental variable(s) <code class="docutils literal notranslate"><span class="pre">-e</span> <span class="pre">VSCODE_PORT=8081</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">-e</span> <span class="pre">JUPYTER_PORT=8889</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mozzilab/nmrezman:latest</span></code> - name of the container image</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--gpus</span> <span class="pre">all</span></code> - if using GPU(s) to run the model, you must include this flag</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--ulimit</span> <span class="pre">memlock=-1</span></code> - prevent the locking of shared memory, need if running GPUs</p></li>
+</ul>
+</dd>
+<dt>Optional args:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--mount</span> <span class="pre">type=bind,src=${PATH_TO_DATA},dst=/workspace/data</span></code> - bind a folder into the <code class="docutils literal notranslate"><span class="pre">/workspace/data</span></code> folder in the container.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--rm</span></code> - sets container to be ephemeral, so all resources are disposed of upon the container being stopped.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-e</span> <span class="pre">ip_addr=${IP_ADDR}</span></code> - only if operating on remote machine, will make the ip:port auto-print message work nicely (ctrl-click).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The code will likely need to be modified to suit your needs (at a minimum, preprocessing raw reports and dataframe structuring). Generalizability of this code to other health care systems is not guaranteed and only reflects the 10 hospitals and one electronic medical record for which it was tested. However, modifying the code (e.g., preprocessing, base model checkpoints, model constants) may yield similar results.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="about.html" class="btn btn-neutral float-left" title="Intro" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="start.html" class="btn btn-neutral float-right" title="Prerequisites" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, NM HIT.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

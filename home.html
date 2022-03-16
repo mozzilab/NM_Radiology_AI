@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NM Results Management AI &mdash; NM Results Management 1.10 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Intro" href="about.html" />
+    <link rel="prev" title="NM Results Management AI" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> NM Results Management
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Home</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">NM Results Management AI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Project Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="about.html">Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html#initial-modeling-pre-annotations">Initial Modeling (Pre-Annotations)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html#modeling-method-i-regex">Modeling Method I: Regex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html#modeling-method-ii-machine-learning">Modeling Method II: Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html#modeling-method-iii-deep-learning">Modeling Method III: Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html#data-acquisition">Data Acquisition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html#initial-model-development">Initial Model Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html#clinical-workflow-epic-integration">Clinical Workflow &amp; Epic Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html#prospective-clinical-evaluation">Prospective Clinical Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html#workflow-challenges">Workflow Challenges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html#updating-the-models">Updating the Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html#future-plans">Future Plans</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="code.html">Code Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="start.html">Prerequisites</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Phase 01 Models</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="phase01/phase01.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase01/demo.html">Demo: Findings vs No Findings Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase01/train.html">Train</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase01/classify.html">Classify</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Phase 02 Models</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="phase02/phase02.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase02/demo_pretrain.html">Demo: Pretraining the NM Results Management Language Model with Custom Corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase02/demo_finetune.html">Demo: Fine-Tuning NM Results Management Language Model with a Custom Dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase02/train.html">Train</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase02/classify.html">Classify</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Azure</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="azure.html">Deployment</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NM Results Management</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>NM Results Management AI</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/mozzilab/NM_Radiology_AI/blob/main/docs/source/home.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="nm-results-management-ai">
+<h1>NM Results Management AI<a class="headerlink" href="#nm-results-management-ai" title="Permalink to this headline"></a></h1>
+<p>This documentation provides information about the work and <a class="reference external" href="https://github.com/mozzilab/NM_Radiology_AI">code base</a> for the models and integrated workflow described in <a class="reference external" href="https://catalyst.nejm.org/doi/full/10.1056/CAT.21.0469">Preventing Delayed and Missed Care by Applying Artificial Intelligence to Trigger Relevant Imaging Follow-Up.</a> Our <a class="reference internal" href="about.html#about-blog-post"><span class="std std-ref">“blog post”</span></a> provides a condensed version of the paper and allows you to hear from key players (e.g., physicians, program managers, and engineers)! We also provide <a class="reference internal" href="code.html#code"><span class="std std-ref">documentation</span></a> for our <a class="reference external" href="https://github.com/mozzilab/NM_Radiology_AI">source code</a>.</p>
+<p>The goal of the project was to use natural language processing (NLP) to identify lung or adrenal-related findings that required follow-up. Ultimately, various models were trained and then deployed. As part of the deployment process, automatic alerts are sent to both physicians and patients to schedule and and track completion of follow-ups. See below for a high-level system overview.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/solution.svg"><img alt="_images/solution.svg" height="621" src="_images/solution.svg" width="621" /></a>
+</figure>
+<p>In the example below, a lung finding is detected by our models and a chest CT is recommended. Accordingly, the integrated framework would trigger generation of a Best Practice Advisory (BPA) to alert the ordering physician, presenting workflows where follow-up studies can be ordered as appropriate.</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header bg-secondary text-light docutils">
+<p class="card-text">Sample Radiology Report</p>
+</div>
+<div class="card-body docutils">
+<blockquote>
+<div><p class="card-text">PROCEDURE:  CT CHEST W CONTRAST. HISTORY:  Colon cancer. TECHNIQUE:  Non-ionic contrast enhanced helical thoracic CT was performed. FINDINGS:   Support Devices:  None. Heart/Pericardium/Great Vessels:        Cardiac size is normal.      There is mild calcific coronary artery atherosclerosis.       There is no pericardial effusion.      The thoracic aorta is normal in diameter.      The main pulmonary artery is normal in diameter. Pleural Spaces:  The pleural spaces are clear. Mediastinum/Hila:  There is no mediastinal or hilar lymph node enlargement. Neck Base/Chest Wall/Diaphragm/Upper Abdomen:  There is no supraclavicular or axillary lymph node enlargement.  Please refer to the same day MRI abdomen/pelvis for full description of findings and the upper abdomen.  No aggressive appearing bone lesions. Lungs/Central Airways:  The central airways are clear.  Incidental note is made of a blind-ending cardiac bronchus arising from the bronchus intermedius.  A 7 mm solid nodule in the left upper lobe has increased in size, previously 5 mm (4/53).  The 2 mm right lower lobe nodule is stable. CONCLUSIONS:   Continued increase in size of the solid left upper lobe nodule now measuring 7 mm.  Given the continued slow growth, this lesion is concerning for metastatic disease.  Consider PET/CT or tissue sampling. &amp;#x20; FINAL REPORT Attending Radiologist:</p>
+</div></blockquote>
+</div>
+<div class="card-footer docutils">
+<p class="card-text">Model Output:</p>
+<blockquote>
+<div><div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>procedure:     Chest CT
+
+noduleType:    Lung
+
+followUpFlag:  Findings Present
+
+followUpText:  continued increase in size of the solid left upper
+               lobe nodule now measuring 7 mm.  given the continued
+               slow growth, this lesion is concerning for metastatic
+               disease.  consider pet/ct or tissue sampling.
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please cite us!</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>@article{doi:10.1056/CAT.21.0469,
+   author = {Jane Domingo  and Galal Galal  and Jonathan Huang  and Priyanka Soni  and Vladislav Mukhin  and Camila Altman  and Tom Bayer  and Thomas Byrd  and Stacey Caron  and Patrick Creamer  and Jewell Gilstrap  and Holly Gwardys  and Charles Hogue  and Kumar Kadiyam  and Michael Massa  and Paul Salamone  and Robert Slavicek  and Michael Suna  and Benjamin Ware  and Stavroula Xinos  and Lawrence Yuen  and Thomas Moran  and Cynthia Barnard  and James G. Adams  and Mozziyar Etemadi },
+   title = {Preventing Delayed and Missed Care by Applying Artificial Intelligence to Trigger Radiology Imaging Follow-up},
+   journal = {NEJM Catalyst},
+   volume = {3},
+   number = {4},
+   pages = {CAT.21.0469},
+   year = {2022},
+   doi = {10.1056/CAT.21.0469},
+
+   URL = {https://catalyst.nejm.org/doi/abs/10.1056/CAT.21.0469},
+   eprint = {https://catalyst.nejm.org/doi/pdf/10.1056/CAT.21.0469}
+   ,
+}
+</pre></div>
+</div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="NM Results Management AI" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="about.html" class="btn btn-neutral float-right" title="Intro" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, NM HIT.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
