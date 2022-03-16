@@ -18,4 +18,5 @@ Please refer to our [documentation](https://mozzilab.github.io/NM_Radiology_AI) 
   URL = {https://catalyst.nejm.org/doi/abs/10.1056/CAT.21.0469},
   eprint = {https://catalyst.nejm.org/doi/pdf/10.1056/CAT.21.0469}
   ,
+}
 ```
