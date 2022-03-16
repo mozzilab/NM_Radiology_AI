@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  results_management:
+    image: ${TARGET_IMAGE_NAME}
+    build:
+      context: ../
+      dockerfile: ./docker/Dockerfile
+      args:
+        - ARG_VSCODE_PORT=${VSCODE_PORT:-8080}
+        - ARG_JUPYTER_PORT=${JUPYTER_PORT:-8888}
+        - ARG_PROJECT_NAME=${TARGET_PROJECT_NAME:-unknown project}
+        - ARG_IMAGE_NAME=${TARGET_IMAGE_NAME}
+    stdin_open: true
+    tty: true
+    env_file: 
+      - ./.env
+    ports: 
+      - ${VSCODE_PORT}:${VSCODE_PORT}
+      - ${JUPYTER_PORT}:${JUPYTER_PORT}

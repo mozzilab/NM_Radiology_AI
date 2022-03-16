@@ -1,0 +1,10 @@
+[Unit]
+Description=jupyter-lab
+After=nginx.service
+
+[Service]
+Type=simple
+ExecStart=REPLACE_TEXT -m jupyter lab --ip=0.0.0.0 --port=${JUPYTER_PORT} --NotebookApp.token='local-development' --allow-root --no-browser --LabApp.token='' --notebook-dir / --ContentsManager.allow_hidden=True
+
+[Install]
+WantedBy=multi-user.target

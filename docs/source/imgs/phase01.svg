@@ -1,0 +1,46 @@
+<svg width="662" height="590" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" overflow="hidden">
+    <defs>
+        <clipPath id="clip0">
+            <rect x="0" y="0" width="662" height="590" />
+        </clipPath>
+    </defs>
+    <g clip-path="url(#clip0)">
+        <rect x="0" y="0" width="662" height="589.964" fill="#FFFFFF" fill-opacity="0" />
+        <path d="M23 48.0742C23 33.6731 34.6751 21.9987 49.0771 21.9987L607.923 21.9987C622.325 21.9987 634 33.6731 634 48.0742L634 541.89C634 556.291 622.325 567.965 607.923 567.965L49.0771 567.965C34.6751 567.965 23 556.291 23 541.89Z" fill="#A8A2C4" fill-rule="evenodd" />
+        <text fill="#FFFFFF" font-family="Calibri,Calibri_MSFontService,sans-serif" font-style="italic" font-weight="700" font-size="24" transform="matrix(1 0 0 0.999939 48.0302 556)">
+            Phase 1
+            <tspan font-style="normal" font-size="24" x="194.493" y="-504.031">Radiology Report</tspan>
+        </text>
+        <path d="M74 444.235C74 434.702 81.7286 426.974 91.2624 426.974L265.738 426.974C275.271 426.974 283 434.702 283 444.235L283 492.707C283 502.241 275.271 509.969 265.738 509.969L91.2624 509.969C81.7286 509.969 74 502.241 74 492.707Z" fill="#514689" fill-rule="evenodd" />
+        <text fill="#FFFFFF" font-family="Calibri,Calibri_MSFontService,sans-serif" font-weight="700" font-size="23" transform="matrix(1 0 0 0.999939 82.6255 461)">
+            Lung Recommended
+            <tspan font-size="23" x="14.5393" y="27.0017">Procedure Model</tspan>
+        </text>
+        <path d="M224 130.254C224 120.721 231.729 112.993 241.262 112.993L415.738 112.993C425.271 112.993 433 120.721 433 130.254L433 178.727C433 188.26 425.271 195.988 415.738 195.988L241.262 195.988C231.729 195.988 224 188.26 224 178.727Z" fill="#514689" fill-rule="evenodd" />
+        <text fill="#FFFFFF" font-family="Calibri,Calibri_MSFontService,sans-serif" font-weight="700" font-size="24" transform="matrix(1 0 0 0.999939 273.747 147)">
+            Findings or
+            <tspan font-size="24" x="-38.6472" y="29.0018">No Findings Model</tspan>
+        </text>
+        <path d="M330.999 62.9961 330.999 97.716 325.002 97.716 325.001 62.9961ZM336.996 94.7177 328 112.708 319.005 94.7177Z" />
+        <path d="M330.999 195.988 330.999 241.25 325.002 241.25 325.001 195.988ZM336.996 241.25C336.996 246.217 332.968 250.244 328 250.244 323.032 250.244 319.005 246.217 319.005 241.25 319.005 236.282 323.032 232.255 328 232.255 332.968 232.255 336.996 236.282 336.996 241.25Z" />
+        <path d="M74 311.243C74 301.71 81.7286 293.982 91.2624 293.982L265.738 293.982C275.271 293.982 283 301.71 283 311.243L283 359.715C283 369.249 275.271 376.977 265.738 376.977L91.2624 376.977C81.7286 376.977 74 369.249 74 359.715Z" fill="#514689" fill-rule="evenodd" />
+        <text fill="#FFFFFF" font-family="Calibri,Calibri_MSFontService,sans-serif" font-weight="700" font-size="24" transform="matrix(1 0 0 0.999939 99.5271 329)">
+            Lung or Adrenal
+            <tspan font-size="24" x="2.7786" y="29.0018">Findings Model</tspan>
+        </text>
+        <path d="M180.999 243.985 180.999 278.705 175.002 278.705 175.002 243.985ZM186.996 275.707 178 293.696 169.005 275.707Z" />
+        <path d="M374 311.243C374 301.71 381.729 293.982 391.262 293.982L564.738 293.982C574.271 293.982 582 301.71 582 311.243L582 359.715C582 369.249 574.271 376.977 564.738 376.977L391.262 376.977C381.729 376.977 374 369.249 374 359.715Z" fill="#514689" fill-rule="evenodd" />
+        <text fill="#FFFFFF" font-family="Calibri,Calibri_MSFontService,sans-serif" font-weight="700" font-size="24" transform="matrix(1 0 0 0.999939 429.307 328)">
+            Comment
+            <tspan font-size="24" x="-36.5816" y="29.0018">Extraction Model</tspan>
+        </text>
+        <path d="M480.999 243.985 480.999 278.705 475.002 278.705 475.002 243.985ZM486.996 275.707 478 293.696 469.005 275.707Z" />
+        <path d="M0 0 305.827 0.000104928" stroke="#000000" stroke-width="5.99661" stroke-miterlimit="8" fill="none" fill-rule="evenodd" transform="matrix(-1.00006 0 0 1 480.846 241.985)" />
+        <path d="M180.999 376.977 180.999 411.697 175.002 411.697 175.002 376.977ZM186.996 408.698 178 426.688 169.005 408.698Z" />
+        <text font-family="Calibri,Calibri_MSFontService,sans-serif" font-style="italic" font-weight="400" font-size="19" transform="matrix(1 0 0 0.999939 337.732 223)">
+            Findings Found
+            <tspan font-size="19" x="-145.995" y="173.011">Lung Findings </tspan>
+            <tspan font-size="19" x="-145.995" y="196.012">Found</tspan>
+        </text>
+    </g>
+</svg>

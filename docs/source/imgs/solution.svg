@@ -1,0 +1,86 @@
+<svg width="941" height="941" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" overflow="hidden">
+    <defs>
+        <clipPath id="clip0">
+            <rect x="0" y="0" width="941" height="941" />
+        </clipPath>
+    </defs>
+    <g clip-path="url(#clip0)">
+        <rect x="0" y="0" width="941" height="941" fill="#FFFFFF" fill-opacity="0" />
+        <path d="M355 38 586 38 586 161.499C470.5 161.499 470.5 208.555 355 181.819Z" fill="#7571B0" fill-rule="evenodd" />
+        <text fill="#FFFFFF" font-family="Calibri,Calibri_MSFontService,sans-serif" font-weight="400" font-size="24" transform="translate(375.84 93)">
+            Radiologist dictates
+            <tspan font-size="24" x="-0.500092" y="29">report and signs off</tspan>
+        </text>
+        <path d="M355 275.5C355 261.417 366.417 250 380.5 250L560.5 250C574.583 250 586 261.417 586 275.5L586 377.5C586 391.583 574.583 403 560.5 403L380.5 403C366.417 403 355 391.583 355 377.5Z" fill="#514689" fill-rule="evenodd" />
+        <text fill="#FFFFFF" font-family="Calibri,Calibri_MSFontService,sans-serif" font-weight="400" font-size="24" transform="translate(371.386 291)">
+            Report runs through
+            <tspan font-size="24" x="33.3526" y="29">NLP and pulls </tspan>
+            <tspan font-size="24" x="-1.13354" y="58">relevant information </tspan>
+            <tspan font-size="24" x="57.1701" y="87">into Epic</tspan>
+        </text>
+        <path d="M682 326.5 797 211 912 326.5 797 442Z" fill="#7571B0" fill-rule="evenodd" />
+        <text fill="#FFFFFF" font-family="Calibri,Calibri_MSFontService,sans-serif" font-weight="400" font-size="24" transform="translate(762.432 305)">
+            Patient
+            <tspan font-size="24" x="-5.2876" y="29">receives </tspan>
+            <tspan font-size="24" x="-21.3571" y="58">notification</tspan>
+        </text>
+        <path d="M355 493.001C355 475.327 369.327 461 387.001 461L553.999 461C571.673 461 586 475.327 586 493.001L586 620.999C586 638.673 571.673 653 553.999 653L387.001 653C369.327 653 355 638.673 355 620.999Z" fill="#514689" fill-rule="evenodd" />
+        <text fill="#FFFFFF" font-family="Calibri,Calibri_MSFontService,sans-serif" font-weight="400" font-size="24" transform="translate(366.395 493)">
+            Ordering Physician or
+            <tspan font-size="24" x="20.0302" y="29">PCP receives Epic </tspan>
+            <tspan font-size="24" x="17.2231" y="58">InBasket</tspan>
+            <tspan font-size="24" x="105.172" y="58">Message </tspan>
+            <tspan font-size="24" x="4.8075" y="87">with actionable Best </tspan>
+            <tspan font-size="24" x="20.5303" y="116">Practice Advisory </tspan>
+            <tspan font-size="24" x="78.0672" y="144">(BPA)</tspan>
+        </text>
+        <path d="M355 743.001C355 725.327 369.327 711 387.001 711L553.999 711C571.673 711 586 725.327 586 743.001L586 870.999C586 888.673 571.673 903 553.999 903L387.001 903C369.327 903 355 888.673 355 870.999Z" fill="#514689" fill-rule="evenodd" />
+        <text fill="#FFFFFF" font-family="Calibri,Calibri_MSFontService,sans-serif" font-weight="400" font-size="24" transform="translate(388.379 757)">
+            BPA consolidates
+            <tspan font-size="24" x="-3.24057" y="29">clinical next steps </tspan>
+            <tspan font-size="24" x="5.86102" y="58">and includes an </tspan>
+            <tspan font-size="24" x="-22.0306" y="87">order for Physician to </tspan>
+            <tspan font-size="24" x="62.7044" y="116">sign</tspan>
+        </text>
+        <path d="M8.63888e-05-2.00035 88.9798-1.99651 88.9796 2.0042-8.63888e-05 2.00035ZM86.9797-9.99802 106.983 0.00462024 86.9789 10.0055Z" transform="matrix(1 0 0 -1 586 807.005)" />
+        <text font-family="Calibri,Calibri_MSFontService,sans-serif" font-style="italic" font-weight="400" font-size="24" transform="translate(234.221 288)">
+            Finding +/
+            <tspan font-size="24" x="98.1841" y="0">-</tspan>
+        </text>
+        <path d="M473 403 473 442.607 469 442.607 469 403ZM481.002 440.607 471 460.61 460.998 440.607Z" />
+        <path d="M473 653 473 692.598 469 692.598 469 653ZM481.002 690.597 471 710.601 460.998 690.597Z" />
+        <path d="M355.017 809.005 277.003 809.001 277.003 805.001 355.017 805.004ZM279.003 817.003 259 807 279.004 796.999Z" />
+        <path d="M473 182 473 231.763 469 231.763 469 182ZM481.002 229.763 471 249.767 460.998 229.763Z" />
+        <path d="M586 324 664.014 324 664.014 328 586 328ZM662.013 315.998 682.017 326 662.013 336.002Z" />
+        <path d="M29 326.5 144 211 259 326.5 144 442Z" fill="#7571B0" fill-rule="evenodd" />
+        <text fill="#FFFFFF" font-family="Calibri,Calibri_MSFontService,sans-serif" font-weight="400" font-size="24" transform="translate(93.1065 305)">
+            Full report
+            <tspan font-size="24" x="5.12091" y="29">routed to </tspan>
+            <tspan font-size="24" x="6.0144" y="58">Physician</tspan>
+        </text>
+        <path d="M29 806.5 144 691 259 806.5 144 922Z" fill="#7571B0" fill-rule="evenodd" />
+        <text fill="#FFFFFF" font-family="Calibri,Calibri_MSFontService,sans-serif" font-weight="400" font-size="24" transform="translate(96.4719 765)">
+            Follow
+            <tspan font-size="24" x="64.0914" y="0">-</tspan>
+            <tspan font-size="24" x="71.426" y="0">up</tspan>
+            <tspan font-size="24" x="-28.0116" y="29">team addresses </tspan>
+            <tspan font-size="24" x="-14.5559" y="58">“delinquent” </tspan>
+            <tspan font-size="24" x="-2.68047" y="87">follow</tspan>
+            <tspan font-size="24" x="57.5635" y="87">-</tspan>
+            <tspan font-size="24" x="64.8982" y="87">ups</tspan>
+        </text>
+        <path d="M682 806.5 797 691 912 806.5 797 922Z" fill="#7571B0" fill-rule="evenodd" />
+        <text fill="#FFFFFF" font-family="Calibri,Calibri_MSFontService,sans-serif" font-weight="400" font-size="24" transform="translate(762.428 770)">
+            Patient
+            <tspan font-size="24" x="-36.4865" y="29">scheduled and </tspan>
+            <tspan font-size="24" x="-52.476" y="58">completes follow</tspan>
+            <tspan font-size="24" x="114.2" y="58">-</tspan>
+            <tspan font-size="24" x="21.8572" y="87">up</tspan>
+        </text>
+        <path d="M2.18761e-06-2.00035 78.0138-2.00027 78.0138 2.00044-2.18761e-06 2.00035ZM76.0135-10.0017 96.017 0.000105005 76.0135 10.0019Z" transform="matrix(-1 0 0 1 355.017 326)" />
+        <text font-family="Calibri,Calibri_MSFontService,sans-serif" font-style="italic" font-weight="400" font-size="24" transform="translate(485.337 435)">
+            Finding +
+            <tspan font-size="24" x="117.759" y="-149">Finding +</tspan>
+        </text>
+    </g>
+</svg>

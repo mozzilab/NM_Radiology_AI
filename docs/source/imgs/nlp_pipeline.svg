@@ -1,0 +1,72 @@
+<svg width="691" height="660" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" overflow="hidden">
+    <defs>
+        <clipPath id="clip0">
+            <rect x="0" y="0" width="691" height="660" />
+        </clipPath>
+    </defs>
+    <g clip-path="url(#clip0)">
+        <rect x="0" y="0" width="691" height="659.659" fill="#FFFFFF" fill-opacity="0" />
+        <path d="M38 61.061 192 61.061 192 153.377C115 153.377 115 188.551 38 168.566Z" fill="#7571B0" fill-rule="evenodd" />
+        <text fill="#FFFFFF" font-family="Calibri,Calibri_MSFontService,sans-serif" font-weight="400" font-size="24" transform="matrix(1 0 0 1.001 67.3337 101)">
+            Radiology
+            <tspan font-size="24" x="14.7098" y="28.971">Report</tspan>
+        </text>
+        <path d="M269 80.2471C269 69.6509 277.581 61.061 288.167 61.061L402.833 61.061C413.419 61.061 422 69.6509 422 80.2471L422 156.99C422 167.586 413.419 176.176 402.833 176.176L288.167 176.176C277.581 176.176 269 167.586 269 156.99Z" fill="#514689" fill-rule="evenodd" />
+        <text fill="#FFFFFF" font-family="Calibri,Calibri_MSFontService,sans-serif" font-weight="700" font-size="24" transform="matrix(1 0 0 1.001 309.847 98)">
+            Model
+            <tspan font-weight="400" font-size="24" x="64.4845" y="0">:</tspan>
+            <tspan font-weight="400" font-size="24" x="-7.58484" y="28.971">Finding /</tspan>
+            <tspan font-weight="400" font-size="24" x="-16.9959" y="57.9421">No Finding</tspan>
+        </text>
+        <path d="M499 118.618 576 42.0419 653 118.618 576 195.195Z" fill="#7571B0" fill-rule="evenodd" />
+        <text fill="#FFFFFF" font-family="Calibri,Calibri_MSFontService,sans-serif" font-weight="400" font-size="24" transform="matrix(1 0 0 1.001 561.761 98)">
+            No
+            <tspan font-size="24" x="-20.575" y="28.971">further </tspan>
+            <tspan font-size="24" x="-16.1628" y="57.9421">action</tspan>
+        </text>
+        <path d="M499 291.458C499 280.862 507.581 272.272 518.167 272.272L633.833 272.272C644.419 272.272 653 280.862 653 291.458L653 368.201C653 378.797 644.419 387.387 633.833 387.387L518.167 387.387C507.581 387.387 499 378.797 499 368.201Z" fill="#514689" fill-rule="evenodd" />
+        <text fill="#FFFFFF" font-family="Calibri,Calibri_MSFontService,sans-serif" font-weight="700" font-size="24" transform="matrix(1 0 0 1.001 540.353 309)">
+            Model
+            <tspan font-weight="400" font-size="24" x="64.4844" y="0">: </tspan>
+            <tspan font-weight="400" font-size="24" x="-12.637" y="28.971">Comment </tspan>
+            <tspan font-weight="400" font-size="24" x="-13.7034" y="57.9421">Extraction</tspan>
+        </text>
+        <path d="M269 291.458C269 280.862 277.581 272.272 288.167 272.272L402.833 272.272C413.419 272.272 422 280.862 422 291.458L422 368.201C422 378.797 413.419 387.387 402.833 387.387L288.167 387.387C277.581 387.387 269 378.797 269 368.201Z" fill="#514689" fill-rule="evenodd" />
+        <text fill="#FFFFFF" font-family="Calibri,Calibri_MSFontService,sans-serif" font-weight="700" font-size="24" transform="matrix(1 0 0 1.001 310.008 309)">
+            Model
+            <tspan font-weight="400" font-size="24" x="64.4845" y="0">: </tspan>
+            <tspan font-weight="400" font-size="24" x="-30.6793" y="28.971">Lung/Adrenal </tspan>
+            <tspan font-weight="400" font-size="24" x="-0.166626" y="57.9421">Finding</tspan>
+        </text>
+        <path d="M269 483.65C269 473.054 277.581 464.464 288.167 464.464L402.833 464.464C413.419 464.464 422 473.054 422 483.65L422 560.393C422 570.989 413.419 579.579 402.833 579.579L288.167 579.579C277.581 579.579 269 570.989 269 560.393Z" fill="#514689" fill-rule="evenodd" />
+        <text fill="#FFFFFF" font-family="Calibri,Calibri_MSFontService,sans-serif" font-weight="700" font-size="23" transform="matrix(1 0 0 1.001 311.925 503)">
+            Model
+            <tspan font-weight="400" font-size="23" x="61.1519" y="0">: </tspan>
+            <tspan font-weight="400" font-size="23" x="-36.0313" y="26.973">Recommended </tspan>
+            <tspan font-weight="400" font-size="23" x="-13.7433" y="54.9451">Procedure</tspan>
+        </text>
+        <path d="M422 520.52 480.786 520.52 480.786 524.523 422 524.523ZM478.786 512.514 498.782 522.522 478.786 532.529Z" />
+        <path d="M499 522.021 576 445.445 653 522.021 576 598.598Z" fill="#7571B0" fill-rule="evenodd" />
+        <text fill="#FFFFFF" font-family="Calibri,Calibri_MSFontService,sans-serif" font-weight="400" font-size="24" transform="matrix(1 0 0 1.001 557.146 506)">
+            BPA
+            <tspan font-size="24" x="-33.4319" y="28.971">Generation</tspan>
+            <tspan fill="#000000" font-style="italic" font-size="19" x="-121.593" y="-394.606">No</tspan>
+            <tspan fill="#000000" font-style="italic" font-size="19" x="-355.358" y="-153.846">Adrenal</tspan>
+            <tspan fill="#000000" font-style="italic" font-size="19" x="-205.502" y="-96.9032">Lung</tspan>
+            <tspan fill="#000000" font-style="italic" font-size="19" x="-197.548" y="-304.695">Yes</tspan>
+        </text>
+        <path d="M347 176.173 347.131 254.232 343.132 254.238 343.001 176.179ZM355.125 252.217 345.161 272.249 335.13 252.25Z" />
+        <path d="M347 387.387 347 446.231 343.001 446.231 343.001 387.387ZM354.998 444.23 345 464.245 335.003 444.23Z" />
+        <path d="M2.42183e-06-1.99952 68.6631-1.99943 68.6631 1.9996-2.42183e-06 1.99952ZM66.6636-9.99751 86.6588 0.000104962 66.6636 9.99767Z" transform="matrix(-1 0 0 1.001 268.659 330.33)" />
+        <path d="M0-1.99952 257.167-1.99952 257.167 491.761 229.145 491.761C228.04 491.761 227.145 490.866 227.145 489.762 227.145 488.657 228.04 487.762 229.145 487.762L255.167 487.762 253.168 489.762 253.168 0 255.167 1.99952 0 1.99952C-1.1043 1.99952-1.99952 1.1043-1.99952 0-1.99952-1.1043-1.1043-1.99952 0-1.99952ZM231.144 499.759 211.149 489.762 231.144 479.764Z" transform="matrix(1.83697e-16 1.001 1 -1.83881e-16 86 387.387)" />
+        <path d="M346 221.221 578.327 221.221 578.327 254.396 574.328 254.396 574.328 223.223 576.328 225.224 346 225.224ZM346 233.23C340.478 233.23 336.002 228.75 336.002 223.223 336.002 217.696 340.478 213.215 346 213.215 351.522 213.215 355.998 217.696 355.998 223.223 355.998 228.75 351.522 233.23 346 233.23ZM586.325 252.395 576.328 272.41 566.33 252.395Z" />
+        <path d="M192 117.117 250.625 117.117 250.625 121.12 192 121.12ZM248.625 109.111 268.62 119.119 248.625 129.127Z" />
+        <path d="M9.00003 387.387 47.4 272.272 201 272.272 162.6 387.387Z" fill="#7571B0" fill-rule="evenodd" />
+        <text fill="#FFFFFF" font-family="Calibri,Calibri_MSFontService,sans-serif" font-weight="400" font-size="23" transform="matrix(1 0 0 1.001 52.3047 322)">
+            Referral to
+            <tspan font-size="23" x="-17.3358" y="26.973">Endocrinology</tspan>
+        </text>
+        <path d="M422 117.117 480.947 117.117 480.947 121.12 422 121.12ZM478.948 109.111 498.943 119.119 478.948 129.127Z" />
+        <path d="M577.999 387.387 578 427.017 574 427.017 574 387.387ZM585.998 425.015 576 445.03 566.002 425.015Z" />
+    </g>
+</svg>
