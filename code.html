@@ -219,7 +219,7 @@
 </ol>
 <blockquote>
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> src
-python -m nmrezman.phase01.train.train_findings --data_path /path/to/df.gz --glove_embedding_path /path/to/glove.6B.300d.txt --model_checkpoint_name /path/to/checkpoints/findings_best_model.h5 --result_fname /path/to/results/findings_best_result.log
+python -m nmrezman.phase01.train.train_findings --data_path /path/to/data/reports_df.gz --glove_embedding_path /path/to/data/glove.6B.300d.txt --model_checkpoint_name /path/to/results/phase01/findings/findings_best_model.h5 --result_fname /path/to/results/phase01/findings/findings_best_result.log --tokenizer_fname /path/to/results/phase01/findings/tokenizer.gz
 </pre></div>
 </div>
 </div></blockquote>
@@ -236,10 +236,11 @@ python -m nmrezman.phase01.train.train_findings --data_path /path/to/df.gz --glo
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nmrezman.phase01.train.general</span> <span class="kn">import</span> <span class="n">train_findings_model</span>
 
 <span class="n">result</span> <span class="o">=</span> <span class="n">train_findings_model</span><span class="p">(</span>
-      <span class="n">data_path</span><span class="o">=</span><span class="n">path_to_report_df</span><span class="p">,</span>
-      <span class="n">glove_embedding_path</span><span class="o">=</span><span class="n">path_to_glove_embedding</span><span class="p">,</span>
-      <span class="n">model_checkpoint_name</span><span class="o">=</span><span class="s2">&quot;findings_model_checkpoints&quot;</span><span class="p">,</span>
-      <span class="n">result_fname</span><span class="o">=</span><span class="s2">&quot;finding_model_results.log&quot;</span><span class="p">,</span>
+      <span class="n">data_path</span><span class="o">=</span><span class="s2">&quot;/path/to/data/reports_df.gz&quot;</span><span class="p">,</span>
+      <span class="n">glove_embedding_path</span><span class="o">=</span><span class="s2">&quot;/path/to/data/glove.6B.300d.txt&quot;</span><span class="p">,</span>
+      <span class="n">model_checkpoint_name</span><span class="o">=</span><span class="s2">&quot;/path/to/results/phase01/findings/findings_best_model.h5&quot;</span><span class="p">,</span>
+      <span class="n">result_fname</span><span class="o">=</span><span class="s2">&quot;/path/to/results/phase01/findings/findings_best_result.log&quot;</span><span class="p">,</span>
+      <span class="n">tokenizer_fname</span><span class="o">=</span><span class="s2">&quot;/path/to/results/phase01/findings/tokenizer.gz&quot;</span><span class="p">,</span>
 <span class="p">)</span>
 </pre></div>
 </div>

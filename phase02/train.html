@@ -83,6 +83,7 @@
 <li class="toctree-l1"><a class="reference internal" href="demo_pretrain.html">Demo: Pretraining the NM Results Management Language Model with Custom Corpus</a></li>
 <li class="toctree-l1"><a class="reference internal" href="demo_finetune.html">Demo: Fine-Tuning NM Results Management Language Model with a Custom Dataset</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Train</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#pretraining-roberta-base-model">Pretraining RoBERTa Base Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#lung-findings-adrenal-findings-or-no-findings-model">Lung Findings, Adrenal Findings, or No Findings Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#comment-extraction-model">Comment Extraction Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#lung-recommended-procedure-model">Lung Recommended Procedure Model</a></li>
@@ -145,7 +146,7 @@
 </style>
 <section id="train">
 <span id="phase02-train"></span><h1>Train<a class="headerlink" href="#train" title="Permalink to this headline"></a></h1>
-<p>Four models are used as part of the Phase 02 Results Management system, each responsible for one of the tasks listed below.</p>
+<p>Three models are used as part of the Phase 02 Results Management system, each responsible for one of the tasks listed below.</p>
 <ul class="simple">
 <li><p>determines if there are lung findings, adrenal findings, or no findings</p></li>
 <li><p>if findings are found, determine the relevant portion of the note that made that decision,</p></li>
@@ -153,15 +154,41 @@
 </ul>
 <p>The functions to train these models are provided in the file <code class="docutils literal notranslate"><span class="pre">nmrezman.phase02.train.general.py</span></code> and named as follows.</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="../phase01/train.html#nmrezman.phase01.train.general.train_findings_model" title="nmrezman.phase01.train.general.train_findings_model"><code class="xref py py-func docutils literal notranslate"><span class="pre">nmrezman.phase01.train.general.train_findings_model()</span></code></a></p></li>
-<li><p><a class="reference internal" href="../phase01/train.html#nmrezman.phase01.train.general.train_comment_model" title="nmrezman.phase01.train.general.train_comment_model"><code class="xref py py-func docutils literal notranslate"><span class="pre">nmrezman.phase01.train.general.train_comment_model()</span></code></a></p></li>
-<li><p><a class="reference internal" href="../phase01/train.html#nmrezman.phase01.train.general.train_lung_recommended_proc_model" title="nmrezman.phase01.train.general.train_lung_recommended_proc_model"><code class="xref py py-func docutils literal notranslate"><span class="pre">nmrezman.phase01.train.general.train_lung_recommended_proc_model()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#nmrezman.phase02.train.general.train_findings_model" title="nmrezman.phase02.train.general.train_findings_model"><code class="xref py py-func docutils literal notranslate"><span class="pre">nmrezman.phase02.train.general.train_findings_model()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#nmrezman.phase02.train.general.train_comment_model" title="nmrezman.phase02.train.general.train_comment_model"><code class="xref py py-func docutils literal notranslate"><span class="pre">nmrezman.phase02.train.general.train_comment_model()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#nmrezman.phase02.train.general.train_lung_recommended_proc_model" title="nmrezman.phase02.train.general.train_lung_recommended_proc_model"><code class="xref py py-func docutils literal notranslate"><span class="pre">nmrezman.phase02.train.general.train_lung_recommended_proc_model()</span></code></a></p></li>
 </ul>
+<p>Before training these models, pretraining was performed via <a class="reference internal" href="#nmrezman.phase02.train.general.pretrain_roberta_base" title="nmrezman.phase02.train.general.pretrain_roberta_base"><code class="xref py py-func docutils literal notranslate"><span class="pre">nmrezman.phase02.train.general.pretrain_roberta_base()</span></code></a>.</p>
+<section id="pretraining-roberta-base-model">
+<h2>Pretraining RoBERTa Base Model<a class="headerlink" href="#pretraining-roberta-base-model" title="Permalink to this headline"></a></h2>
+<p>As a first step, we pretrain a DistilRoBERTa base model using radiology reports.</p>
+<p>Training was run via the script:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m nmrezman.phase02.train.pretrain --data_path /path/to/data/reports_df.gz --output_dir /path/to/results/phase02/pretrain --logging_dir /path/to/results/phase02/pretrain/logging --wandb_dir /path/to/results/phase02/pretrain --do_reporting True
+</pre></div>
+</div>
+<dl class="py function">
+<dt class="sig sig-object py" id="nmrezman.phase02.train.general.pretrain_roberta_base">
+<span class="sig-prename descclassname"><span class="pre">nmrezman.phase02.train.general.</span></span><span class="sig-name descname"><span class="pre">pretrain_roberta_base</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logging_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">do_reporting</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wandb_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nmrezman/phase02/train/general.html#pretrain_roberta_base"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nmrezman.phase02.train.general.pretrain_roberta_base" title="Permalink to this definition"></a></dt>
+<dd><p>Pretrain the model based on custom dataset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_path</strong> (<cite>str</cite>) – Path to the dataframe file with the reports and labels</p></li>
+<li><p><strong>output_dir</strong> (<cite>str</cite>) – Path to save model checkpoints</p></li>
+<li><p><strong>logging_dir</strong> (<cite>str</cite>) – Path to save 🤗 logging data</p></li>
+<li><p><strong>do_reporting</strong> (<cite>bool</cite>) – Boolean to determine whether 🤗 will report to logs to all (True) or no (False) supported integrations</p></li>
+<li><p><strong>wandb_dir</strong> (<cite>bool</cite>) – Path to save the wandb logging directory</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
 <section id="lung-findings-adrenal-findings-or-no-findings-model">
 <h2>Lung Findings, Adrenal Findings, or No Findings Model<a class="headerlink" href="#lung-findings-adrenal-findings-or-no-findings-model" title="Permalink to this headline"></a></h2>
 <p>This model classifies whether the report contains lung findings, adrenal findings, or no findings. This is the first model the report is run through. This is an MLM RoBERTa-based model.</p>
 <p>Training was run via the script:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m nmrezman.phase02.train.train_findings --data_path /path/to/df.gz --model_pretrained_path /path/to/pretrained_models --output_dir /path/to/results/findings/ --logging_dir /path/to/findings/logging --result_fname /path/to/findings/findings_best_result.log --wandb_dir /path/to/results/findings_recommend/ --do_reporting True
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m nmrezman.phase02.train.train_findings --data_path /path/to/data/reports_df.gz --model_pretrained_path /path/to/results/phase02/pretrain/checkpoint-XXXXX --output_dir /path/to/results/phase02/findings/ --logging_dir /path/to/results/phase02/findings/logging --result_fname /path/to/results/phase02/findings/findings_best_result.log --wandb_dir /path/to/results/phase02/findings/findings_recommend/ --do_reporting True
 </pre></div>
 </div>
 <dl class="py function">
@@ -188,7 +215,7 @@
 <h2>Comment Extraction Model<a class="headerlink" href="#comment-extraction-model" title="Permalink to this headline"></a></h2>
 <p>This model classifies the comment in the report that indicate the relevant finding. This model is run if the Findings model identifies findings were found. This is a Question-Answer based model.</p>
 <p>Training was run via the script:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m nmrezman.phase02.train.train_comment --data_path /path/to/df.gz --output_dir /path/to/results/comment/ --result_fname_prefix annotation_label
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m nmrezman.phase02.train.train_comment --data_path /path/to/data/reports_df.gz --output_dir /path/to/results/phase02/comment/ --result_fname_prefix results
 </pre></div>
 </div>
 <dl class="py function">
@@ -215,7 +242,7 @@
 <h2>Lung Recommended Procedure Model<a class="headerlink" href="#lung-recommended-procedure-model" title="Permalink to this headline"></a></h2>
 <p>This model classifies whether a Chest CT or some other (“ambiguous”) procedure is recommended. This model is run if the Findings model identifies lung findings were found. This is an MLM RoBERTa-based model.</p>
 <p>Training was run via the script:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m nmrezman.phase02.train.train_findings --data_path /path/to/df.gz --model_pretrained_path /path/to/pretrained_models --output_dir /path/to/results/lung_proc/ --logging_dir /path/to/lung_proc/logging --result_fname /path/to/lung_proc/lung_proc_best_result.log --wandb_dir /path/to/results/lung_proc_recommend/ --do_reporting True
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m nmrezman.phase02.train.train_findings --data_path /path/to/data/reports_df.gz --model_pretrained_path /path/to/results/phase02/pretrain/checkpoint-XXXXX --output_dir /path/to/results/phase02/lung_recommend/ --logging_dir /path/to/results/phase02/lung_recommend/logging --result_fname /path/to/results/phase02/lung_recommend/lung_recommend_best_result.log --wandb_dir /path/to/results/phase02/lung_recommend/ --do_reporting True
 </pre></div>
 </div>
 <dl class="py function">

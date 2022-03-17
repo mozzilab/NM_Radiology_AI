@@ -164,7 +164,7 @@
 <h2>Findings vs No Finding Model<a class="headerlink" href="#findings-vs-no-finding-model" title="Permalink to this headline"></a></h2>
 <p>This model classifies whether the report contains findings or no findings. This is the first model the report is run through. This biLSTM model uses GloVe word embeddings.
 Training was run via the script:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m nmrezman.phase01.train.train_findings --data_path /path/to/df.gz --glove_embedding_path /path/to/glove.6B.300d.txt --model_checkpoint_name /path/to/checkpoints/findings_best_model.h5 --result_fname /path/to/results/findings_best_result.log
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m nmrezman.phase01.train.train_findings --data_path /path/to/data/reports_df.gz --glove_embedding_path /path/to/data/glove.6B.300d.txt --model_checkpoint_name /path/to/results/phase01/findings/findings_best_model.h5 --result_fname /path/to/results/phase01/findings/findings_best_result.log --tokenizer_fname /path/to/results/phase01/findings/tokenizer.gz
 </pre></div>
 </div>
 <dl class="py function">
@@ -191,7 +191,7 @@ Training was run via the script:</p>
 <h2>Lung vs Adrenal Findings Model<a class="headerlink" href="#lung-vs-adrenal-findings-model" title="Permalink to this headline"></a></h2>
 <p>This model classifies whether the report contains lung or adrenal findings. This model is run if the Findings vs No Findings model identifies findings were found. This biLSTM model uses BioWordVec word embeddings.</p>
 <p>Training was run via the script:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m nmrezman.phase01.train.train_lung_adrenal --data_path /path/to/df.gz --bioword_path /path/to/BioWordVec_PubMed_MIMICIII_d200.bin --model_checkpoint_name /path/to/checkpoints/lung_adrenal_best_model.h5 --result_fname /path/to/results/lung_adrenal_best_result.log
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m nmrezman.phase01.train.train_lung_adrenal --data_path /path/to/data/reports_df.gz --bioword_path /path/to/data/BioWordVec_PubMed_MIMICIII_d200.bin --model_checkpoint_name /path/to/results/phase01/lung_adrenal/lung_adrenal_best_model.h5 --result_fname /path/to/results/phase01/lung_adrenal/lung_adrenal_best_result.log --tokenizer_fname /path/to/results/phase01/findings/tokenizer.gz
 </pre></div>
 </div>
 <dl class="py function">
@@ -218,7 +218,7 @@ Training was run via the script:</p>
 <h2>Comment Extraction Model<a class="headerlink" href="#comment-extraction-model" title="Permalink to this headline"></a></h2>
 <p>This model classifies the comment in the report that indicate the relevant finding. This model is run if the Findings vs No Findings model identifies findings were found. This is an XGBoost-based model.</p>
 <p>Training was run via the script:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m nmrezman.phase01.train.train_comment --data_path /path/to/df.gz --model_checkpoint_name /path/to/checkpoints/comment_best_model.h5 --result_fname /path/to/results/comment_best_result.log
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m nmrezman.phase01.train.train_comment --data_path /path/to/data/reports_df.gz --model_checkpoint_name /path/to/results/phase01/comment/comment_best_model.sav --result_fname /path/to/results/phase01/comment/comment_best_result.log
 </pre></div>
 </div>
 <dl class="py function">
@@ -242,7 +242,7 @@ Training was run via the script:</p>
 <h2>Lung Recommended Procedure Model<a class="headerlink" href="#lung-recommended-procedure-model" title="Permalink to this headline"></a></h2>
 <p>This model classifies the comment in the report that indicate the relevant finding. This model is run if the Lung vs Adrenal Findings model identifies lung findings were found. This is a biLSTM model.</p>
 <p>Training was run via the script:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m nmrezman.phase01.train.train_lung_recommended_proc_model --data_path /path/to/df.gz --model_checkpoint_name /path/to/checkpoints/lung_proc_best_model.h5 --result_fname /path/to/results/lung_proc_best_result.log
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m nmrezman.phase01.train.train_lung_recommended_proc_model --data_path /path/to/data/reports_df.gz --model_checkpoint_name /path/to/results/phase01/lung_recommend/lung_recommend_best_model.h5 --result_fname /path/to/results/phase01/lung_recommend/lung_recommend_best_result.log --tokenizer_fname /path/to/results/phase01/findings/tokenizer.gz
 </pre></div>
 </div>
 <dl class="py function">

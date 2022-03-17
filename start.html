@@ -195,8 +195,8 @@ number</p></td>
 </div>
 <p>For labeling, we used the open source <a class="reference external" href="https://inception-project.github.io/">INCEpTION platform</a>. A screenshot of the platform is shown below.</p>
 <img alt="_images/inception.png" class="align-center" src="_images/inception.png" />
-<table class="colwidths-given docutils align-default" id="id2">
-<caption><span class="caption-text">Sample Radiology Report Dataframe</span><a class="headerlink" href="#id2" title="Permalink to this table"></a></caption>
+<table class="colwidths-given docutils align-default" id="id3">
+<caption><span class="caption-text">Sample Radiology Report Dataframe</span><a class="headerlink" href="#id3" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 5%" />
 <col style="width: 80%" />
@@ -279,17 +279,21 @@ number</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td rowspan="3"><p>Phase 02</p></td>
-<td><p>Lung Findings, Adrenal Findings, or No Findings Model</p></td>
+<tr class="row-even"><td rowspan="4"><p>Phase 02</p></td>
+<td><p>Pretraining</p></td>
+<td><p><a class="reference external" href="https://huggingface.co/distilroberta-base">DistilRoBERTa base</a></p></td>
+<td><p>✗</p></td>
+</tr>
+<tr class="row-odd"><td><p>Lung Findings, Adrenal Findings, or No Findings Model</p></td>
 <td><p><a class="reference external" href="https://huggingface.co/roberta-base">RoBERTa base</a></p></td>
 <td><p>✗</p></td>
 </tr>
-<tr class="row-odd"><td><p>Comment Extraction Model</p></td>
-<td><p><a class="reference external" href="https://huggingface.co/roberta-base">RoBERTa base</a></p></td>
+<tr class="row-even"><td><p>Comment Extraction Model</p></td>
+<td><p><a class="reference external" href="https://huggingface.co/distilroberta-base">DistilRoBERTa base</a></p></td>
 <td><p>✗</p></td>
 </tr>
-<tr class="row-even"><td><p>Lung Recommended Procedure Model</p></td>
-<td><p><a class="reference external" href="https://huggingface.co/roberta-large">RoBERTa large</a></p></td>
+<tr class="row-odd"><td><p>Lung Recommended Procedure Model</p></td>
+<td><p><a class="reference external" href="https://huggingface.co/roberta-base">RoBERTa base</a></p></td>
 <td><p>✗</p></td>
 </tr>
 </tbody>

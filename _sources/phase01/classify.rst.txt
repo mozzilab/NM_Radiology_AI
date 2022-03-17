@@ -14,7 +14,7 @@ A script ``nmrezman.phase01.classify.run_classifier`` is provided to easily run 
 
 .. code-block:: bash
 
-    python -m nmrezman.phase01.classify.run_classifier --data_path /path/to/data.txt --model_path /workspace/local/phase01_platform/model_checkpoints/
+    python -m nmrezman.phase01.classify.run_classifier --data_path /path/to/data/report.txt --model_path /path/to/checkpoints/phase01/
 
 
 .. autofunction:: nmrezman.phase01.classify.classifier
