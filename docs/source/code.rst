@@ -84,7 +84,7 @@ This documentation provides the source code used to train all models, which can 
    .. code-block:: bash
 
       cd src
-      python -m nmrezman.phase01.train.train_findings --data_path /path/to/df.gz --glove_embedding_path /path/to/glove.6B.300d.txt --model_checkpoint_name /path/to/checkpoints/findings_best_model.h5 --result_fname /path/to/results/findings_best_result.log
+      python -m nmrezman.phase01.train.train_findings --data_path /path/to/data/reports_df.gz --glove_embedding_path /path/to/data/glove.6B.300d.txt --model_checkpoint_name /path/to/results/phase01/findings/findings_best_model.h5 --result_fname /path/to/results/phase01/findings/findings_best_result.log --tokenizer_fname /path/to/results/phase01/findings/tokenizer.gz
 
 2. Directly run the scripts or import the functions into python once :obj:`nmrezman` has been pip installed as a python package from either `GitHub <https://github.com/mozzilab/NM_Radiology_AI>`_ directly or, if the repo is cloned locally, from the local directory. See the commands below.
 
@@ -105,10 +105,11 @@ This documentation provides the source code used to train all models, which can 
       from nmrezman.phase01.train.general import train_findings_model
 
       result = train_findings_model(        
-            data_path=path_to_report_df,
-            glove_embedding_path=path_to_glove_embedding,
-            model_checkpoint_name="findings_model_checkpoints",
-            result_fname="finding_model_results.log",
+            data_path="/path/to/data/reports_df.gz",
+            glove_embedding_path="/path/to/data/glove.6B.300d.txt",
+            model_checkpoint_name="/path/to/results/phase01/findings/findings_best_model.h5",
+            result_fname="/path/to/results/phase01/findings/findings_best_result.log",
+            tokenizer_fname="/path/to/results/phase01/findings/tokenizer.gz",
       )
 
 3. Last but not least, use the pre-built container with everything packaged in, ready to go. The image contains the complete environment used to build these models as well as a click-through walkthrough to get you started. The source code for the container image is available in our `github repo <https://github.com/mozzilab/NM_Radiology_AI/docker>`_, and the pre-built image is publicly available on our docker-hub repository, `mozzilab/nmrezman <https://hub.docker.com/repository/docker/mozzilab/nmrezman>`_.

@@ -27,7 +27,7 @@ Training was run via the script:
 
 .. code-block:: bash
 
-    python -m nmrezman.phase01.train.train_findings --data_path /path/to/df.gz --glove_embedding_path /path/to/glove.6B.300d.txt --model_checkpoint_name /path/to/checkpoints/findings_best_model.h5 --result_fname /path/to/results/findings_best_result.log
+    python -m nmrezman.phase01.train.train_findings --data_path /path/to/data/reports_df.gz --glove_embedding_path /path/to/data/glove.6B.300d.txt --model_checkpoint_name /path/to/results/phase01/findings/findings_best_model.h5 --result_fname /path/to/results/phase01/findings/findings_best_result.log --tokenizer_fname /path/to/results/phase01/findings/tokenizer.gz
 
 
 .. autofunction:: nmrezman.phase01.train.general.train_findings_model
@@ -42,7 +42,7 @@ Training was run via the script:
 
 .. code-block:: bash
 
-    python -m nmrezman.phase01.train.train_lung_adrenal --data_path /path/to/df.gz --bioword_path /path/to/BioWordVec_PubMed_MIMICIII_d200.bin --model_checkpoint_name /path/to/checkpoints/lung_adrenal_best_model.h5 --result_fname /path/to/results/lung_adrenal_best_result.log
+    python -m nmrezman.phase01.train.train_lung_adrenal --data_path /path/to/data/reports_df.gz --bioword_path /path/to/data/BioWordVec_PubMed_MIMICIII_d200.bin --model_checkpoint_name /path/to/results/phase01/lung_adrenal/lung_adrenal_best_model.h5 --result_fname /path/to/results/phase01/lung_adrenal/lung_adrenal_best_result.log --tokenizer_fname /path/to/results/phase01/findings/tokenizer.gz
 
 
 .. autofunction:: nmrezman.phase01.train.general.train_lung_adrenal_model
@@ -57,7 +57,7 @@ Training was run via the script:
 
 .. code-block:: bash
 
-    python -m nmrezman.phase01.train.train_comment --data_path /path/to/df.gz --model_checkpoint_name /path/to/checkpoints/comment_best_model.h5 --result_fname /path/to/results/comment_best_result.log
+    python -m nmrezman.phase01.train.train_comment --data_path /path/to/data/reports_df.gz --model_checkpoint_name /path/to/results/phase01/comment/comment_best_model.sav --result_fname /path/to/results/phase01/comment/comment_best_result.log
 
 
 .. autofunction:: nmrezman.phase01.train.general.train_comment_model
@@ -72,7 +72,7 @@ Training was run via the script:
 
 .. code-block:: bash
 
-    python -m nmrezman.phase01.train.train_lung_recommended_proc_model --data_path /path/to/df.gz --model_checkpoint_name /path/to/checkpoints/lung_proc_best_model.h5 --result_fname /path/to/results/lung_proc_best_result.log
+    python -m nmrezman.phase01.train.train_lung_recommended_proc_model --data_path /path/to/data/reports_df.gz --model_checkpoint_name /path/to/results/phase01/lung_recommend/lung_recommend_best_model.h5 --result_fname /path/to/results/phase01/lung_recommend/lung_recommend_best_result.log --tokenizer_fname /path/to/results/phase01/findings/tokenizer.gz
 
 
 .. autofunction:: nmrezman.phase01.train.general.train_lung_recommended_proc_model

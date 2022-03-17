@@ -3,7 +3,7 @@
 Train
 =================================
 
-Four models are used as part of the Phase 02 Results Management system, each responsible for one of the tasks listed below.
+Three models are used as part of the Phase 02 Results Management system, each responsible for one of the tasks listed below.
 
 * determines if there are lung findings, adrenal findings, or no findings
 * if findings are found, determine the relevant portion of the note that made that decision, 
@@ -11,9 +11,25 @@ Four models are used as part of the Phase 02 Results Management system, each res
 
 The functions to train these models are provided in the file ``nmrezman.phase02.train.general.py`` and named as follows.
 
-* :func:`nmrezman.phase01.train.general.train_findings_model`
-* :func:`nmrezman.phase01.train.general.train_comment_model`
-* :func:`nmrezman.phase01.train.general.train_lung_recommended_proc_model`
+* :func:`nmrezman.phase02.train.general.train_findings_model`
+* :func:`nmrezman.phase02.train.general.train_comment_model`
+* :func:`nmrezman.phase02.train.general.train_lung_recommended_proc_model`
+
+Before training these models, pretraining was performed via :func:`nmrezman.phase02.train.general.pretrain_roberta_base`.
+
+
+Pretraining RoBERTa Base Model
+------------------------------------------------------
+
+As a first step, we pretrain a DistilRoBERTa base model using radiology reports.
+
+Training was run via the script:
+
+.. code-block:: bash
+
+    python -m nmrezman.phase02.train.pretrain --data_path /path/to/data/reports_df.gz --output_dir /path/to/results/phase02/pretrain --logging_dir /path/to/results/phase02/pretrain/logging --wandb_dir /path/to/results/phase02/pretrain --do_reporting True
+
+.. autofunction:: nmrezman.phase02.train.general.pretrain_roberta_base
 
 
 Lung Findings, Adrenal Findings, or No Findings Model
@@ -25,7 +41,7 @@ Training was run via the script:
 
 .. code-block:: bash
 
-    python -m nmrezman.phase02.train.train_findings --data_path /path/to/df.gz --model_pretrained_path /path/to/pretrained_models --output_dir /path/to/results/findings/ --logging_dir /path/to/findings/logging --result_fname /path/to/findings/findings_best_result.log --wandb_dir /path/to/results/findings_recommend/ --do_reporting True 
+    python -m nmrezman.phase02.train.train_findings --data_path /path/to/data/reports_df.gz --model_pretrained_path /path/to/results/phase02/pretrain/checkpoint-XXXXX --output_dir /path/to/results/phase02/findings/ --logging_dir /path/to/results/phase02/findings/logging --result_fname /path/to/results/phase02/findings/findings_best_result.log --wandb_dir /path/to/results/phase02/findings/findings_recommend/ --do_reporting True 
 
 
 .. autofunction:: nmrezman.phase02.train.general.train_findings_model
@@ -40,7 +56,7 @@ Training was run via the script:
 
 .. code-block:: bash
 
-    python -m nmrezman.phase02.train.train_comment --data_path /path/to/df.gz --output_dir /path/to/results/comment/ --result_fname_prefix annotation_label
+    python -m nmrezman.phase02.train.train_comment --data_path /path/to/data/reports_df.gz --output_dir /path/to/results/phase02/comment/ --result_fname_prefix results
 
 .. autofunction:: nmrezman.phase02.train.general.train_comment_model
 
@@ -54,7 +70,7 @@ Training was run via the script:
 
 .. code-block:: bash
 
-    python -m nmrezman.phase02.train.train_findings --data_path /path/to/df.gz --model_pretrained_path /path/to/pretrained_models --output_dir /path/to/results/lung_proc/ --logging_dir /path/to/lung_proc/logging --result_fname /path/to/lung_proc/lung_proc_best_result.log --wandb_dir /path/to/results/lung_proc_recommend/ --do_reporting True
+    python -m nmrezman.phase02.train.train_findings --data_path /path/to/data/reports_df.gz --model_pretrained_path /path/to/results/phase02/pretrain/checkpoint-XXXXX --output_dir /path/to/results/phase02/lung_recommend/ --logging_dir /path/to/results/phase02/lung_recommend/logging --result_fname /path/to/results/phase02/lung_recommend/lung_recommend_best_result.log --wandb_dir /path/to/results/phase02/lung_recommend/ --do_reporting True
 
 
 .. autofunction:: nmrezman.phase02.train.general.train_lung_recommended_proc_model
