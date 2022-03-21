@@ -2,7 +2,7 @@
 
 1. Install sphinx
     ```
-    pip install sphinx sphinx-copybutton sphinx_rtd_theme sphinx-panels
+    pip install sphinx sphinx-copybutton sphinx_rtd_theme sphinx-panels nbsphinx
     ```
 1. Pip install the `nmrezman` package (command below is if the repo is local)
     ```
