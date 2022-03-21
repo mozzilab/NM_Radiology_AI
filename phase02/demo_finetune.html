@@ -497,7 +497,7 @@ div.rendered_html tbody tr:hover {
         <span class="s2">&quot;final report attending radiologist:&quot;</span><span class="p">,</span>
     <span class="p">]</span>
     <span class="n">impressions</span> <span class="o">=</span> <span class="n">keyword_split</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">note</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="n">impression_keywords</span><span class="p">)</span>
-    <span class="n">impressions</span> <span class="o">=</span> <span class="n">keyword_split</span><span class="p">(</span><span class="n">note</span><span class="p">,</span> <span class="n">signature_keywords</span><span class="p">,</span> <span class="n">return_idx</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">impressions</span> <span class="o">=</span> <span class="n">keyword_split</span><span class="p">(</span><span class="n">impressions</span><span class="p">,</span> <span class="n">signature_keywords</span><span class="p">,</span> <span class="n">return_idx</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">impressions</span>
 
 <span class="c1"># Preprocess the note</span>
@@ -585,7 +585,7 @@ div.rendered_html tbody tr:hover {
 <section id="Fine-Tune-the-Model">
 <h2>Fine-Tune the Model<a class="headerlink" href="#Fine-Tune-the-Model" title="Permalink to this headline"></a></h2>
 <p>First, we load the pretrained model (similar to the one that was pretrained via the notebook <code class="docutils literal notranslate"><span class="pre">Demo:</span> <span class="pre">Phase</span> <span class="pre">02</span> <span class="pre">Pretraining</span> <span class="pre">the</span> <span class="pre">NM</span> <span class="pre">Results</span> <span class="pre">Management</span> <span class="pre">Language</span> <span class="pre">Model</span> <span class="pre">with</span> <span class="pre">Custom</span> <span class="pre">Corpus</span></code> only trained on thousands of reports). This model will be fine-tuned to a specific task, which, in this case, is a multi-class classification problem that determines if a report has Lung Findings, Adrenal Findings, or No Findings.</p>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
@@ -600,18 +600,6 @@ div.rendered_html tbody tr:hover {
 <span class="n">model</span> <span class="o">=</span> <span class="n">AutoModelForSequenceClassification</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model_pretrained_path</span><span class="p">,</span> <span class="n">num_labels</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-Some weights of the model checkpoint at /path/to/results/phase02/demo/checkpoint-14500 were not used when initializing RobertaForSequenceClassification: [&#39;lm_head.layer_norm.bias&#39;, &#39;lm_head.layer_norm.weight&#39;, &#39;lm_head.dense.bias&#39;, &#39;lm_head.bias&#39;, &#39;lm_head.dense.weight&#39;]
-- This IS expected if you are initializing RobertaForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
-- This IS NOT expected if you are initializing RobertaForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
-Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at /path/to/results/phase02/demo/checkpoint-14500 and are newly initialized: [&#39;classifier.dense.bias&#39;, &#39;classifier.out_proj.bias&#39;, &#39;classifier.dense.weight&#39;, &#39;classifier.out_proj.weight&#39;]
-You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
-</pre></div></div>
 </div>
 <p>Here we begin training using the 🤗 <code class="docutils literal notranslate"><span class="pre">Trainer</span></code>, which will train according to the parameters specified in the 🤗 <code class="docutils literal notranslate"><span class="pre">TrainingArguments</span></code>. 🤗 will take care of all the training for us! When done, the last checkpoint will be used as for classifying reports for Lung, Adrenal, or No Findings.</p>
 <div class="nbinput docutils container">
@@ -673,7 +661,7 @@ Using amp half precision backend
     <div>
 
       <progress value='40' max='40' style='width:300px; height:20px; vertical-align: middle;'></progress>
-      [40/40 01:15, Epoch 40/40]
+      [40/40 01:11, Epoch 40/40]
     </div>
     <table border="1" class="dataframe">
   <thead>
@@ -687,202 +675,202 @@ Using amp half precision backend
     <tr>
       <td>1</td>
       <td>No log</td>
-      <td>1.090820</td>
+      <td>1.456469</td>
     </tr>
     <tr>
       <td>2</td>
-      <td>1.093700</td>
-      <td>1.090332</td>
+      <td>0.004000</td>
+      <td>1.459345</td>
     </tr>
     <tr>
       <td>3</td>
-      <td>1.093700</td>
-      <td>1.089355</td>
+      <td>0.004000</td>
+      <td>1.463199</td>
     </tr>
     <tr>
       <td>4</td>
-      <td>1.086800</td>
-      <td>1.088135</td>
+      <td>0.003300</td>
+      <td>1.468944</td>
     </tr>
     <tr>
       <td>5</td>
-      <td>1.086800</td>
-      <td>1.086182</td>
+      <td>0.003300</td>
+      <td>1.477593</td>
     </tr>
     <tr>
       <td>6</td>
-      <td>1.101900</td>
-      <td>1.083984</td>
+      <td>0.004200</td>
+      <td>1.487210</td>
     </tr>
     <tr>
       <td>7</td>
-      <td>1.101900</td>
-      <td>1.081299</td>
+      <td>0.004200</td>
+      <td>1.499711</td>
     </tr>
     <tr>
       <td>8</td>
-      <td>1.077500</td>
-      <td>1.078125</td>
+      <td>0.003200</td>
+      <td>1.513178</td>
     </tr>
     <tr>
       <td>9</td>
-      <td>1.077500</td>
-      <td>1.074707</td>
+      <td>0.003200</td>
+      <td>1.528578</td>
     </tr>
     <tr>
       <td>10</td>
-      <td>1.096700</td>
-      <td>1.071045</td>
+      <td>0.003100</td>
+      <td>1.545932</td>
     </tr>
     <tr>
       <td>11</td>
-      <td>1.096700</td>
-      <td>1.066895</td>
+      <td>0.003100</td>
+      <td>1.564255</td>
     </tr>
     <tr>
       <td>12</td>
-      <td>1.069300</td>
-      <td>1.063110</td>
+      <td>0.002400</td>
+      <td>1.582583</td>
     </tr>
     <tr>
       <td>13</td>
-      <td>1.069300</td>
-      <td>1.058838</td>
+      <td>0.002400</td>
+      <td>1.600918</td>
     </tr>
     <tr>
       <td>14</td>
-      <td>1.042600</td>
-      <td>1.054077</td>
+      <td>0.001900</td>
+      <td>1.622189</td>
     </tr>
     <tr>
       <td>15</td>
-      <td>1.042600</td>
-      <td>1.049561</td>
+      <td>0.001900</td>
+      <td>1.643487</td>
     </tr>
     <tr>
       <td>16</td>
-      <td>1.043200</td>
-      <td>1.044678</td>
+      <td>0.002200</td>
+      <td>1.663810</td>
     </tr>
     <tr>
       <td>17</td>
-      <td>1.043200</td>
-      <td>1.039795</td>
+      <td>0.002200</td>
+      <td>1.685127</td>
     </tr>
     <tr>
       <td>18</td>
-      <td>0.978700</td>
-      <td>1.034790</td>
+      <td>0.001600</td>
+      <td>1.706464</td>
     </tr>
     <tr>
       <td>19</td>
-      <td>0.978700</td>
-      <td>1.030029</td>
+      <td>0.001600</td>
+      <td>1.725871</td>
     </tr>
     <tr>
       <td>20</td>
-      <td>0.941100</td>
-      <td>1.025269</td>
+      <td>0.001400</td>
+      <td>1.744312</td>
     </tr>
     <tr>
       <td>21</td>
-      <td>0.941100</td>
-      <td>1.020630</td>
+      <td>0.001400</td>
+      <td>1.758865</td>
     </tr>
     <tr>
       <td>22</td>
-      <td>0.910500</td>
-      <td>1.016968</td>
+      <td>0.001400</td>
+      <td>1.771481</td>
     </tr>
     <tr>
       <td>23</td>
-      <td>0.910500</td>
-      <td>1.013428</td>
+      <td>0.001400</td>
+      <td>1.783134</td>
     </tr>
     <tr>
       <td>24</td>
-      <td>0.869600</td>
-      <td>1.010620</td>
+      <td>0.001100</td>
+      <td>1.794791</td>
     </tr>
     <tr>
       <td>25</td>
-      <td>0.869600</td>
-      <td>1.007324</td>
+      <td>0.001100</td>
+      <td>1.806458</td>
     </tr>
     <tr>
       <td>26</td>
-      <td>0.771500</td>
-      <td>1.003967</td>
+      <td>0.001100</td>
+      <td>1.817151</td>
     </tr>
     <tr>
       <td>27</td>
-      <td>0.771500</td>
-      <td>0.999207</td>
+      <td>0.001100</td>
+      <td>1.826876</td>
     </tr>
     <tr>
       <td>28</td>
-      <td>0.772400</td>
-      <td>0.993286</td>
+      <td>0.000900</td>
+      <td>1.835629</td>
     </tr>
     <tr>
       <td>29</td>
-      <td>0.772400</td>
-      <td>0.985840</td>
+      <td>0.000900</td>
+      <td>1.844386</td>
     </tr>
     <tr>
       <td>30</td>
-      <td>0.708900</td>
-      <td>0.975403</td>
+      <td>0.000800</td>
+      <td>1.851195</td>
     </tr>
     <tr>
       <td>31</td>
-      <td>0.708900</td>
-      <td>0.966370</td>
+      <td>0.000800</td>
+      <td>1.858008</td>
     </tr>
     <tr>
       <td>32</td>
-      <td>0.651300</td>
-      <td>0.960327</td>
+      <td>0.000800</td>
+      <td>1.864821</td>
     </tr>
     <tr>
       <td>33</td>
-      <td>0.651300</td>
-      <td>0.958374</td>
+      <td>0.000800</td>
+      <td>1.871639</td>
     </tr>
     <tr>
       <td>34</td>
-      <td>0.524000</td>
-      <td>0.957214</td>
+      <td>0.000800</td>
+      <td>1.878457</td>
     </tr>
     <tr>
       <td>35</td>
-      <td>0.524000</td>
-      <td>0.954956</td>
+      <td>0.000800</td>
+      <td>1.886249</td>
     </tr>
     <tr>
       <td>36</td>
-      <td>0.412900</td>
-      <td>0.951202</td>
+      <td>0.000700</td>
+      <td>1.895020</td>
     </tr>
     <tr>
       <td>37</td>
-      <td>0.412900</td>
-      <td>0.948364</td>
+      <td>0.000700</td>
+      <td>1.903792</td>
     </tr>
     <tr>
       <td>38</td>
-      <td>0.346000</td>
-      <td>0.949860</td>
+      <td>0.000600</td>
+      <td>1.912562</td>
     </tr>
     <tr>
       <td>39</td>
-      <td>0.346000</td>
-      <td>0.955627</td>
+      <td>0.000600</td>
+      <td>1.923288</td>
     </tr>
     <tr>
       <td>40</td>
-      <td>0.311500</td>
-      <td>0.955841</td>
+      <td>0.000500</td>
+      <td>1.934011</td>
     </tr>
   </tbody>
 </table><p></div>
@@ -898,266 +886,264 @@ Using amp half precision backend
 Saving model checkpoint to /path/to/results/phase02/demo/findings/checkpoint-1
 Configuration saved in /path/to/results/phase02/demo/findings/checkpoint-1/config.json
 Model weights saved in /path/to/results/phase02/demo/findings/checkpoint-1/pytorch_model.bin
-Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-14] due to args.save_total_limit
 ***** Running Evaluation *****
   Num examples = 4
   Batch size = 8
 Saving model checkpoint to /path/to/results/phase02/demo/findings/checkpoint-2
 Configuration saved in /path/to/results/phase02/demo/findings/checkpoint-2/config.json
 Model weights saved in /path/to/results/phase02/demo/findings/checkpoint-2/pytorch_model.bin
-Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-15] due to args.save_total_limit
 ***** Running Evaluation *****
   Num examples = 4
   Batch size = 8
 Saving model checkpoint to /path/to/results/phase02/demo/findings/checkpoint-3
 Configuration saved in /path/to/results/phase02/demo/findings/checkpoint-3/config.json
 Model weights saved in /path/to/results/phase02/demo/findings/checkpoint-3/pytorch_model.bin
-Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-1] due to args.save_total_limit
+Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-2] due to args.save_total_limit
 ***** Running Evaluation *****
   Num examples = 4
   Batch size = 8
 Saving model checkpoint to /path/to/results/phase02/demo/findings/checkpoint-4
 Configuration saved in /path/to/results/phase02/demo/findings/checkpoint-4/config.json
 Model weights saved in /path/to/results/phase02/demo/findings/checkpoint-4/pytorch_model.bin
-Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-2] due to args.save_total_limit
+Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-3] due to args.save_total_limit
 ***** Running Evaluation *****
   Num examples = 4
   Batch size = 8
 Saving model checkpoint to /path/to/results/phase02/demo/findings/checkpoint-5
 Configuration saved in /path/to/results/phase02/demo/findings/checkpoint-5/config.json
 Model weights saved in /path/to/results/phase02/demo/findings/checkpoint-5/pytorch_model.bin
-Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-3] due to args.save_total_limit
+Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-4] due to args.save_total_limit
 ***** Running Evaluation *****
   Num examples = 4
   Batch size = 8
 Saving model checkpoint to /path/to/results/phase02/demo/findings/checkpoint-6
 Configuration saved in /path/to/results/phase02/demo/findings/checkpoint-6/config.json
 Model weights saved in /path/to/results/phase02/demo/findings/checkpoint-6/pytorch_model.bin
-Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-4] due to args.save_total_limit
+Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-5] due to args.save_total_limit
 ***** Running Evaluation *****
   Num examples = 4
   Batch size = 8
 Saving model checkpoint to /path/to/results/phase02/demo/findings/checkpoint-7
 Configuration saved in /path/to/results/phase02/demo/findings/checkpoint-7/config.json
 Model weights saved in /path/to/results/phase02/demo/findings/checkpoint-7/pytorch_model.bin
-Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-5] due to args.save_total_limit
+Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-6] due to args.save_total_limit
 ***** Running Evaluation *****
   Num examples = 4
   Batch size = 8
 Saving model checkpoint to /path/to/results/phase02/demo/findings/checkpoint-8
 Configuration saved in /path/to/results/phase02/demo/findings/checkpoint-8/config.json
 Model weights saved in /path/to/results/phase02/demo/findings/checkpoint-8/pytorch_model.bin
-Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-6] due to args.save_total_limit
+Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-7] due to args.save_total_limit
 ***** Running Evaluation *****
   Num examples = 4
   Batch size = 8
 Saving model checkpoint to /path/to/results/phase02/demo/findings/checkpoint-9
 Configuration saved in /path/to/results/phase02/demo/findings/checkpoint-9/config.json
 Model weights saved in /path/to/results/phase02/demo/findings/checkpoint-9/pytorch_model.bin
-Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-7] due to args.save_total_limit
+Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-8] due to args.save_total_limit
 ***** Running Evaluation *****
   Num examples = 4
   Batch size = 8
 Saving model checkpoint to /path/to/results/phase02/demo/findings/checkpoint-10
 Configuration saved in /path/to/results/phase02/demo/findings/checkpoint-10/config.json
 Model weights saved in /path/to/results/phase02/demo/findings/checkpoint-10/pytorch_model.bin
-Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-8] due to args.save_total_limit
+Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-9] due to args.save_total_limit
 ***** Running Evaluation *****
   Num examples = 4
   Batch size = 8
 Saving model checkpoint to /path/to/results/phase02/demo/findings/checkpoint-11
 Configuration saved in /path/to/results/phase02/demo/findings/checkpoint-11/config.json
 Model weights saved in /path/to/results/phase02/demo/findings/checkpoint-11/pytorch_model.bin
-Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-9] due to args.save_total_limit
+Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-10] due to args.save_total_limit
 ***** Running Evaluation *****
   Num examples = 4
   Batch size = 8
 Saving model checkpoint to /path/to/results/phase02/demo/findings/checkpoint-12
 Configuration saved in /path/to/results/phase02/demo/findings/checkpoint-12/config.json
 Model weights saved in /path/to/results/phase02/demo/findings/checkpoint-12/pytorch_model.bin
-Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-10] due to args.save_total_limit
+Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-11] due to args.save_total_limit
 ***** Running Evaluation *****
   Num examples = 4
   Batch size = 8
 Saving model checkpoint to /path/to/results/phase02/demo/findings/checkpoint-13
 Configuration saved in /path/to/results/phase02/demo/findings/checkpoint-13/config.json
 Model weights saved in /path/to/results/phase02/demo/findings/checkpoint-13/pytorch_model.bin
-Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-11] due to args.save_total_limit
+Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-12] due to args.save_total_limit
 ***** Running Evaluation *****
   Num examples = 4
   Batch size = 8
 Saving model checkpoint to /path/to/results/phase02/demo/findings/checkpoint-14
 Configuration saved in /path/to/results/phase02/demo/findings/checkpoint-14/config.json
 Model weights saved in /path/to/results/phase02/demo/findings/checkpoint-14/pytorch_model.bin
-Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-12] due to args.save_total_limit
+Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-13] due to args.save_total_limit
 ***** Running Evaluation *****
   Num examples = 4
   Batch size = 8
 Saving model checkpoint to /path/to/results/phase02/demo/findings/checkpoint-15
 Configuration saved in /path/to/results/phase02/demo/findings/checkpoint-15/config.json
 Model weights saved in /path/to/results/phase02/demo/findings/checkpoint-15/pytorch_model.bin
-Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-13] due to args.save_total_limit
+Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-14] due to args.save_total_limit
 ***** Running Evaluation *****
   Num examples = 4
   Batch size = 8
 Saving model checkpoint to /path/to/results/phase02/demo/findings/checkpoint-16
 Configuration saved in /path/to/results/phase02/demo/findings/checkpoint-16/config.json
 Model weights saved in /path/to/results/phase02/demo/findings/checkpoint-16/pytorch_model.bin
-Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-14] due to args.save_total_limit
+Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-15] due to args.save_total_limit
 ***** Running Evaluation *****
   Num examples = 4
   Batch size = 8
 Saving model checkpoint to /path/to/results/phase02/demo/findings/checkpoint-17
 Configuration saved in /path/to/results/phase02/demo/findings/checkpoint-17/config.json
 Model weights saved in /path/to/results/phase02/demo/findings/checkpoint-17/pytorch_model.bin
-Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-15] due to args.save_total_limit
+Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-16] due to args.save_total_limit
 ***** Running Evaluation *****
   Num examples = 4
   Batch size = 8
 Saving model checkpoint to /path/to/results/phase02/demo/findings/checkpoint-18
 Configuration saved in /path/to/results/phase02/demo/findings/checkpoint-18/config.json
 Model weights saved in /path/to/results/phase02/demo/findings/checkpoint-18/pytorch_model.bin
-Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-16] due to args.save_total_limit
+Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-17] due to args.save_total_limit
 ***** Running Evaluation *****
   Num examples = 4
   Batch size = 8
 Saving model checkpoint to /path/to/results/phase02/demo/findings/checkpoint-19
 Configuration saved in /path/to/results/phase02/demo/findings/checkpoint-19/config.json
 Model weights saved in /path/to/results/phase02/demo/findings/checkpoint-19/pytorch_model.bin
-Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-17] due to args.save_total_limit
+Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-18] due to args.save_total_limit
 ***** Running Evaluation *****
   Num examples = 4
   Batch size = 8
 Saving model checkpoint to /path/to/results/phase02/demo/findings/checkpoint-20
 Configuration saved in /path/to/results/phase02/demo/findings/checkpoint-20/config.json
 Model weights saved in /path/to/results/phase02/demo/findings/checkpoint-20/pytorch_model.bin
-Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-18] due to args.save_total_limit
+Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-19] due to args.save_total_limit
 ***** Running Evaluation *****
   Num examples = 4
   Batch size = 8
 Saving model checkpoint to /path/to/results/phase02/demo/findings/checkpoint-21
 Configuration saved in /path/to/results/phase02/demo/findings/checkpoint-21/config.json
 Model weights saved in /path/to/results/phase02/demo/findings/checkpoint-21/pytorch_model.bin
-Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-19] due to args.save_total_limit
+Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-20] due to args.save_total_limit
 ***** Running Evaluation *****
   Num examples = 4
   Batch size = 8
 Saving model checkpoint to /path/to/results/phase02/demo/findings/checkpoint-22
 Configuration saved in /path/to/results/phase02/demo/findings/checkpoint-22/config.json
 Model weights saved in /path/to/results/phase02/demo/findings/checkpoint-22/pytorch_model.bin
-Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-20] due to args.save_total_limit
+Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-21] due to args.save_total_limit
 ***** Running Evaluation *****
   Num examples = 4
   Batch size = 8
 Saving model checkpoint to /path/to/results/phase02/demo/findings/checkpoint-23
 Configuration saved in /path/to/results/phase02/demo/findings/checkpoint-23/config.json
 Model weights saved in /path/to/results/phase02/demo/findings/checkpoint-23/pytorch_model.bin
-Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-21] due to args.save_total_limit
+Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-22] due to args.save_total_limit
 ***** Running Evaluation *****
   Num examples = 4
   Batch size = 8
 Saving model checkpoint to /path/to/results/phase02/demo/findings/checkpoint-24
 Configuration saved in /path/to/results/phase02/demo/findings/checkpoint-24/config.json
 Model weights saved in /path/to/results/phase02/demo/findings/checkpoint-24/pytorch_model.bin
-Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-22] due to args.save_total_limit
+Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-23] due to args.save_total_limit
 ***** Running Evaluation *****
   Num examples = 4
   Batch size = 8
 Saving model checkpoint to /path/to/results/phase02/demo/findings/checkpoint-25
 Configuration saved in /path/to/results/phase02/demo/findings/checkpoint-25/config.json
 Model weights saved in /path/to/results/phase02/demo/findings/checkpoint-25/pytorch_model.bin
-Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-23] due to args.save_total_limit
+Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-24] due to args.save_total_limit
 ***** Running Evaluation *****
   Num examples = 4
   Batch size = 8
 Saving model checkpoint to /path/to/results/phase02/demo/findings/checkpoint-26
 Configuration saved in /path/to/results/phase02/demo/findings/checkpoint-26/config.json
 Model weights saved in /path/to/results/phase02/demo/findings/checkpoint-26/pytorch_model.bin
-Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-24] due to args.save_total_limit
+Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-25] due to args.save_total_limit
 ***** Running Evaluation *****
   Num examples = 4
   Batch size = 8
 Saving model checkpoint to /path/to/results/phase02/demo/findings/checkpoint-27
 Configuration saved in /path/to/results/phase02/demo/findings/checkpoint-27/config.json
 Model weights saved in /path/to/results/phase02/demo/findings/checkpoint-27/pytorch_model.bin
-Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-25] due to args.save_total_limit
+Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-26] due to args.save_total_limit
 ***** Running Evaluation *****
   Num examples = 4
   Batch size = 8
 Saving model checkpoint to /path/to/results/phase02/demo/findings/checkpoint-28
 Configuration saved in /path/to/results/phase02/demo/findings/checkpoint-28/config.json
 Model weights saved in /path/to/results/phase02/demo/findings/checkpoint-28/pytorch_model.bin
-Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-26] due to args.save_total_limit
+Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-27] due to args.save_total_limit
 ***** Running Evaluation *****
   Num examples = 4
   Batch size = 8
 Saving model checkpoint to /path/to/results/phase02/demo/findings/checkpoint-29
 Configuration saved in /path/to/results/phase02/demo/findings/checkpoint-29/config.json
 Model weights saved in /path/to/results/phase02/demo/findings/checkpoint-29/pytorch_model.bin
-Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-27] due to args.save_total_limit
+Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-28] due to args.save_total_limit
 ***** Running Evaluation *****
   Num examples = 4
   Batch size = 8
 Saving model checkpoint to /path/to/results/phase02/demo/findings/checkpoint-30
 Configuration saved in /path/to/results/phase02/demo/findings/checkpoint-30/config.json
 Model weights saved in /path/to/results/phase02/demo/findings/checkpoint-30/pytorch_model.bin
-Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-28] due to args.save_total_limit
+Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-29] due to args.save_total_limit
 ***** Running Evaluation *****
   Num examples = 4
   Batch size = 8
 Saving model checkpoint to /path/to/results/phase02/demo/findings/checkpoint-31
 Configuration saved in /path/to/results/phase02/demo/findings/checkpoint-31/config.json
 Model weights saved in /path/to/results/phase02/demo/findings/checkpoint-31/pytorch_model.bin
-Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-29] due to args.save_total_limit
+Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-30] due to args.save_total_limit
 ***** Running Evaluation *****
   Num examples = 4
   Batch size = 8
 Saving model checkpoint to /path/to/results/phase02/demo/findings/checkpoint-32
 Configuration saved in /path/to/results/phase02/demo/findings/checkpoint-32/config.json
 Model weights saved in /path/to/results/phase02/demo/findings/checkpoint-32/pytorch_model.bin
-Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-30] due to args.save_total_limit
+Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-31] due to args.save_total_limit
 ***** Running Evaluation *****
   Num examples = 4
   Batch size = 8
 Saving model checkpoint to /path/to/results/phase02/demo/findings/checkpoint-33
 Configuration saved in /path/to/results/phase02/demo/findings/checkpoint-33/config.json
 Model weights saved in /path/to/results/phase02/demo/findings/checkpoint-33/pytorch_model.bin
-Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-31] due to args.save_total_limit
+Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-32] due to args.save_total_limit
 ***** Running Evaluation *****
   Num examples = 4
   Batch size = 8
 Saving model checkpoint to /path/to/results/phase02/demo/findings/checkpoint-34
 Configuration saved in /path/to/results/phase02/demo/findings/checkpoint-34/config.json
 Model weights saved in /path/to/results/phase02/demo/findings/checkpoint-34/pytorch_model.bin
-Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-32] due to args.save_total_limit
+Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-33] due to args.save_total_limit
 ***** Running Evaluation *****
   Num examples = 4
   Batch size = 8
 Saving model checkpoint to /path/to/results/phase02/demo/findings/checkpoint-35
 Configuration saved in /path/to/results/phase02/demo/findings/checkpoint-35/config.json
 Model weights saved in /path/to/results/phase02/demo/findings/checkpoint-35/pytorch_model.bin
-Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-33] due to args.save_total_limit
+Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-34] due to args.save_total_limit
 ***** Running Evaluation *****
   Num examples = 4
   Batch size = 8
 Saving model checkpoint to /path/to/results/phase02/demo/findings/checkpoint-36
 Configuration saved in /path/to/results/phase02/demo/findings/checkpoint-36/config.json
 Model weights saved in /path/to/results/phase02/demo/findings/checkpoint-36/pytorch_model.bin
-Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-34] due to args.save_total_limit
+Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-35] due to args.save_total_limit
 ***** Running Evaluation *****
   Num examples = 4
   Batch size = 8
 Saving model checkpoint to /path/to/results/phase02/demo/findings/checkpoint-37
 Configuration saved in /path/to/results/phase02/demo/findings/checkpoint-37/config.json
 Model weights saved in /path/to/results/phase02/demo/findings/checkpoint-37/pytorch_model.bin
-Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-35] due to args.save_total_limit
+Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-36] due to args.save_total_limit
 ***** Running Evaluation *****
   Num examples = 4
   Batch size = 8
 Saving model checkpoint to /path/to/results/phase02/demo/findings/checkpoint-38
 Configuration saved in /path/to/results/phase02/demo/findings/checkpoint-38/config.json
 Model weights saved in /path/to/results/phase02/demo/findings/checkpoint-38/pytorch_model.bin
-Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-36] due to args.save_total_limit
+Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-37] due to args.save_total_limit
 ***** Running Evaluation *****
   Num examples = 4
   Batch size = 8
@@ -1177,7 +1163,7 @@ Deleting older checkpoint [/path/to/results/phase02/demo/findings/checkpoint-39]
 Training completed. Do not forget to share your model on huggingface.co/models =)
 
 
-Loading best model from /path/to/results/phase02/demo/findings/checkpoint-37 (score: 0.9483642578125).
+Loading best model from /path/to/results/phase02/demo/findings/checkpoint-1 (score: 1.4564694166183472).
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1186,7 +1172,7 @@ Loading best model from /path/to/results/phase02/demo/findings/checkpoint-37 (sc
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-TrainOutput(global_step=40, training_loss=0.8405103325843811, metrics={&#39;train_runtime&#39;: 75.1838, &#39;train_samples_per_second&#39;: 3.724, &#39;train_steps_per_second&#39;: 0.532, &#39;total_flos&#39;: 37091533086720.0, &#39;train_loss&#39;: 0.8405103325843811, &#39;epoch&#39;: 40.0})
+TrainOutput(global_step=40, training_loss=0.0017979430325794966, metrics={&#39;train_runtime&#39;: 71.8828, &#39;train_samples_per_second&#39;: 3.895, &#39;train_steps_per_second&#39;: 0.556, &#39;total_flos&#39;: 17314211733840.0, &#39;train_loss&#39;: 0.0017979430325794966, &#39;epoch&#39;: 40.0})
 </pre></div></div>
 </div>
 </section>
@@ -1249,6 +1235,14 @@ weighted avg       0.88      0.75      0.75         4
  [0 1 0]
  [0 1 1]]
 </pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </div>
 </section>
 </section>

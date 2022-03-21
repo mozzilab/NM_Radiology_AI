@@ -436,15 +436,14 @@ resolution is recommended</em></p></td>
 <p>Model were trained using a 70%/30% train/validation set split. We also performed internal validation on the test set consisting of 10,916 annotated reports to confirm that we are confident in the models’ performance.</p>
 <p>To ensure consistency in model training when testing different architectures, splits were performed with a fixed random seed and the same metrics were collected and compared for each trained model: accuracy, AUC, sensitivity, specificity. The metrics were calculated for each classification task along with 95% confidence intervals. For comparison, we also included the regex performance on the same validation dataset discussed previously.</p>
 <p>To establish a “human best practice” performance target, we collected the same set of metrics from the annotations collected from our high-performing clinical annotator. This AUC threshold was set at 0.94, which is high, but as you can see from the table overviewing the model performance, our models outperformed them!</p>
-<table class="docutils align-default" id="id4">
-<caption><span class="caption-text">Performance of modelling approaches</span><a class="headerlink" href="#id4" title="Permalink to this table"></a></caption>
+<span id="initial-results-table"></span><table class="docutils align-default" id="id4">
+<caption><span class="caption-text">Initial performance of modeling approaches</span><a class="headerlink" href="#id4" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 12%" />
 <col style="width: 12%" />
 <col style="width: 10%" />
-<col style="width: 10%" />
-<col style="width: 8%" />
+<col style="width: 19%" />
 <col style="width: 19%" />
 <col style="width: 19%" />
 </colgroup>
@@ -454,30 +453,30 @@ resolution is recommended</em></p></td>
 <th class="head"><p>Number of Reports with
 Follow-up</p></th>
 <th class="head"><p>AUC</p></th>
-<th class="head" colspan="2"><p>Accuracy</p></th>
+<th class="head"><p>Accuracy</p></th>
 <th class="head"><p>Sensitivity</p></th>
 <th class="head"><p>Specificity</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td colspan="8"><p><strong>Baseline Regex</strong></p></td>
+<tr class="row-even"><td colspan="7"><p><strong>Baseline Regex</strong></p></td>
 </tr>
 <tr class="row-odd"><td><p>Finding / No Finding</p></td>
 <td><p>10,916</p></td>
 <td><p>1,857</p></td>
 <td></td>
-<td colspan="2"><p>77%</p></td>
+<td><p>77%</p></td>
 <td><p>74%</p></td>
 <td><p>82%</p></td>
 </tr>
-<tr class="row-even"><td colspan="8"><p><strong>Deep Learning
+<tr class="row-even"><td colspan="7"><p><strong>Deep Learning
 (BiLSTM)</strong></p></td>
 </tr>
 <tr class="row-odd"><td><p>Finding / No Finding</p></td>
 <td><p>10,916</p></td>
 <td><p>1,857</p></td>
 <td><p>0.91 (0.90-0.92)</p></td>
-<td colspan="2"><p>95% (94.8-95.5%)</p></td>
+<td><p>95% (94.8-95.5%)</p></td>
 <td><p>97.2% (96.3-98.0%)</p></td>
 <td><p>85.4% (83.1-87.8%)</p></td>
 </tr>
@@ -485,7 +484,7 @@ Follow-up</p></th>
 <td><p>1,857</p></td>
 <td><p>1,734 lung; 123 adrenal</p></td>
 <td><p>0.87 (0.84-0.88)</p></td>
-<td colspan="2"><p>97% (96.8-97.5%)</p></td>
+<td><p>97% (96.8-97.5%)</p></td>
 <td><p>98.7% (98.2-99.2%) <sup>1</sup></p></td>
 <td><p>74.7% (70.2-79.3%) <sup>1</sup></p></td>
 </tr>
@@ -497,7 +496,7 @@ Lung Finding</p></td>
 <li></li>
 </ul>
 </td>
-<td colspan="2"><p>85%</p></td>
+<td><p>85%</p></td>
 <td><p>84.6%</p></td>
 <td><p>90.2%</p></td>
 </tr>
@@ -509,7 +508,7 @@ Adrenal Finding</p></td>
 <li></li>
 </ul>
 </td>
-<td colspan="2"><p>95.8%</p></td>
+<td><p>95.8%</p></td>
 <td><p>57%</p></td>
 <td><p>98.5%</p></td>
 </tr>
@@ -518,43 +517,14 @@ Other</p></td>
 <td><p>1,734</p></td>
 <td><p>1,734</p></td>
 <td><p>0.78 (0.74-0.82)</p></td>
-<td colspan="2"><p>81% (78.7-84.2%)</p></td>
+<td><p>81% (78.7-84.2%)</p></td>
 <td><p>71% (62.8-79%)</p></td>
 <td><p>86.8% (84.9-88.7%)</p></td>
-</tr>
-<tr class="row-even"><td colspan="8"><p><strong>Deep Learning
-(RoBERTa)</strong></p></td>
-</tr>
-<tr class="row-odd"><td><p>Lung Finding</p></td>
-<td><p>10,916</p></td>
-<td><p>1,734</p></td>
-<td><p>0.90 (0.88-0.92)</p></td>
-<td colspan="2"><p>94.7% (99.3.4-96.1%) <sup>2</sup></p></td>
-<td><p>82.2% (78.5-85.9%)</p></td>
-<td><p>99.5% (99.1-99.9%)</p></td>
-</tr>
-<tr class="row-even"><td><p>Adrenal Finding</p></td>
-<td><p>10,916</p></td>
-<td><p>123</p></td>
-<td><p>0.81 (0.75-0.89)</p></td>
-<td colspan="2"><p>94.7% (99.3.4-96.1%) <sup>2</sup></p></td>
-<td><p>67.4% (61.1-75.6%)</p></td>
-<td><p>86.1% (86-86.2%)</p></td>
-</tr>
-<tr class="row-odd"><td><p>CT Recommended vs
-Other</p></td>
-<td><p>1,734</p></td>
-<td><p>1,734</p></td>
-<td><p>0.86 (0.83-0.88)</p></td>
-<td colspan="2"><p>87% (85.6-89.4%)</p></td>
-<td><p>81.2% (76.7-85.7%)</p></td>
-<td><p>90.6% (89.9-91.4%)</p></td>
 </tr>
 </tbody>
 </table>
 <div class="line-block">
 <div class="line"><sup>1</sup> <em>Sensitivity and specificity calculated for detection of lung findings</em></div>
-<div class="line"><sup>2</sup> <em>Overall 3-class accuracy for the Lung / Adrenal / No Finding model</em></div>
 </div>
 </section>
 <section id="model-deployment-infrastructure">
@@ -755,6 +725,117 @@ protocol, without contrast</p></td>
 <p>For the comment extraction model, the downstream task was re-framed from sentence prediction to Extractive Question Answering, in which a model learns to respond to a question through the use of the information provided in the input. Several relevant transformer-based architectures were evaluated for the task, and <a class="reference external" href="https://huggingface.co/distilroberta-base">DistilRoBERTa</a> was selected based on superior performance. Now, this model is provided with the input of the preceding model (Lung/Adrenal finding) as the question to the input radiology report, with the task to identify the relevant portion of the given report which describes the previously identified Lung or Adrenal finding.</p>
 <p>Performance of the new RoBERTa models is described in the Table below.</p>
 <p>Compared to the BiLSTM models, in terms of lung classification we can observe similar sensitivity with significantly improved specificity, whereas in terms of adrenal classification the sensitivity improved while specificity went down. Additionally, the comment extraction model achieved a Jaccard similarity score of 0.89, indicating very high agreement between model’s selection and what annotators have selected for the given radiology report. This is a significantly better result than the previous sentence classification XGBoost model.</p>
+<table class="docutils align-default" id="id11">
+<caption><span class="caption-text">Performance of modeling approaches</span><a class="headerlink" href="#id11" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 8%" />
+<col style="width: 19%" />
+<col style="width: 19%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Model Type</p></th>
+<th class="head"><p>Total Number of Reports</p></th>
+<th class="head"><p>Number of Reports with
+Follow-up</p></th>
+<th class="head"><p>AUC</p></th>
+<th class="head" colspan="2"><p>Accuracy</p></th>
+<th class="head"><p>Sensitivity</p></th>
+<th class="head"><p>Specificity</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td colspan="8"><p><strong>Deep Learning
+(BiLSTM)</strong> <sup>3</sup></p></td>
+</tr>
+<tr class="row-odd"><td><p>Finding / No Finding</p></td>
+<td><p>10,916</p></td>
+<td><p>1,857</p></td>
+<td><p>0.91 (0.90-0.92)</p></td>
+<td colspan="2"><p>95% (94.8-95.5%)</p></td>
+<td><p>97.2% (96.3-98.0%)</p></td>
+<td><p>85.4% (83.1-87.8%)</p></td>
+</tr>
+<tr class="row-even"><td><p>Lung / Adrenal</p></td>
+<td><p>1,857</p></td>
+<td><p>1,734 lung; 123 adrenal</p></td>
+<td><p>0.87 (0.84-0.88)</p></td>
+<td colspan="2"><p>97% (96.8-97.5%)</p></td>
+<td><p>98.7% (98.2-99.2%) <sup>1</sup></p></td>
+<td><p>74.7% (70.2-79.3%) <sup>1</sup></p></td>
+</tr>
+<tr class="row-odd"><td><p>Ensemble:
+Lung Finding</p></td>
+<td><p>10,916</p></td>
+<td><p>1,734</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td colspan="2"><p>85%</p></td>
+<td><p>84.6%</p></td>
+<td><p>90.2%</p></td>
+</tr>
+<tr class="row-even"><td><p>Ensemble:
+Adrenal Finding</p></td>
+<td><p>10,916</p></td>
+<td><p>123</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td colspan="2"><p>95.8%</p></td>
+<td><p>57%</p></td>
+<td><p>98.5%</p></td>
+</tr>
+<tr class="row-odd"><td><p>CT Recommended vs
+Other</p></td>
+<td><p>1,734</p></td>
+<td><p>1,734</p></td>
+<td><p>0.78 (0.74-0.82)</p></td>
+<td colspan="2"><p>81% (78.7-84.2%)</p></td>
+<td><p>71% (62.8-79%)</p></td>
+<td><p>86.8% (84.9-88.7%)</p></td>
+</tr>
+<tr class="row-even"><td colspan="8"><p><strong>Deep Learning
+(RoBERTa)</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>Lung Finding</p></td>
+<td><p>10,916</p></td>
+<td><p>1,734</p></td>
+<td><p>0.90 (0.88-0.92)</p></td>
+<td colspan="2"><p>94.7% (99.3.4-96.1%) <sup>2</sup></p></td>
+<td><p>82.2% (78.5-85.9%)</p></td>
+<td><p>99.5% (99.1-99.9%)</p></td>
+</tr>
+<tr class="row-even"><td><p>Adrenal Finding</p></td>
+<td><p>10,916</p></td>
+<td><p>123</p></td>
+<td><p>0.81 (0.75-0.89)</p></td>
+<td colspan="2"><p>94.7% (99.3.4-96.1%) <sup>2</sup></p></td>
+<td><p>67.4% (61.1-75.6%)</p></td>
+<td><p>86.1% (86-86.2%)</p></td>
+</tr>
+<tr class="row-odd"><td><p>CT Recommended vs
+Other</p></td>
+<td><p>1,734</p></td>
+<td><p>1,734</p></td>
+<td><p>0.86 (0.83-0.88)</p></td>
+<td colspan="2"><p>87% (85.6-89.4%)</p></td>
+<td><p>81.2% (76.7-85.7%)</p></td>
+<td><p>90.6% (89.9-91.4%)</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><sup>1</sup> <em>Sensitivity and specificity calculated for detection of lung findings</em></div>
+<div class="line"><sup>2</sup> <em>Overall 3-class accuracy for the Lung / Adrenal / No Finding model</em></div>
+<div class="line"><sup>3</sup> <em>Results repeated here from Table:</em> <a class="reference internal" href="#initial-results-table"><span class="std std-ref">Initial performance of modeling approaches</span></a> <em>for easy comparison</em></div>
+</div>
 <p>The improved models are scheduled to be deployed in March 2022. The prospective evaluation is going to continue, allowing us to continuously monitor and assess model prediction quality.</p>
 <figure class="align-center">
   <video controls width="60%" src="_static/Priyanka_-_v2_models.mp4" type="video/mp4"></video>

@@ -156,7 +156,7 @@
     "        \"final report attending radiologist:\",\n",
     "    ]\n",
     "    impressions = keyword_split(str(note).lower(), impression_keywords)\n",
-    "    impressions = keyword_split(note, signature_keywords, return_idx=0)\n",
+    "    impressions = keyword_split(impressions, signature_keywords, return_idx=0)\n",
     "    return impressions\n",
     "\n",
     "# Preprocess the note\n",
@@ -236,7 +236,63 @@
     {
      "data": {
       "application/vnd.jupyter.widget-view+json": {
-       "model_id": "ea6a8cee228e407d9d63e70430ae36ec",
+       "model_id": "643657dc06f34a6b951e68c2ff89d969",
+       "version_major": 2,
+       "version_minor": 0
+      },
+      "text/plain": [
+       "Downloading:   0%|          | 0.00/480 [00:00<?, ?B/s]"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "application/vnd.jupyter.widget-view+json": {
+       "model_id": "a2e3503071004f45b4d8f1498daed60c",
+       "version_major": 2,
+       "version_minor": 0
+      },
+      "text/plain": [
+       "Downloading:   0%|          | 0.00/878k [00:00<?, ?B/s]"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "application/vnd.jupyter.widget-view+json": {
+       "model_id": "926e4a9e99e843caa6817a5c8c6e8d43",
+       "version_major": 2,
+       "version_minor": 0
+      },
+      "text/plain": [
+       "Downloading:   0%|          | 0.00/446k [00:00<?, ?B/s]"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "application/vnd.jupyter.widget-view+json": {
+       "model_id": "c8e1829e2b5a4fdab5e367ec8d307f1b",
+       "version_major": 2,
+       "version_minor": 0
+      },
+      "text/plain": [
+       "Downloading:   0%|          | 0.00/1.29M [00:00<?, ?B/s]"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "application/vnd.jupyter.widget-view+json": {
+       "model_id": "72dcfb94a3634511ba8b4f7a632c9fce",
        "version_major": 2,
        "version_minor": 0
       },
@@ -250,7 +306,7 @@
     {
      "data": {
       "application/vnd.jupyter.widget-view+json": {
-       "model_id": "cfe785cdaa17404c933458f6c2e44921",
+       "model_id": "afcaeedfde2446e9a747bcc84fbc9985",
        "version_major": 2,
        "version_minor": 0
       },
@@ -296,7 +352,7 @@
     {
      "data": {
       "application/vnd.jupyter.widget-view+json": {
-       "model_id": "643e1bc9efe44a27a93023c26f658f0f",
+       "model_id": "2a0c9a8cae9e424988e74469209639e6",
        "version_major": 2,
        "version_minor": 0
       },
@@ -310,7 +366,7 @@
     {
      "data": {
       "application/vnd.jupyter.widget-view+json": {
-       "model_id": "722855a8f99c42848140a4b30395d219",
+       "model_id": "9d143d5143104994bf4fbcc70ae7a2a9",
        "version_major": 2,
        "version_minor": 0
       },
@@ -402,13 +458,28 @@
    "metadata": {},
    "outputs": [
     {
+     "data": {
+      "application/vnd.jupyter.widget-view+json": {
+       "model_id": "0136c4611b6b4a4f9330f7c719c8e130",
+       "version_major": 2,
+       "version_minor": 0
+      },
+      "text/plain": [
+       "Downloading:   0%|          | 0.00/316M [00:00<?, ?B/s]"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
      "name": "stderr",
      "output_type": "stream",
      "text": [
+      "Using amp half precision backend\n",
       "/usr/local/lib/python3.8/dist-packages/transformers/optimization.py:306: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use thePyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning\n",
       "  warnings.warn(\n",
       "***** Running training *****\n",
-      "  Num examples = 32\n",
+      "  Num examples = 10\n",
       "  Num Epochs = 4\n",
       "  Instantaneous batch size per device = 32\n",
       "  Total train batch size (w. parallel, distributed & accumulation) = 32\n",
@@ -423,7 +494,7 @@
        "    <div>\n",
        "      \n",
        "      <progress value='4' max='4' style='width:300px; height:20px; vertical-align: middle;'></progress>\n",
-       "      [4/4 00:11, Epoch 4/4]\n",
+       "      [4/4 00:01, Epoch 4/4]\n",
        "    </div>\n",
        "    <table border=\"1\" class=\"dataframe\">\n",
        "  <thead>\n",
@@ -437,22 +508,22 @@
        "    <tr>\n",
        "      <td>1</td>\n",
        "      <td>No log</td>\n",
-       "      <td>2.598713</td>\n",
+       "      <td>4.768126</td>\n",
        "    </tr>\n",
        "    <tr>\n",
        "      <td>2</td>\n",
        "      <td>No log</td>\n",
-       "      <td>2.722490</td>\n",
+       "      <td>2.765447</td>\n",
        "    </tr>\n",
        "    <tr>\n",
        "      <td>3</td>\n",
        "      <td>No log</td>\n",
-       "      <td>3.001497</td>\n",
+       "      <td>4.451561</td>\n",
        "    </tr>\n",
        "    <tr>\n",
        "      <td>4</td>\n",
        "      <td>No log</td>\n",
-       "      <td>2.590591</td>\n",
+       "      <td>2.892946</td>\n",
        "    </tr>\n",
        "  </tbody>\n",
        "</table><p>"
@@ -469,23 +540,22 @@
      "output_type": "stream",
      "text": [
       "***** Running Evaluation *****\n",
-      "  Num examples = 12\n",
+      "  Num examples = 5\n",
       "  Batch size = 8\n",
       "Saving model checkpoint to /path/to/results/phase02/demo/checkpoint-2\n",
       "Configuration saved in /path/to/results/phase02/demo/checkpoint-2/config.json\n",
       "Model weights saved in /path/to/results/phase02/demo/checkpoint-2/pytorch_model.bin\n",
-      "Deleting older checkpoint [/path/to/results/phase02/demo/checkpoint-2] due to args.save_total_limit\n",
       "***** Running Evaluation *****\n",
-      "  Num examples = 12\n",
+      "  Num examples = 5\n",
       "  Batch size = 8\n",
       "***** Running Evaluation *****\n",
-      "  Num examples = 12\n",
+      "  Num examples = 5\n",
       "  Batch size = 8\n",
       "Saving model checkpoint to /path/to/results/phase02/demo/checkpoint-4\n",
       "Configuration saved in /path/to/results/phase02/demo/checkpoint-4/config.json\n",
       "Model weights saved in /path/to/results/phase02/demo/checkpoint-4/pytorch_model.bin\n",
       "***** Running Evaluation *****\n",
-      "  Num examples = 12\n",
+      "  Num examples = 5\n",
       "  Batch size = 8\n",
       "\n",
       "\n",
@@ -497,7 +567,7 @@
     {
      "data": {
       "text/plain": [
-       "TrainOutput(global_step=4, training_loss=3.0825986862182617, metrics={'train_runtime': 11.9044, 'train_samples_per_second': 10.752, 'train_steps_per_second': 0.336, 'total_flos': 4243897810944.0, 'train_loss': 3.0825986862182617, 'epoch': 4.0})"
+       "TrainOutput(global_step=4, training_loss=4.260141849517822, metrics={'train_runtime': 1.4005, 'train_samples_per_second': 28.562, 'train_steps_per_second': 2.856, 'total_flos': 1326218065920.0, 'train_loss': 4.260141849517822, 'epoch': 4.0})"
       ]
      },
      "execution_count": 8,
@@ -518,6 +588,7 @@
     "    overwrite_output_dir=True,\n",
     "    num_train_epochs=4,\n",
     "    per_device_train_batch_size=32,\n",
+    "    fp16=True,\n",
     "    save_steps=2,\n",
     "    save_total_limit=2,\n",
     "    evaluation_strategy=\"epoch\",\n",
